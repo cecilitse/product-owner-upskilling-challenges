@@ -76,6 +76,29 @@ So, if you want to **display something** in the Terminal, you should use `puts`
 puts "Hello World"
 ```
 
+### puts VS p
+
+We use `puts` to display something to the user of our program.
+
+However, as developer, if we want to print something to check the output, we use `p`.
+
+```ruby
+puts "Hello World"  # => Hello World
+p "Hello World"     # => "Hello World"
+
+puts "7" 	# => 7
+p "7" 	 	# => "7" # so we know it's a String
+
+puts ["Bob", "Janis"]
+# => Bob
+#    Janis
+p ["Bob", "Janis"] 	# => ["Bob", "Janis"]
+```
+
+So, use `p` while debugging but then only use `puts` when you want to display something to the user.
+
+Note that `p` lines should be **removed afterwards**.
+
 ## Debugging
 
 Given the following code:

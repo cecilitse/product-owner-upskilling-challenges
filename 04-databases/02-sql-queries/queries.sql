@@ -27,7 +27,7 @@
 -- TODO: SELECT ...
 -- Expected result: 44
 
--- Count all "Sport" activities
+-- Count all "Adventure" activities
 -- TODO: SELECT ...
 -- Expected result: 13
 

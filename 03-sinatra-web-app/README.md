@@ -59,9 +59,17 @@ The goal is the same as the previous exercise: display a list of activities. The
 
 As a reminder, a list of activities is represented by an `Array` containing one `Hash` per activity.
 
+### Gather the activities
+
 First step, in the `app.rb` file, complete the list of activities with at least 3 activities. You can re-use the activities from the previous exercise or invent new ones.
 
-Then, display your activities in the web page by completing the `views/index.rb` file.
+As a reminder, an activity is defined by a name, category, city, duration (in minutes), number of participants, price (in euros).
+
+On top of that, it could be nice to add a **photo URL** to have images to display on the web page.
+
+### Display them on your page
+
+Then, display your activities in the web page by completing the `views/index.erb` file.
 
 **BONUS:** Try to be creative in the way you display your activities.
 

@@ -1,0 +1,137 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.3em;
+}
+
+h1, h2, h3 {
+  margin-top: 1em;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+aside {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  line-height: 1.6;
+}
+
+aside::before {
+  display: inline-block;
+  text-align: center;
+  width: 1em;
+  padding-left: 1em;
+  padding-right: 0.5em;
+}
+
+aside.notice::before {
+  content: "ℹ";
+}
+
+aside.warning::before {
+  content: "⚠";
+}
+
+aside.notice {
+  background: #8fbcd4;
+}
+
+aside.warning {
+  background-color: #c97a7e;
+}
+
+code, pre {
+  color: #4f566b;
+  background-color: #f7fafc;
+  border: 1px solid #E1E1E1;
+}
+
+pre {
+  overflow: auto;
+  hyphens: none;
+  white-space: pre;
+  word-spacing: normal;
+  word-wrap: break-word;
+}
+
+pre > code {
+  border: none;
+}
+
+ul, ol {
+  margin-left: 1em;
+}
+
+ul.list-unstyled {
+  list-style-type: none;
+}
+
+.sidebar {
+  background-color: #2E3336;
+  color: white;
+}
+
+.sidebar a,
+.sidebar a:hover,
+.sidebar a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul {
+  font-size: 0.9em;
+  margin-left: 0;
+}
+
+.sidebar ul ul {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.sidebar li {
+  padding: 0.5em 1em;
+  margin: 0;
+}
+
+.sidebar li.active {
+  background-color: #1e2224;
+}
+
+.sidebar li a {
+  /* width: 100%; */
+  display: block;
+}
+
+.sidebar .api-name {
+  margin: 2em 0;
+  padding: 0 0.5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.content {
+  padding: 0 1em;
+}
+
+@media (min-width: 550px) {
+  .sidebar {
+    position: fixed;
+    min-height: 100vh;
+  }
+
+  .content {
+    margin-left: 25%;
+  }
+}

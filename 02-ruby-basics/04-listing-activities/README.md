@@ -1,4 +1,4 @@
-# Listing of activities
+# Listing activities
 
 In the previous two exercises, we've played with both `Array` and `Hash` but in isolation. In this exercise, we'll combine them together.
 
@@ -7,7 +7,7 @@ In the previous two exercises, we've played with both `Array` and `Hash` but in 
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/02-ruby-basics/04-listing-of-activities/
+cd ~/lewagon-workshop/02-ruby-basics/04-listing-activities/
 code .
 ```
 

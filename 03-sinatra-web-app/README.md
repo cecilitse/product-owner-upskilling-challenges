@@ -9,7 +9,7 @@ We'll transpose our categories listing from the Terminal to the web.
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/03-sinatra-web-app/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/03-sinatra-web-app/
 code .
 ```
 

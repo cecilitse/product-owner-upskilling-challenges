@@ -7,7 +7,7 @@ You've already requested the Lucca API but from Postman. In this exercise, we'll
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/05-api-consumption/01-ruby-program/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/05-api-consumption/01-ruby-program/
 code .
 ```
 

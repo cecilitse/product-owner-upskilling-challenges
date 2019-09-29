@@ -7,14 +7,14 @@ Now that you know everything that needs to be done, it's time to really **implem
 If you want to **work on the API**, execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/07-team-work/api
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/07-team-work/api
 code .
 ```
 
 On the other side, if you want to **work on the client application**, execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/07-team-work/web-app
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/07-team-work/web-app
 code .
 ```
 
@@ -40,7 +40,7 @@ It means that you can only have one application launched on port `4567`. The tri
 For instance, to launch the web application:
 
 ```bash
-cd ~/lewagon-workshop/07-team-work/web-app
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/07-team-work/web-app
 ruby app.rb -p 6789
 ```
 
@@ -60,6 +60,8 @@ The feature should be proposed via **GitHub pull request(s)**.
 
 ## Hints
 
+### Insert a row into a table
+
 You'll need to use an extra SQL query to be able to add a new row (data) within a table.
 
 Here is the generic syntax:
@@ -75,3 +77,28 @@ INSERT INTO activities (name, category, city, duration, participants_count, pric
 ```
 
 Note that you don't need to specify the ID as the primary key will be set by default by the database itself.
+
+### Delete a row from a table
+
+On the other side, if you want to remove a row from a table, here is the syntax:
+
+```sql
+DELETE FROM table_name WHERE condition;
+```
+
+For instance, if you want to clean up your favorites tables:
+
+```sql
+DELETE FROM site_favorite_activities;
+DELETE FROM team_favorite_activities;
+```
+
+### Sinatra Redirections
+
+If you want to redirect to another page, you can use `redirect`.
+
+```ruby
+post "/sign_up" do
+  redirect to("/")
+end
+```

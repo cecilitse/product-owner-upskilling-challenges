@@ -9,7 +9,7 @@ There are way too many queries, try to go as far as you can but with no pressure
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/04-databases/02-sql-queries/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/04-databases/02-sql-queries/
 code .
 ```
 
@@ -97,7 +97,7 @@ To quit, type `Ctrl + d`
 
 Launch the software, click on `File` > `Open Database` and select your database.
 
-As a reminder, it's located here: `~/lewagon-workshop/04-databases/02-sql-queries/team_building.sqlite`
+As a reminder, it's located here: `~/lewagon-workshop/product-owner-upskilling-challenges/04-databases/02-sql-queries/team_building.sqlite`
 
 Then go to the `Execute SQL` tab, type your query and press ▶ (the play button).
 

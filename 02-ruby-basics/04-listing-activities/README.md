@@ -7,7 +7,7 @@ In the previous two exercises, we've played with both `Array` and `Hash` but in 
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/02-ruby-basics/04-listing-activities/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/02-ruby-basics/04-listing-activities/
 code .
 ```
 

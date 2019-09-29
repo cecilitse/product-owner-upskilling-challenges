@@ -9,7 +9,7 @@ Let's get back to our guiding theme: activities for team building sessions.
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/05-api-consumption/02-sinatra-web-app/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/05-api-consumption/02-sinatra-web-app/
 code .
 ```
 

@@ -9,7 +9,7 @@ We'll focus on defining what is an activity for a team building session.
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/02-ruby-basics/03-activity-details/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/02-ruby-basics/03-activity-details/
 code .
 ```
 

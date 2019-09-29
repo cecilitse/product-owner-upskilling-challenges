@@ -7,7 +7,7 @@ Here we are, you'll build and consume your own version of the Team Building API.
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/06-building-api/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/06-building-api/
 code .
 ```
 

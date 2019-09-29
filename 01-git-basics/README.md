@@ -9,7 +9,7 @@ For each exercise, you will have to go in the correct exercise folder of the cha
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/product-owner-upskilling/01-git-basics/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/01-git-basics/
 ```
 
 And let's open the code editor:

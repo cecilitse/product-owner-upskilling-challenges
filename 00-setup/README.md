@@ -36,7 +36,7 @@ Execute the following in the Terminal:
 # Just in case you went elsewhere in between ;)
 cd ~/lewagon-workshop
 
-git clone git@github.com:<GITHUB_USERNAME>/product-owner-upskilling.git
+git clone git@github.com:<GITHUB_USERNAME>/product-owner-upskilling-challenges.git
 ```
 
 
@@ -44,7 +44,7 @@ The **git clone** command downloads the repository with the history of all the c
 
 ## Checking
 
-The previous command should have created a `product-owner-upskilling` folder within the `lewagon-workshop` folder. Let's check that.
+The previous command should have created a `product-owner-upskilling-challenges` folder within the `lewagon-workshop` folder. Let's check that.
 
 Execute the following in the Terminal:
 
@@ -54,7 +54,7 @@ cd ~/lewagon-workshop
 ls
 ```
 
-The result of the `ls` command should print out `product-owner-upskilling` in the Terminal.
+The result of the `ls` command should print out `product-owner-upskilling-challenges` in the Terminal.
 
 If it's not the case, ask for help!
 Otherwise, the setup is now done, you're ready to work on your first challenge!

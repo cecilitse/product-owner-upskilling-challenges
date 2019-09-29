@@ -9,7 +9,7 @@ We'll also discover the guiding theme of our challenges: activities for team bui
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/02-ruby-basics/02-listing-categories/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/02-ruby-basics/02-listing-categories/
 code .
 ```
 

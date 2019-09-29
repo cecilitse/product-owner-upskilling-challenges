@@ -9,7 +9,7 @@ As a reminder, our guiding theme is activities for team building sessions.
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/04-databases/01-db-design/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/04-databases/01-db-design/
 code .
 ```
 

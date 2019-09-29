@@ -9,7 +9,7 @@ First things first, let's go within the exercise folder and open the code editor
 Execute the following in the Terminal:
 
 ```bash
-cd ~/lewagon-workshop/02-ruby-basics/01-what-is-your-age/
+cd ~/lewagon-workshop/product-owner-upskilling-challenges/02-ruby-basics/01-what-is-your-age/
 code .
 ```
 

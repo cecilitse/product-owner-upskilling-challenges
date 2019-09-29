@@ -30,6 +30,8 @@ We will now download the challenges repository within the `lewagon-workshop` fol
 
 Execute the following in the Terminal:
 
+⚠ **NOTE:** `<GITHUB_USERNAME>` should be replaced by **your GitHub username**.
+
 ```bash
 # Just in case you went elsewhere in between ;)
 cd ~/lewagon-workshop
@@ -37,7 +39,6 @@ cd ~/lewagon-workshop
 git clone git@github.com:<GITHUB_USERNAME>/product-owner-upskilling.git
 ```
 
-⚠ **NOTE:** Where `<GITHUB_USERNAME>` should be replaced by **your GitHub username**.
 
 The **git clone** command downloads the repository with the history of all the commits already done on it.
 

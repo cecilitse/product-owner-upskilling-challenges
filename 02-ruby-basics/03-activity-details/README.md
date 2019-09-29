@@ -1,8 +1,8 @@
 # Activity details
 
-In this Ruby exercise, we'll get familiar with the Hash type.
+In this Ruby exercise, we'll get familiar with the Hash data type.
 
-We'll be focused on defining what is an activity for a team building session.
+We'll focus on defining what is an activity for a team building session.
 
 ## Setup
 
@@ -19,11 +19,11 @@ In this folder, you will find `details.rb` - The Ruby boilerplate of the exercis
 
 ## Objectives
 
-The goal is to display the details of one activity.
+The goal is to display the details of one team building activity.
 
 ### Hash definition
 
-An activity will be stored within a `Hash`.
+All the details of an activity will be stored in a `Hash`.
 
 Here are the characteristics of an activity:
 

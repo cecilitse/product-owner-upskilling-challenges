@@ -53,7 +53,7 @@ The documentation is located at [localhost:4567/doc](localhost:4567/doc)
 
 ### List all activities
 
-Let's get focused on implementing the Version 1 of the API.
+Let's focus on implementing the Version 1 of the API.
 First step, implement the listing of all the activities.
 
 Find back the SQL query from previous SQL exercise and implement the endpoint in the `v1` namespace.
@@ -63,10 +63,10 @@ For Postman, just replace `https://team-building-api.cleverapps.io` by `http://l
 
 ### Details of one activity
 
-Second step, implement the next endpoint of the Version 1: get activity details.
+Second step, implement the next endpoint of the Version 1: get the details of an activity.
 As a reminder, the endpoint URL is based on the ID of the activity we're looking for.
 
-Do to that, you'll also need to user **parameters**.
+To do this, you'll also need to use **parameters**.
 
 ### Filter activities
 
@@ -111,7 +111,7 @@ else
 end
 ```
 
-Here are more concrete examples:
+Here are more practical examples:
 
 ```ruby
 puts "What is your age?"

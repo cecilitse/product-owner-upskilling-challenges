@@ -51,9 +51,9 @@ To stop the app, type `Ctrl + c`
 
 ## Objectives
 
-The goal of is simple (in itself), previously, we were playing with a Sinatra app with all the data hardcoded within the file `app.rb`.
+The goal of this exercise is simple. In the previous sinatra exercise, we were playing with a Sinatra app with all the data hardcoded within the file `app.rb`.
 
-Let's remove this code and call the [Team Building API](https://team-building-api.cleverapps.io/doc)
+Now we're going to fetch the data from the [Team Building API](https://team-building-api.cleverapps.io/doc) itself.
 
 ### List all activities
 
@@ -68,7 +68,7 @@ Second step, define a new page that would display the informations of only **one
 Here is the expected URL of the new page: `/activities/25` where `25` is the ID of the activity.
 So, it should also work for `/activities/20`, `/activities/3`, etc.
 
-Do to that, you'll need to understand how to receive and use **parameters**. Have a look at the hints section below.
+To do this, you'll need to understand how to receive and use **parameters**. Have a look at the hints section below.
 
 ⚠ **Note:** We should be able to click on an activity from the listing. Don't forget to link (`<a href=...`) your pages to each other.
 
@@ -77,13 +77,13 @@ Do to that, you'll need to understand how to receive and use **parameters**. Hav
 In this last step, the plan is to be able to **filter activities** by city.
 
 Add two links to your `index.erb` file. They will point to the following URLs:
-- `/?city=Nantes`
-- `/?city=Paris`
+- `/?location=Nantes`
+- `/?location=Paris`
 
 As a reminder those are parameters defined within the **query string**. See the hints section below on how to access them.
 It means that we are not creating a new page, we are using the existing listing on which we provide filtering parameters.
 
-Update your existing code in `app.rb` to accept those parameters and send them to the API.
+Update your existing code in `app.rb` to accept these parameters and send the correct ones to the API.
 
 ## Git Commit
 

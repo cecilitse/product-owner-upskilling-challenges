@@ -61,7 +61,7 @@ As a reminder, a list of activities is represented by an `Array` containing one 
 
 ### Gather the activities
 
-First step, in the `app.rb` file, complete the list of activities with at least 3 activities. You can re-use the activities from the previous exercise or invent new ones.
+First step, in the `app.rb` file, complete the list of activities with at least 3 activities. You can re-use the activities from the previous exercise or come up with new ones.
 
 As a reminder, an activity is defined by a name, category, city, duration (in minutes), number of participants, price (in euros).
 

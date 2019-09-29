@@ -23,7 +23,7 @@ You will work in this `age.rb` file.
 
 ## Objectives
 
-The goal is to calculate the age of the person that uses our program.
+The goal is to compute the age of the person that uses our program.
 
 Here is the expected behavior of the program:
 
@@ -38,7 +38,7 @@ For instance:
 - If the person enters `Bob` as name and `1941` as year of birth
 - It should display something like: `Hey Bob! You are 78 years old this year.`
 
-The first part, asking for the name, is already provided.
+The first part, asking for the name, is already done for you.
 
 Try it out! Run the Ruby file from the Terminal:
 
@@ -124,7 +124,7 @@ hello.rb:4:in `+': nil can't be coerced into Integer (TypeError)
 
 It's a **bug**.
 
-A few things to note here on the **last line**:
+A few things to notice here on the **last line**:
 
 - It contains the **name** of the file that crashed: `hello.rb`
 - It contains the **line** where it crashed: `4`
@@ -133,14 +133,14 @@ A few things to note here on the **last line**:
 
 What's happening here is that Ruby is trying to **help us** find the cause of our problem.
 
-Literally, here Ruby is trying to tell us that we tried to make a sum between an Integer (`42`) and `nil` and it's happening line `4`.
+Literally, here Ruby is trying to tell us that we tried to sum an Integer (`42`) with `nil`, and this is happening on line `4`.
 
-It's our turn to put our detective glasses and go for a search on the culprit.
+It's now our turn to be debugging detectives, and use these clues to find our culprit
 
 Here is line 4: `total = students + teachers`
-The problem is near the `+`, so either `students` is `nil` or it is `teachers` that is `nil`
+The problem is near the `+`, so either `students` is `nil`, or `teachers` is.
 
-We just have to investigate more and find out that it's `teachers` that is defined line 2 with a `nil` value. We can fix it by changing its value to an `Integer`.
+We just have to retrace our code steps and tada! On line 2, `teachers` is defined as `nil`. Here's our culprit! We can fix it by changing its value to an `Integer`.
 
 This time the program shouldn't crash.
 

@@ -54,7 +54,7 @@ Also note that you can split your work in smaller pieces and commit one small pi
 
 We expect to have at least the **feature working** on the API side with the corresponding request(s) created in **Postman**.
 
-The feature should be proposed via a **GitHub pull request**.
+The feature should be proposed via **GitHub pull request(s)**.
 
 ⚠ **NOTE:** Don't forget to work with **git branches**!
 

@@ -1,8 +1,8 @@
-# Categories of activities
+# Let's do some team building
 
-In this second Ruby exercise, we'll get familiar with the Array type.
+In this second Ruby exercise, we'll get familiar with the Array data type.
 
-We'll also discover the guiding theme of our challenges: activities for team building sessions (eg. escape game, wine testing, etc.)
+We'll also discover the guiding theme of our challenges: activities for team building sessions (e.g. escape game, wine tasting, etc.)
 
 ## Setup
 
@@ -19,9 +19,9 @@ In this folder, you will find `categories.rb` - The Ruby boilerplate of the exer
 
 ## Objectives
 
-The guiding theme of our challenges being activities for team building, we'll first be focused on the **categories of activities** we could have (e.g. Adventure, Sport, etc.).
+The guiding theme of our challenges being activities for team building, we'll first focus on the **categories** of our team building activities (e.g. Adventure, Sport, etc.).
 
-The goal is to gather the categories of activities and display them.
+The goal is to display a list of all the categories of our team building activities.
 
 Here is the expected behavior of the program:
 
@@ -29,9 +29,9 @@ Here is the expected behavior of the program:
 Adventure, Sport, Visits, Workshops, Cultural, Food (in this **specific order**)
 2. Ask the user of your program to enter an extra category
 3. Display the list of the categories sorted alphabetically
-4. Display the total count of categories
+4. Display the total number of categories
 
-For instance, if the user of your program enters `Relaxing`, here is an example of output:
+For instance, if the user of your program enters `Relaxing`, here is the expected output:
 
 ```
 [CATEGORIES OF ACTIVITIES]

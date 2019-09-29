@@ -44,7 +44,7 @@ Business Developer
 From department of Sales
 ```
 
-The first part, asking for the name, is already provided.
+The first part, asking for the name, is already done for you.
 
 Try it out! Run the Ruby file from the Terminal:
 
@@ -92,7 +92,7 @@ Responsable commercial UK
 ---
 ```
 
-The first part, asking for the role, is already provided.
+The first part, asking for the role, is already done for you.
 
 Try it out! Run the Ruby file from the Terminal:
 

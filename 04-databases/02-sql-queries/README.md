@@ -51,7 +51,7 @@ Check that you have it installed. Otherwise, download and install it from: [http
 Here is the **database schema** you'll work with in this exercise:
 ![Database schema](database-schema.png)
 
-And here are a few **stats** about the data inside:
+Some **stats** about the data inside:
 - 2 sites
 - 8 teams
 - 2 teams spread on two sites: R&D and Product Owner

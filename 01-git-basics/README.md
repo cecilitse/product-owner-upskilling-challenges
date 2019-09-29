@@ -40,15 +40,15 @@ For the rest, it's up to you and your imagination.
 
 A few ideas though:
 
-- Present yourself: name, picture, pasions, etc.
-- List the places you'd like to go
-- List your preferred sports / movies / books / other
+- Present yourself: name, picture, hobbies, etc.
+- List the places you'd like to go to
+- List your favorite sports / movies / books / other
 
 (Optional) Feel free to style the content you display by using the `style.css` file.
 
-### Comitting your work
+### Committing your work
 
-Once you're done, with the HTML part, it's time to **backp** your work. We'll do a **commit**.
+Once you're done, with the HTML part, it's time to **backup** your work. We'll do a **commit**.
 
 Recap of the commands:
 
@@ -68,4 +68,4 @@ What did we just do?
 - Trigger a backup
 - Send the backup to `origin` which is your challenges repository on GitHub
 
-Feel free to update more you files and trigger **new commits**.
+Feel free to play a bit more with your code, and don't forget to **commit** your changes again!

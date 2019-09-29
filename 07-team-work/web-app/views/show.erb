@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Building - Activities</title>
+    <%= stylesheet "/style.css" %>
+  </head>
+  <body>
+    <h1>
+      <%= @activity["name"] %>
+      <small>[<%= @activity["category"].upcase %>]</small>
+    </h1>
+    <ul>
+      <li>Located in <%= @activity["city"] %></li>
+      <li>Duration of <%= @activity["duration"] %> minutes</li>
+      <li>For <%= @activity["participants_count"] %> participants</li>
+      <li>Charged <%= @activity["price"] %>€</li>
+    </ul>
+  </body>
+</html>

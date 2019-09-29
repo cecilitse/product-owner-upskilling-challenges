@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+def run_or_fail(command)
+  system(command) || fail("ERROR running: #{command}")
+end
+
+app_path    = __dir__.gsub('bin', '')
+git_path    =  File.join(app_path, '.git')
+
+user_name   = `git config --get user.name`
+user_email  = `git config --get user.email`
+
+Dir.chdir(app_path) do
+  `git init`
+  `git config user.name "#{user_name}"`
+  `git config user.email "#{user_email}"`
+
+  run_or_fail('git add -A')
+  run_or_fail("git commit --allow-empty -am \"Automated commit\"")
+  run_or_fail('clever deploy --force')
+  run_or_fail(git_path)
+end

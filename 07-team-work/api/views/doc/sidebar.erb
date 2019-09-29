@@ -1,0 +1,53 @@
+<ul class="list-unstyled">
+  <li class="<%= "active" if request.path_info == "/doc" %>">
+    <a href="/doc">Introduction</a>
+  </li>
+
+  <%# Version 1 %>
+  <li class="<%= "active" if request.path_info.start_with?("/doc/v1") %>">
+    <a href="/doc/v1/activities">Version 1</a>
+    <% if request.path_info.start_with?("/doc/v1") %>
+      <ul class="list-unstyled">
+        <li>
+          <a href="/doc/v1/activities">Activities</a>
+          <ul class="list-unstyled">
+            <li>
+              <a href="/doc/v1/activities#list-all-activities">
+                List all activities
+              </a>
+            </li>
+            <li>
+              <a href="/doc/v1/activities#get-activity-details">
+                Get activity details
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+  </li>
+
+  <%# Version 2 %>
+  <li class="<%= "active" if request.path_info.start_with?("/doc/v2") %>">
+    <a href="/doc/v2/activities">Version 2</a>
+    <% if request.path_info.start_with?("/doc/v2") %>
+      <ul class="list-unstyled">
+        <li>
+          <a href="/doc/v2/activities">Activities</a>
+          <ul class="list-unstyled">
+            <li>
+              <a href="/doc/v2/activities#list-all-activities">
+                List all activities
+              </a>
+            </li>
+            <li>
+              <a href="/doc/v2/activities#get-activity-details">
+                Get activity details
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+  </li>
+</ul>

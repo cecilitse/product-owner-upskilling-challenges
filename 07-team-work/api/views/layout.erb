@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Team Building API Documentation</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+    <%= stylesheet "/style.css" %>
+  </head>
+  <body>
+    <div class="row">
+      <div class="three columns sidebar">
+        <p class="api-name">
+          <a href="/doc">
+          TEAM BUILDING API
+          </a>
+        </p>
+
+        <%= erb :"doc/sidebar" %>
+      </div>
+      <div class="nine columns content">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

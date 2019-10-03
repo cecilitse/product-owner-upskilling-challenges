@@ -49,7 +49,8 @@ Check that you have it installed. Otherwise, download and install it from: [http
 ## The database
 
 Here is the **database schema** you'll work with in this exercise:
-![Database schema](database-schema.png)
+
+![Database schema](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/04-databases/02-sql-queries/database-schema.png)
 
 Some **stats** about the data inside:
 - 2 sites

@@ -29,7 +29,7 @@ You'll find basically two folders:
 
 We've already applied the changes to the database. You won't have to update its schema.
 
-![Database schema](api/db/database-schema.png)
+![Modified database schema](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/07-team-work/api/db/database-schema.png)
 
 ## Launching the API and the web app
 

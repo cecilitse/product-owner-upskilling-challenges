@@ -17,5 +17,5 @@ Dir.chdir(app_path) do
   run_or_fail('git add -A')
   run_or_fail("git commit --allow-empty -am \"Automated commit\"")
   run_or_fail('clever deploy --force')
-  run_or_fail(git_path)
+  run_or_fail("rm -rf #{git_path}")
 end

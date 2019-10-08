@@ -10,4 +10,4 @@ gem "sinatra-contrib", "~> 2.0"
 
 gem "sqlite3", "~> 1.4"
 
-gem "puma", "~> 4.1"
+gem "puma", "~> 4.2"

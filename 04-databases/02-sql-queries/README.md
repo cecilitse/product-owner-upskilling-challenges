@@ -38,7 +38,7 @@ sqlite3
 If you see `sqlite>` then it's working.
 Otherwise ask for help.
 
-To quit, type `Ctrl + d`
+To quit, type `.quit` or (`Ctrl + d` for macOS / Linux)
 
 ## DB Browser for SQLite
 
@@ -92,7 +92,7 @@ For instance, you can type:
 SELECT * FROM sites;
 ```
 
-To quit, type `Ctrl + d`
+To quit, type `.quit` or (`Ctrl + d` for macOS / Linux)
 
 ### DB Browser for SQLite
 

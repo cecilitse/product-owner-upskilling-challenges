@@ -56,7 +56,7 @@
 -- [JOINS]
 ---------------------------------------
 
--- TODO: SELECT ...
+-- Get all employee names working FROM site "Ile de Nantes", sorted by first name
 -- TODO: SELECT ...
 -- Expected result: 53 rows
 

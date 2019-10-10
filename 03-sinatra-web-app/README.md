@@ -76,3 +76,7 @@ Then, display your activities in the web page by completing the `views/index.erb
 ## Git Commit
 
 When you're done, don't forget to **commit and push** your changes.
+
+## Example of design
+
+![Preview example](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/03-sinatra-web-app/website-design.png)

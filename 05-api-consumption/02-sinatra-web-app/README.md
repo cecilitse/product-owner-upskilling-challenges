@@ -124,3 +124,7 @@ end
 ```
 
 Again, to access the value stored within `name`, we just call `params["name"]`.
+
+## Example of design
+
+![Preview example](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/05-api-consumption/02-sinatra-web-app/website-design.jpg)

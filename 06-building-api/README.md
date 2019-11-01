@@ -44,6 +44,12 @@ To stop the app, type `Ctrl + c`
 
 ⚠ **NOTE:** While the app is running, you can't type anything within your Terminal. If you need to have access to a second Terminal, open a new tab.
 
+## The database
+
+As a reminder, here is the **database schema** you'll work with in this exercise:
+
+![Database schema](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/04-databases/02-sql-queries/database-schema.png)
+
 ## Objectives
 
 The goal is to recreate the [Team Building API](https://team-building-api.cleverapps.io/)

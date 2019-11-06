@@ -1,5 +1,5 @@
 activity = {
-  "name" => "Visite de Nantes",
+  "name" => "Visit of Nantes",
   "category" => "Visits",
   "city" => "Nantes",
   "duration" => 120,

@@ -1,1 +1,65 @@
-/* Add any styling you want */
+body {
+  background-color: #f8f8f8;
+  color: #2b2b28;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom design with class */
+
+.container {
+  width: 700px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .container {
+    width: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 420px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    width: 280px;
+  }
+}
+
+@media (max-width: 250px) {
+  .container {
+    width: 140px;
+  }
+}
+
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.daycard {
+  display: flex;
+  flex-basis: 140px;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+}

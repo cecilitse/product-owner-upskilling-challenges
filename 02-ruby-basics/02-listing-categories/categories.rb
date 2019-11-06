@@ -1,5 +1,11 @@
-categories = [
-  # TODO: gather the categories of activity
+puts categories = ["Adventure", "Sport", "Visits", "Workshops", "Cultural"
 ]
 
-# TODO: your code goes here
+puts "Add an extra category"
+
+catsup = gets.chomp
+
+categories = categories << catsup
+
+puts categories
+puts "Total : #{categories.size}"

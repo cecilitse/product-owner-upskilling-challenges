@@ -1,3 +1,6 @@
+body{
+  font-family: 'Roboto', sans-serif;
+}
 h1 {
   color: #515F7F;
   text-align: center;
@@ -43,6 +46,15 @@ li{
   display: flex;
   align-items: center;
 }
+.block-text-align{
+  background: white;
+	padding: 30px;
+	box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+	border-radius: 4px;
+	margin: 20px 0px;
+  text-align: center;
+  background-image: url(https://giphy.com/gifs/hello-hi-wave-xT9IgG50Fb7Mi0prBC/fullscreen);
+}
 .celestia{
   background: white;
   background-image: url(images/celestia.jpg);
@@ -50,9 +62,11 @@ li{
 	padding: 30px;
 	box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
 	border-radius: 4px;
-	margin: 20px 0px;
+  margin: 20px auto;
+  height: 350px;
   text-align: center;
-  color: rgb(200, 200, 200);
+  font-size: 50px;
+  color: rgb(240, 240, 240);
 }
 .block-picture{
   display: flex;
@@ -60,11 +74,15 @@ li{
   align-items: center;
 }
 .button-blue{
-    background-color: #6B72E1;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 4px;
-    margin-top: 10px;
+  background-color: #6B72E1;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.button-blue:hover{
+  background-color: #515F7F;
+	color: white;
 }
 .text-picture{
   margin-right: 10px;

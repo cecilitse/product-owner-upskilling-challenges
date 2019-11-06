@@ -1,5 +1,10 @@
-categories = [
-  # TODO: gather the categories of activity
-]
+categories = ["Adventure", "Sport", "Visits", "Workshops", "Cultural", "Food"]
 
-# TODO: your code goes here
+puts "Please add a new activity"
+categories << gets.chomp
+
+categories.sort.each do |name|
+  puts "- #{name}"
+end
+
+puts "Total = #{categories.size}"

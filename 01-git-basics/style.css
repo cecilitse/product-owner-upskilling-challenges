@@ -1,1 +1,62 @@
 /* Add any styling you want */
+.banner {
+	background-image: linear-gradient(-220deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url(images/pierre.jpg);
+	color:white;
+	padding : 200px 0px;
+	background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+  height: 50px;
+
+}
+
+.banner h1 {
+	font-size: 50px;
+}
+.banner h2 {
+	font-size: 30px;
+	font-weight: lighter;
+	opacity: 0.8;
+
+}
+
+.btn {
+    background-color: #6D71DD;
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: source sans pro;
+
+
+}
+
+.container {
+  margin-left: 30px;
+}
+
+h1,h2 {
+  font-family: Source sans pro;
+}
+
+.card_qualities {
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 0 10px 30px rgba(0,0,0,.1);
+	padding :10px;
+  margin-bottom: 10px;
+  width:200px;
+  text-align: center;
+display: inline-flex;
+	}
+
+  body {
+
+    margin: auto;
+  }
+
+  .content {
+    margin-top:50px;
+    margin-left:30px;
+  }

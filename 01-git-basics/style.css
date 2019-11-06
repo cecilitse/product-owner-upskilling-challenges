@@ -1,16 +1,71 @@
 h1 {
-  color: red;
+  color: #515F7F;
   text-align: center;
+  font-family: 'Lora', serif;
+}
+a{
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+.link{
+  margin: 20px auto;
 }
 p {
+  font-family: 'Roboto',sans-serif;
   size: 12px;
 }
-.block
-{
+ul{
+  list-style: none;
+  display: inline-flex;
+}
+li{
+  font-family: 'Roboto', sans-serif;
+  margin: 10px auto;
+}
+.img-circle{
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  background-image: url(images/avatar_cp_big.jpg);
+  background-size: cover;
+}
+.img-circle:hover{
+  background-image: url(images/mlebois.jpg);
+}
+.block{
   background: white;
 	padding: 30px;
 	box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
 	border-radius: 4px;
 	margin: 20px 0px;
-	text-align: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.celestia{
+  background: white;
+  background-image: url(images/celestia.jpg);
+  background-size: cover;
+	padding: 30px;
+	box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+	border-radius: 4px;
+	margin: 20px 0px;
+  text-align: center;
+  color: rgb(200, 200, 200);
+}
+.block-picture{
+  display: flex;
+  margin-left: 75px;
+  align-items: center;
+}
+.button-blue{
+    background-color: #6B72E1;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.text-picture{
+  margin-right: 10px;
 }

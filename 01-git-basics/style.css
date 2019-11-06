@@ -1,11 +1,16 @@
-h1 {
-  color: red
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
-h2 {
+h1, h2 {
   color: pink
 }
 img {
   border-radius: 50%;
   height: 200px;
   width: 200px;
+}
+.container{
+	width: 700px;
+  margin: 0px auto;
+  text-align: center;
 }

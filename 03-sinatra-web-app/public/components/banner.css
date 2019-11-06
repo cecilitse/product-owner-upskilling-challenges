@@ -1,0 +1,19 @@
+.banner {
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%), url("../../images/building.jpg");
+	color: white;
+	padding: 150px 0;
+	background-size: cover;
+	background-position: center;
+}
+
+.banner h1 {
+	font-size: 50px;
+}
+
+.banner p {
+	font-size: 26px;
+	font-weight: lighter;
+	opacity: 0.8;
+	margin-bottom: 40px;
+
+}

@@ -21,13 +21,14 @@
 }
 
 .btn {
-    background-color: #6D71DD;
+    background-color: #bd574e;
     padding: 15px 20px;
     border-radius: 4px;
-    color: white;
+    color: #110133;
     font-weight: bold;
     text-decoration: none;
     font-family: source sans pro;
+
 
 
 }
@@ -40,6 +41,11 @@ h1,h2 {
   font-family: Source sans pro;
 }
 
+.card_qualities h2 {
+  text-align: center;
+  color: #110133;
+}
+
 .card_qualities {
 	background-color: white;
 	border-radius: 4px;
@@ -48,7 +54,8 @@ h1,h2 {
   margin-bottom: 10px;
   width:200px;
   text-align: center;
-display: inline-flex;
+  background-color:#00918e ;
+
 	}
 
   body {
@@ -59,4 +66,8 @@ display: inline-flex;
   .content {
     margin-top:50px;
     margin-left:30px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-between;
+
   }

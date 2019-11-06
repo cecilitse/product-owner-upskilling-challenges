@@ -7,8 +7,10 @@ activity = {
   "price_eur" => 23.50
 }
 
-puts "#{activity["name"]} [#{activity["category"].upcase}] \n"
-puts "Located in #{activity["city"]}"
-puts "Duration of #{activity["duration"]} minutes"
-puts "For #{activity["participants_count"]} participants"
-puts "Charged #{activity["price_eur"]}€"
+activity_message = "#{activity["name"]} [#{activity["category"].upcase}]
+Located in #{activity["city"]}
+Duration of #{activity["duration"]} minutes
+For #{activity["participants_count"]} participants
+Charged #{activity["price_eur"]}€ per person; which makes #{activity["price_eur"]*activity["participants_count"]}€ in total"
+
+puts activity_message

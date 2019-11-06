@@ -22,14 +22,11 @@ escape_game = {
   "participants_count" => 8,
   "price_eur" => 70
 }
-
-
 activities = [
-tennis,
-cinema,
-escape_game
+  tennis,
+  cinema,
+  escape_game
 ]
-
 puts "Here are many activities you can do : \n \n"
 activities.each_with_index do |activity, index|
   puts "Activité #{index +1} :"
@@ -37,6 +34,6 @@ activities.each_with_index do |activity, index|
   puts "Located in #{activity["city"]}"
   puts "Duration of #{activity["duration"]} minutes"
   puts "For #{activity["participants_count"]} participants"
-  puts "Charged #{activity["price_eur"]}€"
+  puts "Charged #{activity["price_eur"]}€ per person; which makes #{activity["price_eur"]*activity["participants_count"]}€ in total"
   puts "---"
 end

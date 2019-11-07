@@ -1,1 +1,95 @@
-/* Add any styling you want */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+
+body {
+  font-family: 'Roboto';
+  font-size: 16px;
+  margin: 0px;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover{
+	background-color: yellow;
+}
+
+@media (max-width: 960px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (max-width: 720px) {
+  .container {
+    width: 500px;
+  }
+}
+@media (max-width: 540px) {
+  .container {
+    width: 300px;
+  }
+}
+
+.banner {
+	background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),
+	url(https://www.ithaka.travel/blog/wp-content/uploads/2017/09/Featured-Image-8.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 300px;
+	padding: 100px 0px;
+}
+.banner h1 {
+	margin: 0px;
+	padding-top: 0px;
+  color: black;
+  font-weight: lighter;
+  font-size: 50px;
+  text-align: center;
+}
+.banner h2 {
+	color: black;
+	font-size: 30px;
+	font-weight: lighter;
+	opacity: 0.8;
+}
+
+.btn-pink {
+	background-color: pink;
+	padding: 10px;
+	border-radius: 4px;
+	color: white;
+}
+
+.cards {
+  display: flex;
+	flex-wrap: wrap;
+}
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	border-radius: 4px;
+	box-shadow: 0 10px 30px rgba(0,0,0,.1);
+	flex-basis: 100px;
+	flex-grow: 1;
+  margin: 10px;
+  text-align: center;
+	}
+.card img {
+	width: 50px;
+  height: 50px;
+  position: center;
+	border-radius: 4px;
+}
+.card h2 {
+	flex-grow: 1;
+  padding-left: 20px;
+}
+.container {
+  width: 700px;
+  margin: 0px auto;
+}

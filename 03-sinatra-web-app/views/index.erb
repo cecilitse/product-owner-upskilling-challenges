@@ -3,12 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Team Building - Activities</title>
     <%= stylesheet '/style.css' %>
   </head>
   <body>
-    <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+    <div class="banner">
+      <div class="container">
+        <h1>Team building activies</h1>
+        <h2>Discover our activities</h2>
+      </div>
+    </div>
+    <% @activities.each do |activity| %>
+    <div class="container">
+    <div class="column">
+      <div>
+        <div class="card">
+          <h2><%= activity["name"] %></h2>
+          <p><%= activity["category"] %></p>
+          <p><%= activity["city"] %></p>
+          <p><%= activity["duration"] %> minutes</p>
+          <p><%= activity["participants"] %> participants</p>
+          <p><%= activity["price"] %>€</p>
+          <img src="<%= activity["image"] %>" alt="beach">
+        </div>
+      </div>
+    </div>
+    </div>
+    <% end %>
   </body>
 </html>

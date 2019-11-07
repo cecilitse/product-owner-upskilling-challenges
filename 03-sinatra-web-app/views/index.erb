@@ -6,9 +6,35 @@
 
     <title>Team Building - Activities</title>
     <%= stylesheet '/style.css' %>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   </head>
   <body>
     <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+    <div class="card-list">
+      <% @activities.each do |activity| %>
+      <div class="card">
+        <!-- Nom de l'activité -->
+        <div class ="card-header-title">
+          <p><%= activity["name"] %></p>
+        </div>
+        <!-- Nom de la catégorie -->
+        <div class="card-header-under-title">
+          <p><%= activity["category"]%></p>
+        </div>
+        <!-- Photo -->
+        <div class="card-picture">
+          <img src="<%= activity["picture_url"] %>" width="300px">
+        </div>
+        <!-- Ville, durée, participants et prix -->
+        <div class="card-body">
+          <p><%= activity["city"]%></p>
+          <p><%= activity["duration"]%></p>
+          <p><%= activity["participants_count"]%></p>
+          <p><%= activity["price_eur"]%></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Building - Activities</title>
+    <%= stylesheet '/style.css' %>
+  </head>
+  <body>
+    <div class="banner-small" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.1)),
+	url(<%= @activity["image"] %>);">
+      <div class="container">
+        <h1><%= @activity["name"] %></h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card-alone">
+        <div class="card-title">
+          <h2></h2>
+        </div>
+        <div class="card-subtitle">
+          <p><%= @activity["category"] %></p>
+        </div>
+        <div class="card-text">
+          <p><%= @activity["city"] %></p>
+          <p><%= @activity["price"] %>€</p>
+        </div>
+        <div class="card-footer">
+          <div class="card-text-with-icon">
+            <p>👥<%= @activity["participants"] %> participants</p>
+            <p>⌚<%= @activity["duration"] %> minutes</p>
+          </div>
+          <div class="card-btn">
+            <a href="activities/1" class="btn-pink">Clique</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -82,7 +82,10 @@ order by teams.name;
 -- R&D
 
 -- Get the team names and total number of team building sessions done, sorted by top teams
-SELECT ...
+SELECT teams.name, count (team_building_sessions.id) as total_sessions from teams
+inner join team_building_sessions on team_building_sessions.team_id = teams.id
+group by teams.name
+order by total_sessions desc;
 -- Expected result:
 -- name        total_sessions
 -- ----------  --------------
@@ -95,7 +98,7 @@ SELECT ...
 -- Customer S  1
 
 -- Get all the employee names, team names and site names that have never attended a team building session
--- TODO: SELECT ...
+SELECT
 -- Expected result:
 -- first_name  last_name   team        site
 -- ----------  ----------  ----------  -----------

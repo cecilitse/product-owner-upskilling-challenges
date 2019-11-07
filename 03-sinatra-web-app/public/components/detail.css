@@ -1,5 +1,26 @@
 /* Style for activity detail */
 
+.container-activity {
+  display: flex;
+}
+
+.content-left {
+  width: 600px;
+  border: 2px;
+  /* background-color: red; */
+}
+
+.content-left p {
+  font-size: 14px;
+  padding-right: 30px;
+}
+
+.content-right {
+  width: 200px;
+  border: 2px;
+  /* background-color: blue; */
+}
+
 .category-detail {
   background-color: green;
 
@@ -8,6 +29,9 @@
 .breadcrumbs {
   color: gray;
   font-size: 12px;
+  display: block;
+  height: 30px;
+  line-height: 30px;
 }
 
 .breadcrumbs:hover {
@@ -15,27 +39,62 @@
 }
 
 .price-box {
-  background-color: lightgray;
+  background-color: rgb(238, 238, 238);
   border-radius: 4px;
+  padding: 10px;
+  margin-top: 30px;
+}
 
+.price-box p {
+  margin: 5px 0px;
 }
 
 .price-detail {
-
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .participants-detail {
+  text-align: center;
+  font-size: 14px;
 
 }
 
 .city-detail {
+  padding: 0px 10px;
+  font-size: 16px;
+
+}
+
+.duration-detail {
+  padding: 0px 10px;
+  font-size: 16px;
+
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 4px;
+  display: block;
+  text-align: center;
+  margin: 10px 10px;
+  font-size: 14px;
+}
+
+.btn:hover {
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 
 }
 
 .btn-book {
-
+  background-color: blue;
+  color: white;
+  font-weight: bold;
 }
 
 .btn-info {
+  background-color: darkgray;
+  color: rgb(40,40,40);
 
 }

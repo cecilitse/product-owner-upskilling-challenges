@@ -99,7 +99,11 @@ ORDER BY number_of_sessions desc
 -- Customer S  1
 
 -- Get all the employee names, team names and site names that have never attended a team building session
--- TODO: SELECT ...
+SELECT DISTINCT (e.first_name || ' ' || e.last_name) as employee_name, s.name as site_name, t.name FROM sites as s
+INNER JOIN employees as e ON s.id = e.site_id
+INNER JOIN teams as t ON t.id = e.team_id
+LEFT JOIN participations as p ON p.employee_id = e.id
+WHERE team_building_session_id IS NULL
 -- Expected result:
 -- first_name  last_name   team        site
 -- ----------  ----------  ----------  -----------
@@ -108,7 +112,11 @@ ORDER BY number_of_sessions desc
 -- Pierre      Pellan      Channels    Paris 13ème
 
 -- [NEW AGGREGATE] Get the budget spent on team building sessions per team, sorted by most expensive to leASt expensive
--- TODO: SELECT ...
+SELECT t.name, SUM(a.price) as total_budget FROM activities as a
+INNER JOIN team_building_sessions as tbs ON a.id = tbs.activity_id
+INNER JOIN teams as t ON t.id = tbs.team_id
+GROUP BY team_id
+ORDER BY total_budget desc
 -- Expected result:
 -- name          total_price
 -- ------------  -----------
@@ -121,7 +129,12 @@ ORDER BY number_of_sessions desc
 -- UI / UX       240
 
 -- Get the site names and total number of team building sessions done, sorted by top sites
--- TODO: SELECT ...
+SELECT s.name, COUNT(DISTINCT p.team_building_session_id) as total FROM sites as s
+INNER JOIN employees as e ON s.id = e.site_id
+INNER JOIN participations as p ON p.employee_id = e.id
+INNER JOIN team_building_sessions as tbs ON tbs.id = p.team_building_session_id
+GROUP BY s.name
+ORDER BY total desc
 -- Expected result:
 -- name           total_sessions
 -- -------------  --------------

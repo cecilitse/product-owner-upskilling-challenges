@@ -1,7 +1,7 @@
 .banner {
-	background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%), url("../../images/building.jpg");
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%), url("https://images.unsplash.com/photo-1566140967404-b8b3932483f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
 	color: white;
-	padding: 150px 0;
+	padding: 30px 0;
 	background-size: cover;
 	background-position: center;
 }
@@ -13,7 +13,7 @@
 .banner p {
 	font-size: 26px;
 	font-weight: lighter;
-	opacity: 0.8;
+	/* opacity: 0.8; */
 	margin-bottom: 40px;
 
 }

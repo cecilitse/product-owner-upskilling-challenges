@@ -3,12 +3,67 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
     <title>Team Building - Activities</title>
     <%= stylesheet '/style.css' %>
   </head>
+
   <body>
-    <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+
+  <div class="banner">
+    <div class="container">
+      <h1>Team building activities</h1>
+      <h2> Discover our tremendous activies 🚀 </h2>
+    </div>
+  </div>
+
+
+
+  <div class="content">
+  <% @activities.each do |activity|%>
+    <a href="">
+    <div class="activity_card">
+
+      <div class="card_picture">
+         <img src="<%= activity["Picture"]%>">
+      </div>
+
+      <div class="card_content">
+        <div class="header">
+          <div class="card_title">
+            <h2> <%= "#{activity["Name"]}"%> </h2>
+          </div>
+
+          <div class="card_subtitle">
+            <p> 🤠 <%= activity["Category"]%>   📍 <%= "#{activity["City"]}"%>  </p>
+          </div>
+        </div>
+        <div class="card_footer">
+          <div class="card_footer_element">
+              <span> <%= activity["Number of participants"]%> </span>
+              <p> People </p>
+          </div>
+          <div class="card_footer_element">
+            <span> <%= activity["Duration"]%> </span>
+            <p> Minutes</p>
+          </div>
+          <div class="card_footer_element">
+            <span> <%= "#{activity["Price"]*activity["Number of participants"]}"%> </span>
+            <p> Euros </p>
+          </div>
+        </div>
+
+      </div>
+
+   </div>
+   </a>
+    <%end%>
+  </div>
+
+
+
   </body>
+
+
+
 </html>

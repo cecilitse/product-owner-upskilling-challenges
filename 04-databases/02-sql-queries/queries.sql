@@ -57,15 +57,24 @@ SELECT category, count(*) as Total FROM activities GROUP BY category ORDER BY To
 ---------------------------------------
 
 -- Get all employee names working FROM site "Ile de Nantes", sorted by first name
--- TODO: SELECT ...
+SELECT (e.first_name || ' ' || e.last_name) as employee_name FROM employees as e INNER JOIN sites as s ON e.site_id = s.id WHERE s.name = 'Ile de Nantes' ORDER BY e.first_name
 -- Expected result: 53 rows
 
 -- Get all the activity names where you have been to, sorted by name
--- TODO: SELECT ...
+SELECT name FROM activities as a
+INNER JOIN team_building_sessions as t_b_s ON a.id = t_b_s.activity_id
+INNER JOIN participations as p ON p.team_building_session_id = t_b_s.id
+INNER JOIN employees as e ON p.employee_id = e.id
+WHERE e.last_name = 'Boucrault'
+ORDER BY a.name
 -- Expected result: well, it depends on who you are :)
 
 -- [NEW KEYWORD] Get all the team names that have done an Adventure activity, sorted by names
--- TODO: SELECT ...
+SELECT DISTINCT t.name FROM teams as t
+INNER JOIN team_building_sessions as t_b_s ON t.id = t_b_s.team_id
+INNER JOIN activities as a ON t_b_s.activity_id = a.id
+WHERE a.category = 'Adventure'
+ORDER BY t.name
 -- Expected result:
 -- name
 -- --------------------
@@ -74,7 +83,10 @@ SELECT category, count(*) as Total FROM activities GROUP BY category ORDER BY To
 -- R&D
 
 -- Get the team names and total number of team building sessions done, sorted by top teams
--- TODO: SELECT ...
+SELECT t.name, COUNT(t_b_s.id) as number_of_sessions FROM teams as t
+INNER JOIN team_building_sessions as t_b_s ON t.id = t_b_s.team_id
+GROUP BY t.name
+ORDER BY number_of_sessions desc
 -- Expected result:
 -- name        total_sessions
 -- ----------  --------------

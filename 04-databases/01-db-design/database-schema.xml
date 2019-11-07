@@ -103,7 +103,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="580" y="600" name="sites">
+<table x="1200" y="515" name="sites">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -111,6 +111,12 @@
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="address" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="zip_code" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="city" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -141,6 +147,22 @@
 <row name="picture_url" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="544" y="535.5999984741211" name="participations">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="session_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="team_building_sessions" row="id" />
+</row>
+<row name="employee_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="employees" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

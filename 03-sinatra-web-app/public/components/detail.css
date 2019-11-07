@@ -1,0 +1,41 @@
+/* Style for activity detail */
+
+.category-detail {
+  background-color: green;
+
+}
+
+.breadcrumbs {
+  color: gray;
+  font-size: 12px;
+}
+
+.breadcrumbs:hover {
+  text-decoration: underline;
+}
+
+.price-box {
+  background-color: lightgray;
+  border-radius: 4px;
+
+}
+
+.price-detail {
+
+}
+
+.participants-detail {
+
+}
+
+.city-detail {
+
+}
+
+.btn-book {
+
+}
+
+.btn-info {
+
+}

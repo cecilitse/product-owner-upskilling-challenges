@@ -10,30 +10,50 @@
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   </head>
   <body>
-    <h1>Activities</h1>
+    <div class="header">
+      <h1>Activities</h1>
+    </div>
     <div class="card-list">
       <% @activities.each do |activity| %>
       <div class="card">
-        <!-- Nom de l'activité -->
-        <div class ="card-header-title">
-          <p><%= activity["name"] %></p>
-        </div>
-        <!-- Nom de la catégorie -->
-        <div class="card-header-under-title">
-          <p><%= activity["category"]%></p>
+        <div class="card-header">
+          <!-- Nom de l'activité -->
+          <div class ="card-header-title">
+            <h2><%= activity["name"] %></h2>
+          </div>
+          <!-- Nom de la catégorie -->
+          <div>
+            <span class="card-header-label"><%= activity["category"]%></span>
+          </div>
         </div>
         <!-- Photo -->
         <div class="card-picture">
-          <img src="<%= activity["picture_url"] %>" width="300px">
+          <img src="<%= activity["picture_url"] %>" width="300px" height="160px" >
         </div>
         <!-- Ville, durée, participants et prix -->
         <div class="card-body">
-          <p><%= activity["city"]%></p>
-          <p><%= activity["duration"]%></p>
-          <p><%= activity["participants_count"]%></p>
-          <p><%= activity["price_eur"]%></p>
+          <div class="card-body-header">
+            <div class="place">
+              <a href="https://www.google.com/maps/search/<%= activity["city"]%>" target ="_blank"><%= activity["city"]%> 📍</a>
+            </div>
+            <div class="duration">
+              <span class="number">
+                ⏱ <%= activity["duration"]%>
+              </span> minutes
+            </div>
+          </div>
         </div>
-      </div>
+          <div class="card-body-footer">
+            <div class="participants">
+              <span class="number">
+                <%= activity["participants_count"]%>
+              </span> participants 🤸🏻‍
+            </div>
+            <div class="price">
+              💶 <%= activity["price_eur"]%>,00 €
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </body>

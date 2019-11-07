@@ -1,28 +1,98 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: rgb(90, 90, 90);
+}
+h1{
+  text-align: center;
+  font-family: 'Roboto',sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  margin: 0px;
+  color: rgb(90, 90, 90);
+}
+.header{
+  height: 350px;
+  background: url(https://www.lucca.fr/img/societe/recrutement/COUV-RECRUTEMENT.jpg);
+  background-position: cover;
+}
+h2{
+  text-align: left;
+  font-family: 'Roboto',sans-serif;
+  font-size: 35px;
+  font-weight: 300;
+  margin: 0px;
+  color: #7ECE90;
+}
+a{
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: rgb(90, 90, 90);
+}
+a:hover{
+  color: black;
+
+}
+
+
+
 .card-list{
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: space-around;
 }
-.card-header-title{
-  text-align: left;
-  font-family: 'Lora',sans-serif;
-  font-size: 40px;
-  padding: 0px 20px;
-}
-
-.card-header-under-title{
-  width: 50px;
-  padding: 0px 20px;
-	background-color: #6B72E1;
-	color: white;
-	border-radius: 4px;
-}
-
 .card{
-  height: 500px;
+  /* height: 500px; */
   width: 300px;
   background: white;
   box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
   border-radius: 4px;
   margin: 20px 20px;
+  padding-bottom: 40px;
+}
+.card:hover{
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+.card-header{
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.card-header-title{
+  padding: 0px 20px;
+}
+.card-header-label{
+  padding: 5px 10px;
+	background-color: #6B72E1;
+	color: white;
+  border-radius: 4px;
+  margin: 0px 20px;
+  position: absolute;
+  bottom: -55px;
+}
+.card-picture{
+  width: 300px;
+  height: 160px;
+}
+
+.card-body-header{
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-color: #6B72E1;
+  border-bottom-style: dashed;
+  border-bottom-width: 0.5px;
+}
+.card-body-footer{
+  margin-top: 30px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.number{
+  color: #6B72E1;
+  font-weight: bold;
 }

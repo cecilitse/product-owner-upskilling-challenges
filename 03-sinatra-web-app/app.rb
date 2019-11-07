@@ -11,7 +11,7 @@ get "/" do
     "city" => "Chouzy-Sur-Cisse",
     "duration" => 60,
     "participants_count" => 2,
-    "price_eur" => 23.50,
+    "price_eur" => 23,
     "picture_url" => "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS0JC5iIK2BthBrpCm0cL7onqOIzfweWlGr_d813Z9d2Wh99fI8",
     "description" => "Participez à un magnifique tournoi de tennis avec vos collègues. Dominez-les à coups de petite balle jaune. Faîtes les rougir de honte et demandez une augmentation à votre boss."
   }
@@ -21,7 +21,7 @@ get "/" do
     "city" => "Grand Rex",
     "duration" => 120,
     "participants_count" => 15,
-    "price_eur" => 6.79,
+    "price_eur" => 6,
     "picture_url" => "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_RJAhoBeC-PXRQgWOdfdd-CeNLm9-2GtwhKPDP-tTuIbe_-mP",
     "description" => "Allez voir un film à la cool. Le choix de celui-ci sera déterminé à l'avance, par l'ensemble des participants. Sinon, vous pouvez toujours tirer au sort le film et prier pour ne pas tomber sur un navet."
   }

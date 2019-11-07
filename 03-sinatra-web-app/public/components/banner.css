@@ -1,5 +1,6 @@
+/* Banner */
+
 .banner {
-	background-image: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%), url("https://images.unsplash.com/photo-1566140967404-b8b3932483f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
 	color: white;
 	padding: 30px 0;
 	background-size: cover;

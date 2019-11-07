@@ -62,7 +62,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="520" y="56" name="categories">
+<table x="183" y="430" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -88,11 +88,14 @@
 <row name="date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
+<row name="price" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="888" y="258" name="teams">
+<table x="606" y="550" name="teams">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -151,7 +154,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="544" y="535.5999984741211" name="participations">
+<table x="863" y="270.5999984741211" name="participations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>

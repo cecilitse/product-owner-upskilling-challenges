@@ -31,19 +31,3 @@
 .container-main {
   margin: 20px auto;
 }
-
-.container-activity {
-  display: flex;
-}
-
-.content-left {
-  width: 600px;
-  border: 2px;
-  /* background-color: red; */
-}
-
-.content-right {
-  width: 200px;
-  border: 2px;
-  /* background-color: blue; */
-}

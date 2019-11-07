@@ -2,9 +2,10 @@
 
 @import	url("/components/container.css");
 @import	url("/components/avatar.css");
-@import	url("/components/button.css");
 @import	url("/components/banner.css");
 @import	url("/components/card.css");
+@import	url("/components/detail.css");
+
 
 body {
 	font-family: Open Sans;

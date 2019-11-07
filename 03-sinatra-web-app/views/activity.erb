@@ -8,21 +8,42 @@
     <%= stylesheet '/style.css' %>
   </head>
   <body>
-    <div class="banner">
+    <div class="banner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%), url('<%= @activity["img"] %>')";>
       <div class="container container-head">
+        <span class="category-detail"><%= @activity["category"].upcase %></span>
         <h1>Visit of Nantes</h1>
-        <p>
-
-        </p>
-
-
+        <p>Enjoy the machines of this vibrant city close to the Atlantic coast.</p>
       </div>
     </div>
 
+    <div class="container container-main">
+      <div class="container-activity">
+        <div class="content-left">
+          <a class="breadcrumbs" href="../">Retour</a>
+          <h2>Description of the activity</h2>
+          <p>blNow that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.
+a</p>
+          <h2>Pictures</h2>
 
 
+        </div>
+        <div class="content-right">
+          <div class="price-box">
+            <p class="price-detail"><%= @activity["price"] %>€</p>
+            <p class="participants-detail">for <%= @activity["number_of_participants"] %> participants</p>
+
+          </div>
+          <p class="city-detail">Location: <%=  @activity["city"] %></p>
+          <p class="duration-detail">Duration: <%= @activity["duration"] %> minutes</p>
+          <a href="" class="btn-book">Book activity</a>
+          <a href="" class="btn-info">Ask for information</a>
+        </div>
+      </div>
     </div>
 
+    <div class="footer">
+
+    </div>
 
   </body>
 </html>

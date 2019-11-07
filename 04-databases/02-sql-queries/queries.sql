@@ -24,15 +24,15 @@ SELECT * FROM activities WHERE lower(name) LIKE lower('%Escape Game%') AND city 
 ---------------------------------------
 
 -- Count all the activities
--- TODO: SELECT ...
+SELECT count(*) as total FROM activities
 -- Expected result: 44
 
 -- Count all "Adventure" activities
--- TODO: SELECT ...
+SELECT count(*) as total FROM activities WHERE category = 'Adventure'
 -- Expected result: 13
 
 -- Count the number of activities per category
--- TODO: SELECT ...
+SELECT category, count(*) as Total FROM activities GROUP BY category
 -- Expected result:
 -- category    total
 -- ----------  ----------
@@ -44,7 +44,7 @@ SELECT * FROM activities WHERE lower(name) LIKE lower('%Escape Game%') AND city 
 -- Workshops   6
 
 -- Get the 3 category names with the biggest number of activities
--- TODO: SELECT ...
+SELECT category, count(*) as Total FROM activities GROUP BY category ORDER BY Total desc LIMIT 3
 -- Expected result:
 -- category    total
 -- ----------  ----------

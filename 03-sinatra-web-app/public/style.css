@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather|Raleway");
 
 body {
-  font-family: 'Roboto';
+  font-family: "Raleway";
   font-size: 16px;
   margin: 0px;
 }
 
-h1, h2 {
-  font-weight: bold;
+h1 {
+  font-family: "Merriweather";
 }
 
 a {
@@ -34,12 +34,13 @@ a:hover{
 }
 
 .banner {
-	background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),
-	url(https://www.ithaka.travel/blog/wp-content/uploads/2017/09/Featured-Image-8.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.1)),
+	url(https://images.unsplash.com/photo-1525183995014-bd94c0750cd5);
 	background-size: cover;
 	background-position: center;
-	height: 300px;
+	height: 200px;
 	padding: 100px 0px;
+	text-align: center;
 }
 .banner h1 {
 	margin: 0px;
@@ -47,12 +48,11 @@ a:hover{
   color: black;
   font-weight: lighter;
   font-size: 50px;
-  text-align: center;
 }
 .banner h2 {
 	color: black;
 	font-size: 30px;
-	font-weight: lighter;
+	font-weight: bold;
 	opacity: 0.8;
 }
 
@@ -61,35 +61,74 @@ a:hover{
 	padding: 10px;
 	border-radius: 4px;
 	color: white;
+	margin-bottom: 10px;
 }
 
 .cards {
-  display: flex;
+	display: flex;
 	flex-wrap: wrap;
 }
 .card {
-	display: flex;
-	align-items: center;
 	justify-content: space-between;
-	padding: 20px;
+	padding: 10px;
 	border-radius: 4px;
 	box-shadow: 0 10px 30px rgba(0,0,0,.1);
-	flex-basis: 100px;
+	flex-basis: 250px;
 	flex-grow: 1;
-  margin: 10px;
-  text-align: center;
-	}
-.card img {
-	width: 50px;
-  height: 50px;
-  position: center;
-	border-radius: 4px;
+	margin: 10px;
+	width: 100px;
+	text-align: center;
 }
 .card h2 {
 	flex-grow: 1;
   padding-left: 20px;
 }
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 .container {
-  width: 700px;
-  margin: 0px auto;
+  width: 900px;
+	margin: 0px auto;
+}
+
+.card-title {
+
+}
+.card-subtitle {
+	text-align: left;
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+}
+.card-img {
+	height: 100px;
+	background-size: cover;
+	background-position: center;
+}
+.card-text {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	justify-content: space-between;
+	padding: 10px;
+}
+.card-footer {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	justify-content: space-between;
+	padding: 10px;
+	align-items: flex-end;
+}
+.card-text-with-icon {
+	text-align: left;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+.card-text-with-icon p {
+	margin-bottom: 0;
+}
+.card-btn {
+	text-align: center;
+	display: block;
+margin-bottom: 10px;
 }

@@ -1,8 +1,11 @@
 body {
   background-color: #f8f8f8;
-  color: #2b2b28;
+  color: white;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 h1 {
@@ -68,23 +71,23 @@ a {
 }
 
 .daycard {
-  /* display: flex; */
-  /* flex-basis: 140px; */
   width: 100px;
   height: 100px;
   padding: 20px;
   margin: 0px;
   align-items: center;
   vertical-align: middle;
-  /* justify-content: space-between; */
   background-color: black;
   color: white;
   text-align: center;
   cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .daycard:hover {
-  background-color: #2b2b28;
+  opacity:0.9;
 }
 
 .daycard h2 {

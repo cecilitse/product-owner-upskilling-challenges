@@ -3,20 +3,20 @@
 ---------------------------------------
 
 -- Get all sites
--- TODO: SELECT ...
+SELECT * FROM sites;
 
 -- Get all sites sorted by name
--- TODO: SELECT ...
+SELECT * FROM sites order by name;
 
 -- Gett all activity names sorted by name
--- TODO: SELECT ...
+SELECT name FROM activities order by name;
 
 -- Get all "Sport" activities
--- TODO: SELECT ...
+SELECT name FROM activities where category = "Sport" order by name;
 -- Expected result: 8 rows
 
 -- Get all Escape Games in Nantes
--- TODO: SELECT ...
+SELECT name FROM activities where name like "%Escape Game%" AND city = "Nantes" order by name;
 -- Expected result: 3 rows
 
 ---------------------------------------
@@ -24,15 +24,15 @@
 ---------------------------------------
 
 -- Count all the activities
--- TODO: SELECT ...
+SELECT count(*) from activities;
 -- Expected result: 44
 
 -- Count all "Adventure" activities
--- TODO: SELECT ...
+SELECT count(*) from activities where category = "Adventure";
 -- Expected result: 13
 
 -- Count the number of activities per category
--- TODO: SELECT ...
+SELECT category, count(*) as total from activities group by category order by category;
 -- Expected result:
 -- category    total
 -- ----------  ----------
@@ -44,7 +44,7 @@
 -- Workshops   6
 
 -- Get the 3 category names with the biggest number of activities
--- TODO: SELECT ...
+SELECT category, count(*) as total from activities group by category order by total desc limit 3;
 -- Expected result:
 -- category    total
 -- ----------  ----------
@@ -57,15 +57,23 @@
 ---------------------------------------
 
 -- Get all employee names working FROM site "Ile de Nantes", sorted by first name
--- TODO: SELECT ...
+SELECT first_name, last_name from employees inner join sites on employees.site_id = sites.id where sites.name = "Ile de Nantes" order by employees.first_name;
 -- Expected result: 53 rows
 
 -- Get all the activity names where you have been to, sorted by name
--- TODO: SELECT ...
+SELECT activities.name from activities
+inner join team_building_sessions on activities.id = team_building_sessions.activity_id
+inner join participations on team_building_sessions.id = participations.team_building_session_id
+inner join employees on participations.employee_id = employees.id
+where employees.last_name = "Goguillot";
 -- Expected result: well, it depends on who you are :)
 
 -- [NEW KEYWORD] Get all the team names that have done an Adventure activity, sorted by names
--- TODO: SELECT ...
+SELECT distinct teams.name from teams
+inner join team_building_sessions on team_building_sessions.team_id = teams.id
+inner join activities on activities.id = team_building_sessions.activity_id
+where activities.category = "Adventure"
+order by teams.name;
 -- Expected result:
 -- name
 -- --------------------
@@ -74,7 +82,7 @@
 -- R&D
 
 -- Get the team names and total number of team building sessions done, sorted by top teams
--- TODO: SELECT ...
+SELECT ...
 -- Expected result:
 -- name        total_sessions
 -- ----------  --------------

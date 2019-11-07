@@ -3,20 +3,20 @@
 ---------------------------------------
 
 -- Get all sites
--- TODO: SELECT ...
+SELECT * FROM sites;
 
 -- Get all sites sorted by name
--- TODO: SELECT ...
+SELECT * FROM sites ORDER BY name;
 
 -- Gett all activity names sorted by name
--- TODO: SELECT ...
+SELECT name FROM activities ORDER BY name;
 
 -- Get all "Sport" activities
--- TODO: SELECT ...
+SELECT * FROM activities WHERE category LIKE '%Sport%';
 -- Expected result: 8 rows
 
 -- Get all Escape Games in Nantes
--- TODO: SELECT ...
+SELECT * FROM activities WHERE lower(name) LIKE lower('%Escape Game%') AND city = "Nantes"
 -- Expected result: 3 rows
 
 ---------------------------------------

@@ -1,20 +1,20 @@
 body {
   background-color: #f8f8f8;
   color: #2b2b28;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
 }
 
 h1 {
-  font-size: 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 38px;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 0px;
 
 }
 
 h2 {
   font-size: 40px;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -55,6 +55,13 @@ a {
   }
 }
 
+.header p {
+  font-size: 20px;
+  font-style: italic;
+  color: darkgray;
+  font-weight: lighter;
+}
+
 .calendar {
   display: flex;
   flex-wrap: wrap;
@@ -64,9 +71,11 @@ a {
   /* display: flex; */
   /* flex-basis: 140px; */
   width: 100px;
+  height: 100px;
   padding: 20px;
   margin: 0px;
   align-items: center;
+  vertical-align: middle;
   /* justify-content: space-between; */
   background-color: black;
   color: white;
@@ -74,8 +83,13 @@ a {
   cursor: pointer;
 }
 
+.daycard:hover {
+  background-color: #2b2b28;
+}
+
 .daycard h2 {
   text-align: center;
+  margin: 20px;
 }
 
 .footer {

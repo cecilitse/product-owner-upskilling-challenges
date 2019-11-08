@@ -1,6 +1,6 @@
 body {
   background-color: #f8f8f8;
-  color: white;
+  color: #444;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
   background-size: cover;
@@ -61,7 +61,7 @@ a {
 .header p {
   font-size: 20px;
   font-style: italic;
-  color: darkgray;
+  color: #444;
   font-weight: lighter;
 }
 

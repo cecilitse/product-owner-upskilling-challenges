@@ -4,9 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title><%=@activity["name"]%></title>
+  <%= stylesheet '/style.css' %>
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
-  <%= params[:id] %>
+  <div class="header" style="height: 200px;     background: url(<%= @activity["picture_url"] %>); background-size: cover;background-position: center; padding: 100px 50px;">
+    <h1 class="h1-activity"><%= @activity["name"] %></h1>
+  </div>
+  <div class="content-activity">
+    <div class="card-description">
+      <h3><%=@short_text%></h3>
+      <h4><%= @long_text_1%></h4>
+      <h4><%= @long_text_2%></h4>
+    </div>
+    <div class="card-details-activity">
+      <div class="card-activity">
+          <!-- Nom de la catégorie -->
+          <div>
+            <span class="card-header-activity"><%=@activity["category"]%></span>
+          </div>
+        <!-- Ville, durée, participants et prix -->
+        <div class="card-body-activity">
+          <div class="activity-line">
+              <div class="place">
+                <h5><a href="https://www.google.com/maps/search/<%= @activity["city"]%>" target="_blank"><%= @activity["city"]%> 📍</a></h5>
+              </div>
+              <div class="duration">
+                <h5><span class="number">
+                ⏱ <%= @activity["duration"]%>
+                </span> minutes </h5>
+              </div>
+          </div>
+          <div class="activity-line">
+              <div class="participants">
+                <h5><span class="number">
+                  <%= @activity["participants_count"]%>
+                </span> participants 🤸🏻‍</h5>
+              </div>
+              <div class="price">
+                <h5>💶 <%= @activity["price_eur"]%>,00 €</h5>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="meteo-activity">
+      <h6>La météo à <span class="number"><%= @activity["city"] %></span> :</h6>
+      <%= @weather %>, <%= @temp%>°C
+      </div>
+    </div>
+  </div>
 </body>
 </html>

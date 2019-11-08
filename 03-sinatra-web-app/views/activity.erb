@@ -11,8 +11,8 @@
     <div class="banner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%), url('<%= @activity["img"] %>')";>
       <div class="container container-head">
         <span class="category-detail"><%= @activity["category"].upcase %></span>
-        <h1>Visit of Nantes</h1>
-        <p>Enjoy the machines of this vibrant city close to the Atlantic coast.</p>
+        <h1><%= @activity["name"] %></h1>
+        <p><%= @descriptions[rand(10)]["short"] %></p>
       </div>
     </div>
 
@@ -21,8 +21,7 @@
         <div class="content-left">
           <a class="breadcrumbs" href="../">Retour</a>
           <h2>Description of the activity</h2>
-          <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.
-a</p>
+          <p><%= @descriptions[rand(10)]["long"] %></p>
           <h2>Pictures</h2>
 
 

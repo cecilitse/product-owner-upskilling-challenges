@@ -5,13 +5,13 @@
 }
 
 .content-left {
+  font-size: 14px;
   width: 600px;
   border: 2px;
   /* background-color: red; */
 }
 
 .content-left p {
-  font-size: 14px;
   padding-right: 30px;
 }
 
@@ -23,7 +23,8 @@
 
 .category-detail {
   background-color: green;
-
+  padding: 3px 10px;
+  border-radius: 4px;
 }
 
 .breadcrumbs {
@@ -32,6 +33,7 @@
   display: block;
   height: 30px;
   line-height: 30px;
+  margin-bottom: -20px;
 }
 
 .breadcrumbs:hover {
@@ -96,5 +98,30 @@
 .btn-info {
   background-color: darkgray;
   color: rgb(40,40,40);
+
+}
+
+.quote {
+  font-size: 18px;
+  color: rgb(100,100,100);
+  font-style: italic;
+  padding-left: 20px;
+  margin: 0px 0px 30px 0px;
+  line-height: 16px;
+
+}
+
+.quote::before {
+  content:"«";
+  font-size: 4em;
+  color: lightgray;
+  line-height: 12px;
+}
+
+.quote::after {
+  content:"»";
+  vertical-align: -0.3em;
+  font-size: 4em;
+  color: lightgray;
 
 }

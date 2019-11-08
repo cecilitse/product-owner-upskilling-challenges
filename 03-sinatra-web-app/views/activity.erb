@@ -19,9 +19,11 @@
     <div class="container container-main">
       <div class="container-activity">
         <div class="content-left">
-          <a class="breadcrumbs" href="../">Retour</a>
+          <a class="breadcrumbs" href="../">Back</a>
           <h2>Description of the activity</h2>
           <p><%= @descriptions[rand(10)]["long"] %></p>
+          <h2>What Kanye says</h2>
+          <p class="quote"><%= @quote%></p>
           <h2>Pictures</h2>
 
 
@@ -32,8 +34,8 @@
             <p class="participants-detail">for <%= @activity["number_of_participants"] %> participants</p>
 
           </div>
-          <p class="city-detail"><strong>Location:</strong> <%=  @activity["city"] %></p>
-          <p class="duration-detail"><strong>Duration:</strong> <%= @activity["duration"] %> minutes</p>
+          <p class="city-detail"><strong>🌍</strong> <%=  @activity["city"] %></p>
+          <p class="duration-detail"><strong>🕐</strong> <%= @activity["duration"] %> minutes</p>
           <a href="" class="btn btn-book">Book activity</a>
           <a href="" class="btn btn-info">Ask for information</a>
         </div>

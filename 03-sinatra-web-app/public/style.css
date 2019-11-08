@@ -81,7 +81,7 @@ a:hover{
 }
 .card h2 {
 	flex-grow: 1;
-  padding-left: 20px;
+	margin: 0;
 }
 .card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -92,13 +92,20 @@ a:hover{
 }
 
 .card-title {
-
+	position: relative;
+	padding: 20px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .card-subtitle {
-	text-align: left;
-	margin-block-start: 0em;
-	margin-block-end: 0em;
+	bottom: -0.5em;
+	position: absolute;
+	color: white;
+	padding: 2px 5px;
+	background-color: pink;
 }
+
 .card-img {
 	height: 100px;
 	background-size: cover;

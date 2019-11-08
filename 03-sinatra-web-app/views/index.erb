@@ -19,9 +19,10 @@
         <div class="card">
           <div class="card-title">
             <h2><%= activity["name"] %></h2>
-          </div>
-          <div class="card-subtitle">
-            <p><%= activity["category"] %></p>
+
+          <span class="card-subtitle">
+          <%= activity["category"] %>
+          </span>
           </div>
           <div class="card-img" style="background-image: url(<%= activity["image"] %>);">
 
@@ -32,8 +33,8 @@
           </div>
           <div class="card-footer">
             <div class="card-text-with-icon">
-              <p>👥<%= activity["participants"] %> participants</p>
-              <p>⌚<%= activity["duration"] %> minutes</p>
+              <p>👥 <%= activity["participants"] %> participants</p>
+              <p>⌚ <%= activity["duration"] %> minutes</p>
             </div>
             <div class="card-btn">
               <a href="activities/1" class="btn-pink">Clique</a>

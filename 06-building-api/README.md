@@ -48,7 +48,7 @@ To stop the app, type `Ctrl + c`
 
 As a reminder, here is the **database schema** you'll work with in this exercise:
 
-![Database schema](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/04-databases/02-sql-queries/database-schema.png)
+![The database schema](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/04-databases/02-sql-queries/database-schema.png)
 
 ## Objectives
 

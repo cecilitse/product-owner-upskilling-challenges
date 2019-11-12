@@ -68,6 +68,12 @@ a {
 .calendar {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+}
+
+.daycard-global {
+  position: relative;
+  z-index: 0;
 }
 
 .daycard {
@@ -84,15 +90,35 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  z-index: 1;
+
 }
 
-.daycard:hover {
-  opacity:0.9;
+.daycard-filter {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  position: absolute;
+  vertical-align: middle;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px;
+  margin: 0px;
+
 }
 
-.daycard h2 {
+.daycard-filter h2 {
   text-align: center;
   margin: 20px;
+  color: white;
+}
+
+.daycard-filter:hover {
+  background: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1));
 }
 
 .footer {

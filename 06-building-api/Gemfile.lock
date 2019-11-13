@@ -22,15 +22,18 @@ GEM
       rack-protection (= 2.0.7)
       sinatra (= 2.0.7)
       tilt (~> 2.0)
+    sqlite3 (1.4.1)
     tilt (2.0.9)
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   puma (~> 4.2)
   sinatra (~> 2.0)
   sinatra-contrib (~> 2.0)
+  sqlite3 (~> 1.4)
 
 RUBY VERSION
    ruby 2.6.5p114

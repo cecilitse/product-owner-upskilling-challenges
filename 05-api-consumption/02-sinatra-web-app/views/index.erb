@@ -3,12 +3,90 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Team Building - Activities</title>
-    <%= stylesheet '/style.css' %>
+    <%= stylesheet '/style_05.css' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   </head>
   <body>
-    <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+    <div class="header">
+      <h1>Your teambuilding, now.</h1>
+      <form action="/">
+        <div class="">
+          <label>Choisir une ville</label>
+          <select class="" name="location">
+            <option value="">Toutes</option>
+            <% @cities_filtered.each do |city| %>
+            <option><%=city%></option>
+            <%end%>
+          </select>
+        </div>
+        <div class="">
+          <label>Choisir une catégorie</label>
+          <select class="" name="category">
+            <option value="">Toutes</option>
+            <% @categories_filtered.each do |category| %>
+            <option><%=category%></option>
+            <%end%>
+          </select>
+        </div>
+        <button type="submit" class="btn-blue">Valider</button>
+      </form>
+    </div>
+    <div class="card-list">
+      <% @activities.each do |activity| %>
+      <a href="/activity/<%= activity["id"] %>">
+        <div class="card">
+          <div class="card-header">
+            <!-- Nom de l'activité -->
+            <div class ="card-header-title">
+              <h2><%= activity["name"] %></h2>
+            </div>
+            <!-- Nom de la catégorie -->
+            <div>
+              <span class="card-header-label"><%= activity["category"]%></span>
+            </div>
+          </div>
+
+          <!-- Photo -->
+          <div class="card-picture">
+            <img src="<%= activity["photo_url"] %>" width="300px" height="160px" >
+          </div>
+
+
+          <!-- Ville, durée, participants et prix -->
+          <div class="card-body">
+            <div class="card-body-header">
+              <div class="place">
+                <%= activity["city"]%> 📍
+              </div>
+              <div class="duration">
+                <span class="number">
+                ⏱ <%= activity["duration"]%>
+                </span> minutes
+              </div>
+            </div>
+          </div>
+          <div class="card-body-footer">
+            <div class="participants">
+              <span class="number">
+                <%= activity["participants_count"]%>
+              </span> participants 🤸🏻‍
+            </div>
+            <div class="price">
+              💶 <%= activity["price"]%>,00 €
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+      </a>
+      <% end %>
+    </div>
   </body>
 </html>

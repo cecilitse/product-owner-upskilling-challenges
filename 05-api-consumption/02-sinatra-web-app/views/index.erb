@@ -13,10 +13,11 @@
         <h2>Discover our activities</h2>
       </div>
     </div>
-    <div class="container" style="center">
-    <a href="/" class="btn-pink">Toutes</a>
-    <a href="/?location=Nantes" class="btn-pink">Nantes</a>
-    <a href="/?location=Paris" class="btn-pink">Paris</a>
+    <div class="container">
+      <a href="/" class="btn-pink <%="selected" if nil == @location %>">Toutes</a>
+      <% @cities.each do |city| %>
+      <a href="/?location=<%= city %>" class="btn-pink <%="selected" if city == @location %>"><%= city %></a>
+      <% end %>
     </div>
     <div class="container">
       <div class="cards">

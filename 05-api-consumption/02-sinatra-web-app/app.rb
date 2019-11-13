@@ -10,7 +10,17 @@ enable :static
 get "/" do
   url = "https://team-building-api.cleverapps.io/v2/activities"
   # url = "https://team-building-api.cleverapps.io/v2/activities?city=#{params["location"]}"
-  response = RestClient.get(url, "params" => {"city" => params["location"] })
+  response = RestClient.get(url)
+  all_activities = JSON.parse(response.body)["activities"]
+  @cities = []
+  all_activities.each do |activity|
+    @cities << activity["city"]
+  end
+  @cities.uniq!
+
+  @location = params["location"]
+
+  response = RestClient.get(url, "params" => {"city" => @location })
   @activities = JSON.parse(response.body)["activities"]
 
   erb :index

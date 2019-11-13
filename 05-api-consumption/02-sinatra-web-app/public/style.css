@@ -64,6 +64,14 @@ a:hover{
 	margin-bottom: 10px;
 }
 
+.btn-pink.selected {
+	background-color: red;
+	padding: 10px;
+	border-radius: 4px;
+	color: white;
+	margin-bottom: 10px;
+}
+
 .cards {
 	display: flex;
 	flex-wrap: wrap;

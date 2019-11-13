@@ -17,7 +17,18 @@ get "/" do
 end
 
 namespace "/v1" do
-  # TODO: your code goes here
+  get "/activities" do
+    activities = DB.execute("SELECT * FROM activities order by name;")
+
+    json "activities" => activities
+  end
+
+  get "/activities/:activity_id" do
+    activity = DB.execute("SELECT * FROM activities where id = #{params["activity_id"].to_i};")
+
+    json "activity" => activity
+  end
+
 end
 
 namespace "/doc" do

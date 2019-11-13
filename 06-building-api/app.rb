@@ -35,8 +35,10 @@ namespace "/v2" do
   get "/activities" do
     parameters = ""
 
+p params
 
       params.each_with_index do |(key, value), index|
+        if value && value != ""
           if index == 0
             parameters = "WHERE "
           else
@@ -56,6 +58,9 @@ namespace "/v2" do
 
           end
         end
+      end
+
+        p parameters
 
     activities = DB.execute("SELECT * FROM activities #{parameters} order by name;")
 
@@ -66,7 +71,25 @@ namespace "/v2" do
   get "/activities/:activity_id" do
     activity = DB.execute("SELECT * FROM activities where id = #{params["activity_id"].to_i};")
 
-    json "activity" => activity
+    json "activity" => activity.first
+  end
+
+  get "/categories" do
+    categories = DB.execute("SELECT distinct category as name FROM activities order by name;")
+
+    # categories.find().to_a.each do |cat|
+    #   cat["name"] = cat.delete "category"
+    # end
+
+    json "categories" => categories
+
+  end
+
+  get "/cities" do
+    cities = DB.execute("SELECT distinct city as name FROM activities order by name;")
+
+    json "cities" => cities
+
   end
 
 end

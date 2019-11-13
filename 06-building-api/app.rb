@@ -31,6 +31,46 @@ namespace "/v1" do
 
 end
 
+namespace "/v2" do
+  get "/activities" do
+    parameters = ""
+
+
+      params.each_with_index do |(key, value), index|
+          if index == 0
+            parameters = "WHERE "
+          else
+            parameters << "AND "
+          end
+
+          case key
+
+          when "search"
+            parameters << "name like '%#{value.downcase}%' "
+
+          when "city"
+            parameters << "lower(city) = '#{value.downcase}' "
+
+          when "category"
+            parameters << "lower(category) = '#{value.downcase}' "
+
+          end
+        end
+
+    activities = DB.execute("SELECT * FROM activities #{parameters} order by name;")
+
+    json "activities" => activities
+
+  end
+
+  get "/activities/:activity_id" do
+    activity = DB.execute("SELECT * FROM activities where id = #{params["activity_id"].to_i};")
+
+    json "activity" => activity
+  end
+
+end
+
 namespace "/doc" do
   get { erb :"doc/index" }
 

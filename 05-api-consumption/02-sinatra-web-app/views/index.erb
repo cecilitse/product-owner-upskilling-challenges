@@ -3,12 +3,51 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Team Building - Activities</title>
     <%= stylesheet '/style.css' %>
   </head>
   <body>
-    <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+    <div class="banner">
+      <div class="container">
+        <h1>Team building activies</h1>
+        <h2>Discover our activities</h2>
+      </div>
+    </div>
+    <div class="container" style="center">
+    <a href="/" class="btn-pink">Toutes</a>
+    <a href="/?location=Nantes" class="btn-pink">Nantes</a>
+    <a href="/?location=Paris" class="btn-pink">Paris</a>
+    </div>
+    <div class="container">
+      <div class="cards">
+        <% @activities.each do |activity| %>
+        <div class="card">
+          <div class="card-title">
+            <h2><%= activity["name"] %></h2>
+
+          <span class="card-subtitle">
+          <%= activity["category"] %>
+          </span>
+          </div>
+          <div class="card-img" style="background-image: url(<%= activity["photo_url"] %>);">
+
+          </div>
+          <div class="card-text">
+            <p><%= activity["city"] %></p>
+            <p><%= activity["price"] %>€</p>
+          </div>
+          <div class="card-footer">
+            <div class="card-text-with-icon">
+              <p>👥 <%= activity["participants_count"] %> participants</p>
+              <p>⌚ <%= activity["duration"] %> minutes</p>
+            </div>
+            <div class="card-btn">
+              <a href="activities/<%= activity["id"] %>" class="btn-pink">Clique</a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>

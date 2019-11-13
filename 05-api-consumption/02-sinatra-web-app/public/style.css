@@ -1,1 +1,170 @@
-/* Add any styling you want */
+@import url("https://fonts.googleapis.com/css?family=Merriweather|Raleway");
+
+body {
+  font-family: "Raleway";
+  font-size: 16px;
+  margin: 0px;
+}
+
+h1 {
+  font-family: "Merriweather";
+}
+
+a {
+  text-decoration: none;
+}
+a:hover{
+	background-color: yellow;
+}
+
+@media (max-width: 960px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (max-width: 720px) {
+  .container {
+    width: 500px;
+  }
+}
+@media (max-width: 540px) {
+  .container {
+    width: 300px;
+  }
+}
+
+.banner {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0,0,0,0.1)),
+	url(https://images.unsplash.com/photo-1525183995014-bd94c0750cd5);
+	background-size: cover;
+	background-position: center;
+	height: 200px;
+	padding: 100px 0px;
+	text-align: center;
+}
+.banner h1 {
+	margin: 0px;
+	padding-top: 0px;
+  color: black;
+  font-weight: lighter;
+  font-size: 50px;
+}
+.banner h2 {
+	color: black;
+	font-size: 30px;
+	font-weight: bold;
+	opacity: 0.8;
+}
+
+.btn-pink {
+	background-color: pink;
+	padding: 10px;
+	border-radius: 4px;
+	color: white;
+	margin-bottom: 10px;
+}
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+}
+.card {
+	justify-content: space-between;
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow: 0 10px 30px rgba(0,0,0,.1);
+	flex-basis: 250px;
+	flex-grow: 1;
+	margin: 10px;
+	width: 100px;
+	text-align: center;
+}
+.card h2 {
+	flex-grow: 1;
+	margin: 0;
+}
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  width: 900px;
+	margin: 0px auto;
+}
+
+.card-title {
+	position: relative;
+	padding: 20px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.card-subtitle {
+	bottom: -0.5em;
+	position: absolute;
+	color: white;
+	padding: 2px 5px;
+	background-color: pink;
+}
+
+.card-img {
+	height: 100px;
+	background-size: cover;
+	background-position: center;
+}
+.card-text {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	justify-content: space-between;
+	padding: 10px;
+}
+.card-footer {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	justify-content: space-between;
+	padding: 10px;
+	align-items: flex-end;
+}
+.card-text-with-icon {
+	text-align: left;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+.card-text-with-icon p {
+	margin-bottom: 0;
+}
+.card-btn {
+	text-align: center;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.card-alone {
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow: 0 10px 30px rgba(0,0,0,.1);
+	margin: 10px;
+	margin-top: -50px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	float: center;
+	background-color: white;
+}
+
+.banner-small {
+	background-size: cover;
+	background-position: center;
+	height: 100px;
+	padding: 100px 0px;
+	text-align: center;
+}
+.banner-small h1 {
+	margin: 0px;
+	padding-top: 0px;
+  color: white;
+  font-weight: lighter;
+  font-size: 50px;
+}

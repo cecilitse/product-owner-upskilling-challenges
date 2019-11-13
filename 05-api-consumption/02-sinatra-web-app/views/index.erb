@@ -19,9 +19,16 @@
       </div>
     </div>
     <div class="container container-main">
-
       <h3>Our activities to build your team</h3>
-      <div class="filters">Location : <a href="/?location=Nantes">Nantes</a> <a href="/?location=Paris">Paris</a></div>
+        <div class="filters">
+          <div class="filter">Location : <a href="/" class="filter-item <%= "selected" unless @category %>">All</a> <a href="/?location=Nantes&category=<%= @category %>" class="filter-item <%= "selected" if "Nantes" == @location %>">Nantes</a> <a href="/?location=Paris&category=<%= @category %>" class="filter-item <%= "selected" if "Paris" == @location %>">Paris</a></div>
+          <div class="filter">Category : <a href="/" class="filter-item <%= "selected" unless @category %>">All</a>
+            <% @categories.each do |category| %>
+              <a href="/?category=<%= category %>&location=<%= @location %>" class="filter-item <%= "selected" if category == @category %>"><%= category %></a>
+            <% end %>
+          </div>
+          <div class="filter">Search: <input type="text"></div>
+        </div>
         <div class="cards">
          <% @activities.each do |activity| %>
           <div class="card">

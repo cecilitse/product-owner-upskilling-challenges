@@ -5,15 +5,31 @@ require "sinatra"
 require "sinatra/link_header"
 require "sinatra/reloader" if development?
 
+require "set"
+
 enable :static
 
 get "/" do
   url = "https://team-building-api.cleverapps.io/v2/activities"
-  response = RestClient.get(url)
+  response = RestClient.get(url, "params" => { "city" => params["location"], "category" => params["category"] })
   payload = JSON.parse(response.body)
 
-  @activities = payload["activities"].select {|activities| activities["city"] == params["location"]}
+  @location = params["location"]
+  @category = params["category"]
 
+  @activities = payload["activities"]
+
+  url_cat = "https://team-building-api.cleverapps.io/v2/activities"
+  response_cat = RestClient.get(url_cat)
+  payload_cat = JSON.parse(response_cat.body)["activities"]
+
+  cat_list = Set[]
+
+  payload_cat.each do |activity|
+    cat_list.add(activity["category"])
+  end
+
+  @categories = cat_list.to_a
 
   erb :index
 end

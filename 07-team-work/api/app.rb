@@ -104,3 +104,10 @@ namespace "/doc" do
     end
   end
 end
+
+namespace "/services" do
+  get "/sites" do
+    sites = DB.execute("SELECT * FROM sites;")
+    json "sites" => sites
+  end
+end

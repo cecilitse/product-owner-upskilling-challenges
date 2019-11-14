@@ -33,12 +33,6 @@ end
 
 namespace "/v2" do
   get "/activities" do
-    # [POSSIBLE QUERIES]
-    # 1. SELECT * FROM activities ORDER BY name
-    # 2. SELECT * FROM activities WHERE lower(name) LIKE "%Escape Game%" ORDER BY name
-    # 3. SELECT * FROM activities WHERE city = "Nantes" ORDER BY name
-    # 4. SELECT * FROM activities WHERE category = "Adventure" ORDER BY name
-    # 5. SELECT * FROM activities WHERE lower(name) LIKE "%Escape Game%" AND city = "Nantes" AND category = "Adventure" ORDER BY name
 
     conditions = []
     filters    = {}
@@ -75,6 +69,45 @@ namespace "/v2" do
     activity   = activities.first
 
     json "activity" => activity
+  end
+
+  get "/teams" do
+    teams = DB.execute("SELECT * FROM teams ORDER BY name")
+    json "teams" => teams
+  end
+
+  get "/wishes" do
+
+    conditions = []
+    filters    = {}
+
+    if params["team_id"] && !params["team_id"].empty?
+      conditions << "team_id = :team_id"
+      filters["team_id"] = params["team_id"]
+    end
+
+    if params["activity_id"] && !params["activity_id"].empty?
+      conditions << "activity_id = :activity_id"
+      filters["activity_id"] = params["activity_id"]
+    end
+
+    if filters.empty?
+      query = "SELECT * FROM team_favorite_activities"
+    else
+      query = "SELECT * FROM team_favorite_activities WHERE #{conditions.join(" AND ")}"
+    end
+
+    wishes = DB.execute(query, filters)
+
+    json "wishes" => wishes
+  end
+
+  get "/wishes/:id" do
+    id         = params["id"].to_i
+    wishes = DB.execute("SELECT * FROM team_favorite_activities WHERE id = ?", id)
+    wish   = wishes.first
+
+    json "wish" => wish
   end
 end
 

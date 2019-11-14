@@ -73,13 +73,16 @@ margin: 2px 0px;
 }
 
 .btn-detail {
-	background-color: #f58a07;
+/*	background-color: #f58a07;
 	color: white;
 	padding: 5px 10px;
 	border-radius: 4px;
 	font-weight: bold;
 	font-size: 14px;
 	margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);*/
+  background-color: white;
+  color: #6772e5;
   box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
 
 }

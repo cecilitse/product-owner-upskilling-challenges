@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Nosifer|Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+
+    <title>Team Building - Activities</title>
+    <%= stylesheet '/css.css' %>
+  </head>
+  <body>
+   <%= @name%>
+    <%= @duration%>
+    <%= @price%>
+    <%= @city%>
+    <%= @participants%>
+    <%= @category%>
+    <%= @photo_url%>
+
+<!-- header de la page avec nom de l'activité et catégorie -->
+    <div class="details_header">
+        <h1><%= @name%></h1>
+       <span><%= @category%></span>
+    </div>
+
+<!-- image de l'activité, en dessous du header -->
+    <div class="details_banner">
+      <img  src="<%= @photo_url%>">
+    </div>
+
+<!-- détail de l'activité, sous forme de card -->
+    <div class="activity_info">
+      <%= @duration%>
+      <%= @price%>
+      <%= @city%>
+      <%= @participants%>
+    </div>
+
+
+
+  </body
+  </html>

@@ -1,0 +1,177 @@
+/* Add any styling you want */
+.banner {
+	background-image: linear-gradient(-220deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%), url(../images/banner.jpg);
+	color:white;
+	padding : 10px 0px;
+	background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+  height: 250px;
+
+}
+
+.banner h1 {
+  font-size: 50px;
+  font-family: source sans pro;
+  text-align:center;
+}
+.banner h2 {
+	font-size: 30px;
+	font-weight: lighter;
+  opacity: 0.8;
+  font-family: source sans pro;
+  text-align: center;
+
+}
+
+.activity_card {
+  background: white;
+  box-shadow: 5px 5px 10px rgba(37, 36, 36, 0.3);
+  font-family: source sans pro;
+  border-radius: 5px;
+  height: 350px;
+  width: 300px;
+  padding-bottom: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
+  }
+
+  .activity_card:hover {
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    font-family: source sans pro;
+    border-radius: 5px;
+    height: 350px;
+    width: 300px;
+    padding-bottom: 5px;
+    opacity:0.3;
+    }
+
+  img {
+    width:300px;
+    height: 150px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    opacity: 0.8;
+  }
+  .content {
+    margin-top:20px;
+    justify-content: space-between;
+    display:flex;
+
+  }
+
+
+.btn {
+  background-color: #bd574e;
+  padding: 15px 20px;
+    border-radius: 4px;
+  color: #110133;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: source sans pro;
+
+}
+
+
+
+
+.card_title h2 {
+  text-align: center;
+  margin-top:10px;
+  margin-bottom: 0px;
+  color:#fb5b5a;
+  font-weight: lighter;
+  font-size:30px;
+  text-overflow: ellipsis;
+}
+
+.card_content{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.card_footer {
+  display:flex;
+  justify-content: space-around;
+  padding-top:15px;
+  border-top-color: #00918e;
+  border-top-style: dotted;
+  border-top-width: 1px;
+}
+.card_footer_element {
+  width:100px;
+  text-align: center;
+  color: #42dee1;
+}
+
+.card_footer_element span {
+  color:#9fdfcd;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.card_footer_element p {
+  color:#bc4873;
+  font-weight: bolder;
+}
+
+.card_subtitle {
+  text-align: center;
+  justify-content: space-between;
+}
+
+/* details.erb CSS */
+
+
+
+.details_banner {
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+color:white;
+background-size: cover;
+background-position: bottom;
+height: 500px;
+width:50%;
+align-content: flex-start
+}
+
+.details_banner img {
+  background-size: cover;
+background-position: bottom;
+height: 500px;
+}
+
+.activity_info {
+  width:50%;
+  align-content: flex-end;
+}
+
+.details_header {
+  font-family: source sans pro;
+  text-align: center;
+}
+
+.details_header h1 {
+  font-size:70px;
+  color:#537ec5;
+  font-weight: bolder
+}
+
+
+.details_header span {
+  color:#f39422;
+  font-size:40px;
+}
+
+.filter {
+  height:100px;
+  width:auto;
+  background-color:grey;
+}

@@ -92,4 +92,16 @@ namespace "/doc" do
       erb :"doc/v2/activities"
     end
   end
+
+  namespace "/v2" do
+    get "/wishes" do
+      erb :"doc/v2/wishes"
+    end
+  end
+
+  namespace "/v2" do
+    get "/teams" do
+      erb :"doc/v2/teams"
+    end
+  end
 end

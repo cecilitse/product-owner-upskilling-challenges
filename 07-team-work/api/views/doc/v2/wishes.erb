@@ -1,0 +1,153 @@
+<h1>Wishes</h1>
+
+<h2>List all wishes</h2>
+
+<p>
+  By default, this endpoint retrieves all the wishes.
+  <br>
+  Wishes can be filtered by activity_id or by team_id.
+</p>
+
+<h3>Endpoint</h3>
+
+<code>GET /v2/wishes</code>
+
+<h3>Parameters</h3>
+
+<p>Use them to filter out the results.</p>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Filter</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>activity_id</code></td>
+      <td>true</td>
+      <td>
+        When provided, it returns only the wishes matching the given activity_id.
+        <br>
+        You can try it out with <code>1</code> and <code>2</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>team_id</code></td>
+      <td>true</td>
+      <td>
+        <p>
+          When provided, it returns only the wishes matching the given team_id.
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Request example</h3>
+
+<code>curl "/v2/wishes?team_id=13"</code>
+
+<h3>Response example</h3>
+
+<pre><code>{
+  "wishes": [
+    {
+      "id": 1,
+      "team_id": 13,
+      "activity_id": 22
+    },
+    {
+      "id": 2,
+      "team_id": 13,
+      "activity_id": 30
+    }
+  ]
+}</code></pre>
+
+<hr>
+
+<h2>Get one specific wish</h2>
+
+<p>
+  This endpoint retrieves the details of one specific wish.
+</p>
+
+<h3>Endpoint</h3>
+
+<code>GET /v2/wishes/:id</code>
+
+<h3>Parameters</h3>
+
+<p>No expected parameters for this endpoint.</p>
+
+<h3>Request example</h3>
+
+<code>curl "/v2/wishes/13"</code>
+
+<h3>Response example</h3>
+
+<pre><code>{
+  "wish": {
+      "id": 13,
+      "team_id": 1,
+      "activity_id": 22
+    }
+}</code></pre>
+
+<h2>Add a new wish</h2>
+
+<p>
+  This endpoint adds a new wish.
+</p>
+
+<h3>Endpoint</h3>
+
+<code>POST /v2/wishes/</code>
+
+<h3>Body</h3>
+
+<pre><code>
+team_id = 1
+activity_id = 22
+</code></pre>
+
+<h3>Request example</h3>
+
+<code>curl "/v2/wishes/" -X POST -d "team_id=1&activity_id=22" </code>
+
+<h3>Response example</h3>
+
+<pre><code>
+{
+  "wish": {
+      "id": 56,
+      "team_id": 1,
+      "activity_id": 22
+    }
+}
+</code></pre>
+
+<aside class="notice">Cette endpoint retourne un code HTTP Status 201.</aside>
+
+<h2>Delete one specific wish</h2>
+
+<p>
+  This endpoint deletes one specific wish.
+</p>
+
+<h3>Endpoint</h3>
+
+<code>DELETE /v2/wishes/:id</code>
+
+<h3>Parameters</h3>
+
+<p>No expected parameters for this endpoint.</p>
+
+<h3>Request example</h3>
+
+<code>curl "/v2/wishes/13" -X DELETE </code>
+
+<aside class="notice">Cette endpoint retourne un code HTTP Status 204 (No Content)</aside>

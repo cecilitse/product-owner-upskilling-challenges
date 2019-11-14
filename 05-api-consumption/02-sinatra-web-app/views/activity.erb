@@ -6,6 +6,7 @@
 
     <title>Team Building - Activity 1</title>
     <%= stylesheet '/style.css' %>
+    <script src="https://kit.fontawesome.com/57e59f05ad.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="banner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%), url('<%= @activity["photo_url"] %>')";>
@@ -38,6 +39,7 @@
           <p class="duration-detail"><strong>🕐</strong> <%= @activity["duration"] %> minutes</p>
           <a href="" class="btn btn-book">Book activity</a>
           <a href="" class="btn btn-info">Ask for information</a>
+          <a href="" class="btn btn-wishlist"><i class="fas fa-heart"></i> Add to wishlist</a>
         </div>
       </div>
     </div>

@@ -153,13 +153,22 @@ button{
 	background-color: #6B72E1;
 	color: white;
   border-radius: 4px;
-  margin: 0px 20px;
+  margin: 0px 10px;
 }
 .card-header-favorite{
+  font-size: 12px;
   padding: 5px 10px;
-	background-color: #6B72E1;
+	background-color: #7ECE90;
 	color: white;
-  border-radius: 4px;
+  border-radius: 15px;
+  margin: 0px 10px;
+}
+.card-header-no-favorite{
+  font-size: 12px;
+  padding: 5px 10px;
+	background-color: rgba(220,220,220,0.9);
+	color: white;
+  border-radius: 15px;
   margin: 0px 20px;
 }
 .favorites{

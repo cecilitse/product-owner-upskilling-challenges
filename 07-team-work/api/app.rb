@@ -74,9 +74,17 @@ namespace "/v2" do
     activities = DB.execute("SELECT * FROM activities WHERE id = ?", id)
     activity   = activities.first
 
-    sites = DB.execute("SELECT s.id as id, s.name as name FROM sites as s JOIN site_favorite_activities as sfa ON sfa.site_id = s.id WHERE sfa.activity_id = ?", id)
-    p sites
-    activity["favorite_sites"] = sites
+    sites_favorited = DB.execute("SELECT s.id as id, s.name as name FROM sites as s JOIN site_favorite_activities as sfa ON sfa.site_id = s.id WHERE sfa.activity_id = ?", id)
+    sites = DB.execute("SELECT id,name FROM sites;")
+
+    sites.each do |site|
+      if sites_favorited.any? {|site_favorited| site["id"] == site_favorited["id"] }
+        site["isFavorite"] = true
+      else
+        site["isFavorite"] =false
+      end
+    end
+    activity["sites"] = sites
     json "activity" => activity
   end
 end

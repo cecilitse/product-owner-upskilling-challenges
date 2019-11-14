@@ -25,8 +25,9 @@
           <div class="card-blue-buttons">
             <span class="card-header-activity"><%=@activity["category"]%></span>
             <div class="favorites">
-              <span class="card-header-favorite">Ile de Nantes</span>
-              <span class="card-header-favorite">Paris 13ème</span>
+              <% @activity["sites"].each do |site| %>
+              <span class= <%= if site["isFavorite"]==true then "card-header-favorite" else "card-header-no-favorite" end%> ><%=site["name"]%></span>
+              <% end %>
             </div>
           </div>
         <!-- Ville, durée, participants et prix -->

@@ -10,14 +10,16 @@ require "set"
 enable :static
 
 get "/" do
-  url = "http://localhost:4567/v2/activities"
-  response = RestClient.get(url, "params" => { "city" => params["location"], "category" => params["category"] })
-  payload = JSON.parse(response.body)
+  url = "http://localhost:4567"
+
+  url_act = url << "/v2/activities"
+  response_act = RestClient.get(url_act, "params" => { "city" => params["location"], "category" => params["category"] })
+  payload_act = JSON.parse(response_act.body)
 
   @location = params["location"]
   @category = params["category"]
 
-  @activities = payload["activities"]
+  @activities = payload_act["activities"]
 
   url_cat = "http://localhost:4567/v2/activities"
   response_cat = RestClient.get(url_cat)
@@ -35,16 +37,27 @@ get "/" do
 end
 
 get "/activity/:activity_id" do
+  url = "http://localhost:4567"
 
-  url = "http://localhost:4567/v2/activities"
-  response = RestClient.get(url)
-  payload = JSON.parse(response.body)
+  url_act = url << "/v2/activities"
+  response_act = RestClient.get(url_act)
+  payload_act = JSON.parse(response_act.body)
 
-  activities = payload["activities"]
+  activities = payload_act["activities"]
 
   @activity = activities.find {|activity| activity["id"] == params["activity_id"].to_i}
 
+  # url_teams = "/v2/teams"
+  # response_teams = RestClient.get(url_teams)
+  # payload_teams = JSON.parse(response_teams.body)
 
+  # @teams = payload_teams["teams"]
+
+
+  #dummy content for testing
+  test_teams = [{"id" => 1, "name" => "Figgo" }, {"id" => 2, "name" => "Timmi" } ]
+
+  @teams = test_teams
 
   @descriptions = [
       { "short" => "The best activity to build your team.",

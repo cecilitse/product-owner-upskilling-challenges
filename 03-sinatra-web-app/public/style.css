@@ -138,16 +138,18 @@ height: 500px;
 }
 
 .details_header {
-  font-family: Nosifer;
+  font-family: source sans pro;
   text-align: center;
 }
 
 .details_header h1 {
-  font-size:50px;
-  color:#a81c13;
+  font-size:70px;
+  color:#537ec5;
+  font-weight: bolder
 }
 
 
-.details_header h2 {
-  font-family: Nosifer;
+.details_header span {
+  color:#f39422;
+  font-size:40px;
 }

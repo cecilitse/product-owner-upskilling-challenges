@@ -50,11 +50,13 @@ Payload :
          [
            {
             "id": 1,
-            "name": "Ile de Nantes"
+            "name": "Ile de Nantes",
+            "isFavorite": true
            },
            {
              "id": 2,
              "name": "Paris"
+             "isFavorite": true
            }
         ]
        }

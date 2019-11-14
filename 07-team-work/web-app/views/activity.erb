@@ -41,15 +41,22 @@
           <a href="" class="btn btn-info">Ask for information</a>
           <p class="wishlist"><3 Wishlist</p>
           <p class="wishlist-line">Add to wishlist for:</p>
-          <select name="teams-wishlist">
+          <form method="POST" action="/activities/<%= @activity["id"] %>/wishes">
+
+          <select name="add_team">
+            <option value="">Choose a team</option>
             <% @teams.each do |team| %>
-            <option value="<%= team["name"].downcase %>"><%= team["name"] %></option>
+            <option value="<%= team["id"] %>"><%= team["name"] %></option>
             <% end %>
           </select>
+          <input type="submit" value="OK">
+          </form>
           <p class="wishlist-line">Wishlisted by XX teams:</p>
 
           <div class="wishlist-teams">
-            <div class="wishlist-team">Team name <a href="" class="delete-wish">X</a></div>
+            <% @current_activity_teams_wishes.each do |team| %>
+            <div class="wishlist-team"><%= team["name"] %><a href="" class="delete-wish">X</a></div>
+            <% end %>
           </div>
 
         </div>

@@ -53,11 +53,31 @@ get "/activity/:activity_id" do
 
   # @teams = payload_teams["teams"]
 
+  # url_wishes = "/v2/wishes"
+  # params_wishes = {"activity_id" => params["activity_id"].to_i}
+  # response_wishes = RestClient.get(url_wishes, "params" => params_wishes )
+  # payload_wishes = JSON.parse(response_wishes.body)
+
+  # @current_activity_teams_wishes = payload_wishes["wishes"]
+
 
   #dummy content for testing
-  test_teams = [{"id" => 1, "name" => "Figgo" }, {"id" => 2, "name" => "Timmi" } ]
+  test_teams = [{"id" => 1, "name" => "Figgo" }, {"id" => 2, "name" => "Timmi" }, {"id" => 3, "name" => "Cleemy" } ]
+
+  test_wishes = [{"id" => 1, "team_id" => 1, "activity_id" => 1 }, {"team_id" => 3, "activity_id" => 1 } ]
 
   @teams = test_teams
+
+
+  test_wishes.each do |wish|
+    wish["name"] = test_teams.find { |team| team["id"] == wish["team_id"] }["name"]
+  end
+
+  @current_activity_teams_wishes = test_wishes
+
+  p  test_wishes
+
+
 
   @descriptions = [
       { "short" => "The best activity to build your team.",
@@ -97,5 +117,12 @@ get "/activity/:activity_id" do
 
 
   erb :activity
+end
+
+post "activities/:activity_id/wishes" do
+
+  params["add_team"]
+
+  redirect to("activities/:activity_id/")
 end
 

@@ -109,6 +109,14 @@ namespace "/v2" do
 
     json "wish" => wish
   end
+
+  post "/wishes" do
+    team_id = params["team_id"].to_i
+    activity_id = params["activity_id"].to_i
+    DB.execute("INSERT INTO team_favorite_activities (team_id, activity_id) VALUES (#{team_id}, #{activity_id})")
+    new_wish = DB.execute("SELECT * FROM team_favorite_activities WHERE id = ?", DB.last_insert_row_id)
+    json "wish" => new_wish
+  end
 end
 
 namespace "/doc" do

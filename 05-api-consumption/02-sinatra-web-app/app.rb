@@ -50,7 +50,6 @@ get "/activity/:id" do
   response_activity_parsed = JSON.parse(response_activity)
   @activity = response_activity_parsed["activity"]
 
-  p response_activity_parsed
   location = @activity["city"]
   url_meteo = "https://api.openweathermap.org/data/2.5/weather?q=#{location},fr&appid=#{token}"
 

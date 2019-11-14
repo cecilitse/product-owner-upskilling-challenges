@@ -16,7 +16,7 @@
       <form action="/">
         <div class="scroll-down">
           <label class="label-select">Choisir une ville</label>
-          <select class="" name="location">
+          <select class="select" name="location">
             <option <%="selected" if @city == nil %> value="">Toutes</option>
             <% @cities_filtered.each do |city| %>
             <option <%="selected" if @city == city %> ><%=city%></option>
@@ -25,7 +25,7 @@
         </div>
         <div class="scroll-down">
           <label class="label-select">Choisir une catégorie</label>
-          <select class="" name="category">
+          <select class="select" name="category">
             <option <%="selected" if @category == nil %> value="">Toutes</option>
             <% @categories_filtered.each do |category| %>
             <option <%="selected" if @category == category %> ><%=category%></option>

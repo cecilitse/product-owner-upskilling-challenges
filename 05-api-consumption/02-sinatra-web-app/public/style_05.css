@@ -10,6 +10,9 @@ body{
   color: white;
   font-family: 'Roboto', sans-serif;
 }
+.select{
+  align-content: left;
+}
 .btn-blue{
 	background-color: #6B72E1;
 	color: white;

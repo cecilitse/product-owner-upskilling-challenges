@@ -5,24 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Team Building - Activities</title>
-    <%= stylesheet "/style.css" %>
+    <%= stylesheet '/style.css' %>
+    <script src="https://kit.fontawesome.com/57e59f05ad.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Activities</h1>
-    <a href="/?location=Nantes">Nantes</a>
-    <a href="/?location=Paris">Paris</a>
+    <div class="banner" style=" background-image: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%), url('https://images.unsplash.com/photo-1566140967404-b8b3932483f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');">
+      <div class="container container-head">
+        <h1>BILDI - Teambuilding to help you build your team</h1>
+        <p>
+          Build your team. A built team is better than a team not built.
+        </p>
 
-    <% @activities.each do |activity| %>
-      <h2>
-        <a href="/activities/<%= activity["id"] %>"><%= activity["name"] %></a>
-        <small>[<%= activity["category"].upcase %>]</small>
-      </h2>
-      <ul>
-        <li>Located in <%= activity["city"] %></li>
-        <li>Duration of <%= activity["duration"] %> minutes</li>
-        <li>For <%= activity["participants_count"] %> participants</li>
-        <li>Charged <%= activity["price"] %>€</li>
-      </ul>
-    <% end %>
+
+      </div>
+    </div>
+    <div class="container container-main">
+      <h3>Our activities to build your team</h3>
+        <div class="filters">
+          <div class="filter">Location : <a href="/" class="filter-item <%= "selected" unless @category %>">All</a> <a href="/?location=Nantes&category=<%= @category %>" class="filter-item <%= "selected" if "Nantes" == @location %>">Nantes</a> <a href="/?location=Paris&category=<%= @category %>" class="filter-item <%= "selected" if "Paris" == @location %>">Paris</a></div>
+          <div class="filter">Category : <a href="/" class="filter-item <%= "selected" unless @category %>">All</a>
+            <% @categories.each do |category| %>
+              <a href="/?category=<%= category %>&location=<%= @location %>" class="filter-item <%= "selected" if category == @category %>"><%= category %></a>
+            <% end %>
+          </div>
+          <div class="filter">Search: <input type="text"></div>
+        </div>
+        <div class="cards">
+         <% @activities.each do |activity| %>
+          <div class="card">
+            <div class="card-img" title="<%= activity["name"] %>" style="background-image: url('<%= activity["photo_url"] %>')"></div>
+            <div class="detail">
+              <p class="category"><%= activity["category"].upcase %></p>
+              <h3><%= activity["name"] %></h3>
+              <div class="inline-details">
+                <p class="city"><%= activity["city"] %></p>
+                <p class="participants"><%=  activity["participants_count"] %> part.</p>
+              </div>
+              <div class="inline-details">
+                <p class="duration"><%=  activity["duration"] %> minutes</p>
+
+              </div>
+
+            </div>
+            <div class="card-right">
+              <div class="price"><%=  activity["price"] %> €</div>
+              <a class="btn-detail" href="/activity/<%= activity["id"] %>">See more</a>
+            </div>
+          </div>
+        <% end %>
+
+        </div>
+
+    </div>
+    <div class="footer">
+
+    </div>
+
   </body>
 </html>

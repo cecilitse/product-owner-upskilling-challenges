@@ -1,0 +1,64 @@
+/* Main containers to center content on the page */
+
+.container {
+	width: 800px;
+}
+
+@media (max-width: 960px) {
+  /* For a screen < 960px, this CSS will be read */
+  .container {
+    width: 700px;
+  }
+}
+@media (max-width: 720px) {
+  /* For a screen < 720px, this CSS will be read */
+  .container {
+    width: 500px;
+  }
+}
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+  .container {
+    width: 300px;
+  }
+}
+
+.container-head {
+  margin: 50px auto;
+
+}
+
+.container-main {
+  margin: 20px auto;
+}
+
+.filters {
+
+}
+
+.filter {
+  font-size: 14px;
+  margin: 15px auto;
+  padding-left: 20px;
+  text-align: left;
+}
+
+
+.filter-item {
+  border: 1px solid #6772e5;
+  padding: 3px 10px;
+  margin: 5px 5px;
+  border-radius: 4px;
+  color: #6772e5;
+}
+
+.filter-item:hover {
+  border: 1px solid #838bea;
+  color: #838bea;
+  box-shadow: 0px 4px 7px rgba(0,0,0,0.1);
+}
+
+.selected {
+  background-color: #6772e5;
+  color: white;
+}

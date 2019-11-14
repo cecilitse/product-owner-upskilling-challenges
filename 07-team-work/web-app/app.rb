@@ -51,5 +51,24 @@ get "/activities/:id" do
 
   @activity = payload["activity"]
 
+  url_long_text = "https://baconipsum.com/api/?type=meat-and-filler&paras=2"
+  response_long_text = RestClient.get(url_long_text)
+  long_text = JSON.parse(response_long_text.body)
+  @long_text_1 = long_text[0]
+  @long_text_2 = long_text[1]
+
+  url_short_text = "https://api.kanye.rest/?format=text"
+  response_short_text = RestClient.get(url_short_text)
+  @short_text = response_short_text
+
+  token = "048897f9918dda0120bedd713adeaea4"
+  location = @activity["city"]
+  url_meteo = "https://api.openweathermap.org/data/2.5/weather?q=#{location},fr&appid=#{token}"
+
+  response_meteo = RestClient.get(url_meteo)
+  meteo_json = JSON.parse(response_meteo)
+  @weather = meteo_json["weather"][0]["main"]
+  @temp = (meteo_json["main"]["temp"] - 273.15).round(1)
+
   erb :show
 end

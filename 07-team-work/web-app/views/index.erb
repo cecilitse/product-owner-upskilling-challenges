@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Building - Activities</title>
-    <%= stylesheet '../public/style.css' %>
+    <%= stylesheet '/style.css' %>
 
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
 
@@ -37,7 +37,7 @@
     </div>
     <div class="card-list">
       <% @activities.each do |activity| %>
-      <a href="/activity/<%= activity["id"] %>">
+      <a href="/activities/<%= activity["id"] %>">
         <div class="card">
           <div class="card-header">
             <!-- Nom de l'activité -->

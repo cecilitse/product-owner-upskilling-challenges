@@ -73,8 +73,7 @@ site: {
        "address": "Adventure",
        "city": "Nantes",
        "zip_code": 60,
-       "favorite_activities": {
-         [
+       "favorite_activities": [
            {
               "id": 1,
               "name": "Escape Game - La Ligue Des Gentlemen",
@@ -96,7 +95,6 @@ site: {
               "photo_url": "https://laliguedesgentlemen.com/wp-content/uploads/2018/01/lu-920x500-c-center.jpg"
            }
         ]
-       }
    }
 ```
 ### Ecriture

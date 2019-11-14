@@ -74,6 +74,9 @@ namespace "/v2" do
     activities = DB.execute("SELECT * FROM activities WHERE id = ?", id)
     activity   = activities.first
 
+    sites = DB.execute("SELECT s.id as id, s.name as name FROM sites as s JOIN site_favorite_activities as sfa ON sfa.site_id = s.id WHERE sfa.activity_id = ?", id)
+    p sites
+    activity["favorite_sites"] = sites
     json "activity" => activity
   end
 end

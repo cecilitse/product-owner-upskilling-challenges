@@ -154,6 +154,21 @@ button{
 	color: white;
   border-radius: 4px;
   margin: 0px 20px;
+}
+.card-header-favorite{
+  padding: 5px 10px;
+	background-color: #6B72E1;
+	color: white;
+  border-radius: 4px;
+  margin: 0px 20px;
+}
+.favorites{
+  margin-top: 5px;
+}
+.card-blue-buttons{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   position: absolute;
   top: -15px;
 }

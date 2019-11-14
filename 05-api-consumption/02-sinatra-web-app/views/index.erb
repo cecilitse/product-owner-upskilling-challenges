@@ -14,21 +14,21 @@
     <div class="header">
       <h1>Your teambuilding, now.</h1>
       <form action="/">
-        <div class="">
-          <label>Choisir une ville</label>
+        <div class="scroll-down">
+          <label class="label-select">Choisir une ville</label>
           <select class="" name="location">
-            <option value="">Toutes</option>
+            <option <%="selected" if @city == nil %> value="">Toutes</option>
             <% @cities_filtered.each do |city| %>
-            <option><%=city%></option>
+            <option <%="selected" if @city == city %> ><%=city%></option>
             <%end%>
           </select>
         </div>
-        <div class="">
-          <label>Choisir une catégorie</label>
+        <div class="scroll-down">
+          <label class="label-select">Choisir une catégorie</label>
           <select class="" name="category">
-            <option value="">Toutes</option>
+            <option <%="selected" if @category == nil %> value="">Toutes</option>
             <% @categories_filtered.each do |category| %>
-            <option><%=category%></option>
+            <option <%="selected" if @category == category %> ><%=category%></option>
             <%end%>
           </select>
         </div>

@@ -3,6 +3,13 @@ body{
   font-weight: 100;
   color: rgb(90, 90, 90);
 }
+.label-select{
+  color: white;
+}
+.scroll-down{
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
 .btn-blue{
 	background-color: #6B72E1;
 	color: white;

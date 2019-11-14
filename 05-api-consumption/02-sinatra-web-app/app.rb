@@ -9,13 +9,14 @@ enable :static
 
 
 get "/" do
-  url_activities = "https://team-building-api.cleverapps.io/v2/activities"
+  url_activities = "http://localhost:4567/v2/activities"
   response_activities = RestClient.get(url_activities, "params" => {"city" => params["location"], "category" => params["category"]})
   response_parsed = JSON.parse(response_activities)
   @activities = response_parsed["activities"]
   @city = params["location"]
+  @category = params["category"]
 
-  url_general = "https://team-building-api.cleverapps.io/v2/activities"
+  url_general = "http://localhost:4567/v2/activities"
   response_general = RestClient.get(url_general)
   response_general_parsed = JSON.parse(response_general)
 
@@ -44,11 +45,12 @@ get "/activity/:id" do
 
   token = "048897f9918dda0120bedd713adeaea4"
 
-  url_activity = "https://team-building-api.cleverapps.io/v2/activities/#{params[:id].to_i}"
+  url_activity = "http://localhost:4567/v2/activities/#{params[:id].to_i}"
   response_activity = RestClient.get(url_activity)
   response_activity_parsed = JSON.parse(response_activity)
   @activity = response_activity_parsed["activity"]
 
+  p response_activity_parsed
   location = @activity["city"]
   url_meteo = "https://api.openweathermap.org/data/2.5/weather?q=#{location},fr&appid=#{token}"
 
@@ -61,11 +63,9 @@ get "/activity/:id" do
 end
 
 get "/?location=:city" do
-  url_activities_city = "https://team-building-api.cleverapps.io/v2/activities?city=#{params[:city]}"
-  p url_activities_city
+  url_activities_city = "http://localhost:4567/v2/activities?city=#{params[:city]}"
   response_activities_city = RestClient.get(url_activities_city)
   response_activities_city_parsed = JSON.parse(response_activities_city)
-  p response_activities_city_parsed
 
   erb :index
 end

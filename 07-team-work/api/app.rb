@@ -103,7 +103,7 @@ namespace "/v2" do
   end
 
   get "/wishes/:id" do
-    id         = params["id"].to_i
+    id     = params["id"].to_i
     wishes = DB.execute("SELECT * FROM team_favorite_activities WHERE id = ?", id)
     wish   = wishes.first
 
@@ -113,9 +113,20 @@ namespace "/v2" do
   post "/wishes" do
     team_id = params["team_id"].to_i
     activity_id = params["activity_id"].to_i
-    DB.execute("INSERT INTO team_favorite_activities (team_id, activity_id) VALUES (#{team_id}, #{activity_id})")
-    new_wish = DB.execute("SELECT * FROM team_favorite_activities WHERE id = ?", DB.last_insert_row_id)
-    json "wish" => new_wish
+    wishes = DB.execute("SELECT * FROM team_favorite_activities WHERE team_id = #{team_id} AND activity_id = #{activity_id}")
+
+    if wishes == []
+      DB.execute("INSERT INTO team_favorite_activities (team_id, activity_id) VALUES (#{team_id}, #{activity_id})")
+      new_wish = DB.execute("SELECT * FROM team_favorite_activities WHERE id = ?", DB.last_insert_row_id)
+      json "wish" => new_wish
+    end
+
+    # status 200
+  end
+
+  delete "/wishes/:id" do
+    DB.execute("DELETE FROM team_favorite_activities WHERE id = #{params["id"]}")
+
   end
 end
 

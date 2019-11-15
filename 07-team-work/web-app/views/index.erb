@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="container container-main">
-      <h3>Our activities to build your team <i class="fas fa-camera"></i></h3>
+      <h3>Our activities to build your team</h3>
         <div class="filters">
           <div class="filter">Location: <a href="/" class="filter-item <%= "selected" unless @category %>">All</a> <a href="/?location=Nantes&category=<%= @category %>" class="filter-item <%= "selected" if "Nantes" == @location %>">Nantes</a> <a href="/?location=Paris&category=<%= @category %>" class="filter-item <%= "selected" if "Paris" == @location %>">Paris</a></div>
           <div class="filter">Category: <a href="/" class="filter-item <%= "selected" unless @category %>">All</a>
@@ -34,7 +34,7 @@
         </div>
         <div class="cards">
          <% @activities.each do |activity| %>
-          <a href="/activity/<%= activity["id"] %>">
+          <a href="/activities/<%= activity["id"] %>">
             <div class="card">
               <div class="card-img" title="<%= activity["name"] %>" style="background-image: url('<%= activity["photo_url"] %>')"></div>
               <div class="detail">

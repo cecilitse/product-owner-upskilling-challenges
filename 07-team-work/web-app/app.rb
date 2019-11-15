@@ -10,7 +10,7 @@ require "set"
 enable :static
 
 get "/" do
-  url = "http://localhost:4567"
+  url = "http://783724b4.ngrok.io"
 
   url_act = url << "/v2/activities"
   response_act = RestClient.get(url_act, "params" => { "city" => params["location"], "category" => params["category"] })
@@ -36,10 +36,10 @@ get "/" do
   erb :index
 end
 
-get "/activity/:activity_id" do
-  url = "http://localhost:4567"
+get "/activities/:activity_id" do
+  url = "http://783724b4.ngrok.io"
 
-  url_act = url << "/v2/activities"
+  url_act = "http://783724b4.ngrok.io/v2/activities"
   response_act = RestClient.get(url_act)
   payload_act = JSON.parse(response_act.body)
 
@@ -47,18 +47,17 @@ get "/activity/:activity_id" do
 
   @activity = activities.find {|activity| activity["id"] == params["activity_id"].to_i}
 
-  # url_teams = "/v2/teams"
-  # response_teams = RestClient.get(url_teams)
-  # payload_teams = JSON.parse(response_teams.body)
+  url_teams = url + "/v2/teams"
+  response_teams = RestClient.get(url_teams)
+  payload_teams = JSON.parse(response_teams.body)
 
-  # @teams = payload_teams["teams"]
+  @teams = payload_teams["teams"]
 
-  # url_wishes = "/v2/wishes"
-  # params_wishes = {"activity_id" => params["activity_id"].to_i}
-  # response_wishes = RestClient.get(url_wishes, "params" => params_wishes )
-  # payload_wishes = JSON.parse(response_wishes.body)
+  url_wishes = url + "/v2/wishes"
+  params_wishes = {"activity_id" => params["activity_id"].to_i}
+  response_wishes = RestClient.get(url_wishes, "params" => params_wishes )
+  payload_wishes = JSON.parse(response_wishes.body)
 
-  # @current_activity_teams_wishes = payload_wishes["wishes"]
 
 
   #dummy content for testing
@@ -66,16 +65,19 @@ get "/activity/:activity_id" do
 
   test_wishes = [{"id" => 1, "team_id" => 1, "activity_id" => 1 }, {"team_id" => 3, "activity_id" => 1 } ]
 
-  @teams = test_teams
+  # @teams = test_teams
 
 
-  test_wishes.each do |wish|
+  payload_wishes["wishes"].each do |wish|
     wish["name"] = test_teams.find { |team| team["id"] == wish["team_id"] }["name"]
   end
 
-  @current_activity_teams_wishes = test_wishes
+  @current_activity_teams_wishes = payload_wishes["wishes"]
 
-  p  test_wishes
+
+  # @current_activity_teams_wishes = test_wishes
+
+  p  payload_wishes["wishes"]
 
 
 
@@ -121,7 +123,13 @@ end
 
 post "activities/:activity_id/wishes" do
 
-  params["add_team"]
+  url = "http://783724b4.ngrok.io"
+
+  url_wish = url + "/v2/wishes"
+  response_wish = RestClient.post(url_wish, "params" => { "team_id" => params["team_id"], "activity_id" => params["activity_id"].to_i })
+  payload_wish = JSON.parse(response_wish.body)
+
+  p payload_wish
 
   redirect to("activities/:activity_id/")
 end

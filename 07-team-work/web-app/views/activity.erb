@@ -43,7 +43,7 @@
           <p class="wishlist-line">Add to wishlist for:</p>
           <form method="POST" action="/activities/<%= @activity["id"] %>/wishes">
 
-          <select name="add_team">
+          <select name="team_id">
             <option value="">Choose a team</option>
             <% @teams.each do |team| %>
             <option value="<%= team["id"] %>"><%= team["name"] %></option>

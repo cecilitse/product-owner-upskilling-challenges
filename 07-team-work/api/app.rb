@@ -39,33 +39,53 @@ namespace "/v2" do
     # 3. SELECT * FROM activities WHERE city = "Nantes" ORDER BY name
     # 4. SELECT * FROM activities WHERE category = "Adventure" ORDER BY name
     # 5. SELECT * FROM activities WHERE lower(name) LIKE "%Escape Game%" AND city = "Nantes" AND category = "Adventure" ORDER BY name
-
     conditions = []
     filters    = {}
-
     if params["search"] && !params["search"].empty?
       conditions << "lower(name) LIKE :search"
       filters["search"] = "%#{params["search"]}%".downcase
     end
-
     if params["category"] && !params["category"].empty?
       conditions << "category = :category"
       filters["category"] = params["category"]
     end
-
     if params["city"] && !params["city"].empty?
       conditions << "city = :city"
       filters["city"] = params["city"]
     end
-
     if filters.empty?
-      query = "SELECT * FROM activities ORDER BY name"
+      query =
+      <<~SQL
+      SELECT *
+      FROM activities
+      ORDER BY name
+      SQL
     else
       query = "SELECT * FROM activities WHERE #{conditions.join(" AND ")} ORDER BY name"
     end
-
     activities = DB.execute(query, filters)
-
+    all_sites = DB.execute("SELECT * FROM sites")
+    all_favorites = DB.execute("SELECT * FROM site_favorite_activities")
+    # site_favorites_by_activity = {}
+    site_favorites_by_activity = Hash.new { |hash, key| hash[key] = [] }
+    all_favorites.each do |one_favorite|
+      activity_id = one_favorite["activity_id"]
+      site_id     = one_favorite["site_id"]
+      # site_favorites_by_activity[activity_id] ||= []
+      site_favorites_by_activity[activity_id] << site_id
+    end
+    activities.each do |activity|
+      favorite_site_ids = site_favorites_by_activity[activity["id"]] || []
+        all_sites.each do |site|
+          site_favorite = {
+            "id"       => site["id"],
+            "name"     => site["name"],
+            "isFavorite" => favorite_site_ids.include?(site["id"])
+          }
+          activity["site_favorites"] ||= []
+          activity["site_favorites"] << site_favorite
+        end
+     end
     json "activities" => activities
   end
 

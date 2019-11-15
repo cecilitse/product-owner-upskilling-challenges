@@ -26,15 +26,18 @@
           <h2>What Kanye says</h2>
           <p class="quote"><%= @quote%></p>
           <h2>Pictures</h2>
-
+          <div class="photo-album">
+            <div style="background-image: url('https://images.unsplash.com/photo-1511988617509-a57c8a288659')" class = "photo"></div>
+            <div style="background-image: url('https://images.unsplash.com/photo-1529180979161-06b8b6d6f2be')" class = "photo"></div>
+          </div>
 
         </div>
         <div class="content-right">
           <div class="price-box">
             <p class="price-detail"><%= @activity["price"] %>€</p>
             <p class="participants-detail">for <%= @activity["participants_count"] %> participants</p>
-
           </div>
+
           <p class="city-detail"><strong>🌍</strong> <%=  @activity["city"] %></p>
           <p class="duration-detail"><strong>🕐</strong> <%= @activity["duration"] %> minutes</p>
           <a href="" class="btn btn-book">Book activity</a>
@@ -49,37 +52,23 @@
               <option value="<%= team["id"] %>"><%= team["name"] %></option>
               <% end %>
             </select>
-            <input type="submit" value="OK">
+            <input type="submit" value="OK" class="btn-confirm">
           </form>
 
-          <p class="wishlist-line">Wishlisted by <%= @current_activity_teams_wishes.count %> teams:</p>
           <div class="wishlist-teams">
+          <p class="wishlist-line">Wishlisted by <%= @current_activity_teams_wishes.count %> teams:</p>
             <% @current_activity_teams_wishes.each do |wish| %>
               <div class="wishlist-team">
                 <%= wish["team_name"] %>
                 <form method="POST" action="/activities/<%= @activity["id"] %>/wishes/<%= wish["id"] %>">
                   <input type="hidden" name="_method" value="DELETE">
-                  <input type="submit" value="X">
+                  <input type="submit" value="X" class="btn-confirm">
                 </form>
               </div>
             <% end %>
           </div>
 
-          <label class="dropdown">
 
-            <div class="dd-button">
-              <i class="fas fa-heart"> </i> Add to wishlist
-            </div>
-
-            <input type="checkbox" class="dd-input" id="test">
-
-            <ul class="dd-menu">
-              <% @teams.each do |team| %>
-                <li><%= team["name"] %></li>
-              <% end %>
-            </ul>
-
-          </label>
         </div>
       </div>
     </div>

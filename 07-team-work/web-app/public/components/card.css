@@ -31,6 +31,16 @@
   margin-right: 5px;
 }
 
+.photo {
+	width: 200px;
+	height: 200px;
+	background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+	border-radius: 4px;
+  margin-right: 5px;
+}
+
 .card h3 {
 	flex-grow: 1;
 	margin: 0px 0px 2px 0px;

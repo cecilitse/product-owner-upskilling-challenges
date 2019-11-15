@@ -33,6 +33,18 @@ get "/" do
 
   @categories = cat_list.to_a
 
+  url_wishes = "#{url}/v2/wishes"
+  response_wishes = RestClient.get(url_wishes)
+  payload_wishes = JSON.parse(response_wishes.body)["wishes"]
+  wishes_per_activity = payload_wishes.group_by { |wish| wish["activity_id"] }
+  @activities.each do |activity|
+    if wishes_per_activity.key?(activity["id"])
+      activity["wishes_count"] = wishes_per_activity[activity["id"]].size
+    else
+      activity["wishes_count"] = 0
+    end
+  end
+
   erb :index
 end
 
@@ -61,6 +73,7 @@ get "/activities/:activity_id" do
   end
 
   @current_activity_teams_wishes = payload_wishes["wishes"]
+
 
   @descriptions = [
       { "short" => "The best activity to build your team.",

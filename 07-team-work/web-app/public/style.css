@@ -1,1 +1,269 @@
-/* Add any styling you want */
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: rgb(90, 90, 90);
+}
+.label-select{
+  color: rgb(90, 90, 90);
+}
+.scroll-down{
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 20px;
+  padding-top: 5px;
+}
+.select{
+  align-content: left;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(90, 90, 90);
+  border-radius: 4px;
+  border-color: rgb(90, 90, 90);
+}
+.btn-blue{
+	background-color: #6B72E1;
+	color: white;
+	padding: 8px 13px;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  margin-left: 15px;
+}
+.btn-blue:hover{
+	background-color: #515F7F;
+	color: white;
+}
+h1{
+  text-align: left;
+  font-family: 'Roboto',sans-serif;
+  font-size: 50px;
+  font-weight: 150;
+  margin: 0px;
+  color: rgb(90, 90, 90);
+  background-color: rgba(126,206,144,0.6);
+  color: white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  display: inline-block;
+}
+h3{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 150;
+  color: #6B72E1;
+}
+h4{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+h5{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 150;
+  font-size: 20px;
+}
+h6{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 150;
+  font-size: 15px;
+}
+ .favorite_sites {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 18px;
+  position: absolute;
+  bottom: -78px;
+  left: 135px;
+ }
+.h1-activity{
+  background-color: rgba(126,206,144,0.6);
+  color: white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.header{
+  height: 75px;
+  background: url(/images/team-building.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 75px;
+  padding-right: 50px;
+  padding-bottom: 100px;
+  padding-left: 50px;
+}
+.search{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 35px;
+  margin-top: 15px;
+  align-content: center;
+}
+h2{
+  text-align: left;
+  font-family: 'Roboto',sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0px;
+  color: #7ECE90;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+a{
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: rgb(90, 90, 90);
+}
+a:hover{
+  color: black;
+
+}
+button{
+  text-decoration: none;
+}
+.card-list{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
+}
+.card{
+  width: 350px;
+  background: white;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  margin: 20px 20px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+.card-description{
+  background: white;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  margin: 20px 20px;
+  padding: 10px 30px 10px 30px;
+}
+.content-activity{
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+.card-activity{
+  background: white;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  margin: 20px auto;
+  padding-top: 5px;
+  padding-bottom: 40px;
+  position: relative;
+}
+.meteo-activity{
+  background: white;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  margin: 20px auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+}
+.card:hover{
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+.card-header{
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.card-header-title{
+  padding: 0px 20px;
+}
+.card-header-label{
+  padding: 5px 10px;
+	background-color: #6B72E1;
+	color: white;
+  border-radius: 4px;
+  margin: 0px 20px;
+  position: absolute;
+  bottom: -75px;
+}
+.card-header-favorite_sites {
+  background-color: #7ECE90;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+ }
+.card-header-activity{
+  padding: 5px 10px;
+	background-color: #6B72E1;
+	color: white;
+  border-radius: 4px;
+  margin: 0px 10px;
+}
+.card-header-favorite{
+  border: none;
+  font-size: 12px;
+  padding: 5px 10px;
+	background-color: #7ECE90;
+	color: white;
+  border-radius: 15px;
+  margin: 0px 10px;
+}
+.card-header-no-favorite{
+  border: none;
+  font-size: 12px;
+  padding: 5px 10px;
+	background-color: rgba(220,220,220,0.9);
+	color: white;
+  border-radius: 15px;
+  margin: 0px 10px;
+}
+.favorites{
+  display: flex;
+  margin-top: 5px;
+}
+.card-blue-buttons{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -15px;
+}
+.card-picture{
+  width: 300px;
+  height: 160px;
+}
+
+.card-body-header{
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-color: #6B72E1;
+  border-bottom-style: dashed;
+  border-bottom-width: 0.5px;
+}
+.card-body-footer{
+  margin-top: 30px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.activity-line
+{
+  display:flex;
+  justify-content: space-between;
+}
+
+.number{
+  color: #6B72E1;
+  font-weight: bold;
+}
+
+.card-body-activity{
+  padding-top: 10px;
+  scroll-padding-bottom: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+}

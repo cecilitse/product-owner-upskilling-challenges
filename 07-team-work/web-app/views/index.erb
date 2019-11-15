@@ -3,26 +3,100 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Team Building - Activities</title>
-    <%= stylesheet "/style.css" %>
+    <%= stylesheet '/style.css' %>
+​
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+​
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   </head>
   <body>
-    <h1>Activities</h1>
-    <a href="/?location=Nantes">Nantes</a>
-    <a href="/?location=Paris">Paris</a>
-
-    <% @activities.each do |activity| %>
-      <h2>
-        <a href="/activities/<%= activity["id"] %>"><%= activity["name"] %></a>
-        <small>[<%= activity["category"].upcase %>]</small>
-      </h2>
-      <ul>
-        <li>Located in <%= activity["city"] %></li>
-        <li>Duration of <%= activity["duration"] %> minutes</li>
-        <li>For <%= activity["participants_count"] %> participants</li>
-        <li>Charged <%= activity["price"] %>€</li>
-      </ul>
-    <% end %>
+    <div class="header">
+      <h1>Your teambuilding, now.</h1>
+    </div>
+    <div>
+      <form class="search" action="/">
+        <div class="scroll-down">
+          <label class="label-select">Choisir une ville</label>
+          <select class="select" name="location">
+            <option <%="selected" if @city == nil %> value="">Toutes</option>
+            <% @cities_filtered.each do |city| %>
+            <option <%="selected" if @city == city %> ><%=city%></option>
+            <%end%>
+          </select>
+        </div>
+        <div class="scroll-down">
+          <label class="label-select">Choisir une catégorie</label>
+          <select class="select" name="category">
+            <option <%="selected" if @category == nil %> value="">Toutes</option>
+            <% @categories_filtered.each do |category| %>
+            <option <%="selected" if @category == category %> ><%=category%></option>
+            <%end%>
+          </select>
+        </div>
+        <button type="submit" class="btn-blue">Filtrer</button>
+        <a style="margin-left: 10px; padding-top: 5px;" href="/"><u>Réinitialiser les filtres</u></a>
+      </form>
+    </div>
+    <div class="card-list">
+      <% @activities.each do |activity| %>
+      <a href="/activities/<%= activity["id"] %>">
+        <div class="card">
+          <div class="card-header">
+            <!-- Nom de l'activité -->
+            <div class ="card-header-title">
+              <h2><%= activity["name"] %></h2>
+            </div>
+            <!-- Nom de la catégorie & sites favoris -->
+            <div>
+              <div>
+                <span class="card-header-label"><%= activity["category"]%></span>
+              </div>
+              <div class="favorite_sites">
+                <% activity["site_favorites"].each do |site| %>
+                  <span class= <%= if site["isFavorite"] == true then "card-header-favorite_sites"end %>>
+                     <%= site["name"] if site["isFavorite"] == true %>
+                  </span>
+                <% end %>
+              </div>
+            </div>
+            <div>
+              <span class="card-header-label"><%= activity["category"]%></span>
+            </div>
+          </div>
+​
+          <!-- Photo -->
+          <div class="card-picture">
+            <img src="<%= activity["photo_url"] %>" width="350px" height="191px" >
+          </div>
+​
+​
+          <!-- Ville, durée, participants et prix -->
+          <div class="card-body">
+            <div class="card-body-header">
+              <div class="place">
+                <%= activity["city"]%> 📍
+              </div>
+              <div class="duration">
+                <span class="number">
+                ⏱ <%= activity["duration"]%>
+                </span> minutes
+              </div>
+            </div>
+          </div>
+          <div class="card-body-footer">
+            <div class="participants">
+              <span class="number">
+                <%= activity["participants_count"]%>
+              </span> participants 🤸🏻‍
+            </div>
+            <div class="price">
+              💶 <%= activity["price"]%>,00 €
+            </div>
+          </div>
+        </div>
+      </a>
+      <% end %>
+    </div>
   </body>
 </html>

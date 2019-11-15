@@ -10,14 +10,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
-  <div class="header" style="height: 200px;     background: url(<%= @activity["photo_url"] %>); background-size: cover;background-position: center; padding: 100px 50px;">
+  <div class="header" style="height: 200px;     background: url(<%= @activity["photo_url"] %>); background-size: cover;background-position: center;">
+    <div>
+      <a href="/">Voir toutes les activités</a>
+    </div>
     <h1 class="h1-activity"><%= @activity["name"] %></h1>
   </div>
   <div class="content-activity">
     <div class="card-description">
       <h3><%=@short_text%></h3>
-      <h4><%= @long_text_1%></h4>
-      <h4><%= @long_text_2%></h4>
+      <h4><%= @long_text%></h4>
+      <h6>La météo à <span class="number"><%= @activity["city"] %></span> : <%= @weather %>, <%= @temp%>°C</h6>
     </div>
     <div class="card-details-activity">
       <div class="card-activity">
@@ -29,7 +32,7 @@
               <form method="POST" action="/activities/<%=@id%>">
               <input type="hidden" name="isFavorited" value = "<%=site["isFavorite"]%>">
               <input type="hidden" name="siteFavoriteId" value="<%=site["id"]%>">
-              <input class=<%= if site["isFavorite"]==true then "card-header-favorite" else "card-header-no-favorite" end%> type="submit" value=<%=site["name"]%>>
+              <input class=<%= if site["isFavorite"]==true then "card-header-favorite" else "card-header-no-favorite" end%> type="submit" value="<%=site["name"]%>">
               </form>
               <%end%>
             </div>
@@ -57,10 +60,6 @@
               </div>
           </div>
         </div>
-      </div>
-      <div class="meteo-activity">
-      <h6>La météo à <span class="number"><%= @activity["city"] %></span> :</h6>
-      <%= @weather %>, <%= @temp%>°C
       </div>
     </div>
   </div>

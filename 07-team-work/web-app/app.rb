@@ -43,25 +43,31 @@ get "/" do
   erb :index
 end
 
+post "/activities/:id" do
+  #POST API pour la suppression
+  if params["isFavorited"]=="true"
+    url = "http://localhost:4567/services/favorite-deletion"
+  else
+    url = "http://localhost:4567/services/favorite-addition"
+  end
+  payload_services = {
+    :activity_id => params["id"].to_i,
+    :site_id => params["siteFavoriteId"].to_i
+  }
+  payload_services_json = payload_services.to_json
+  addition = RestClient.post(url, payload_services_json)
+  redirect "/activities/#{params["id"]}"
+end
+
 get "/activities/:id" do
   # call API for the activities
   @id       = params["id"]
   url      = "http://localhost:4567/v2/activities/#{@id}"
   response = RestClient.get(url)
   payload  = JSON.parse(response.body)
-
   @activity = payload["activity"]
-
-  # call API for descriptions
-  url_long_text = "https://baconipsum.com/api/?type=meat-and-filler&paras=2"
-  response_long_text = RestClient.get(url_long_text)
-  long_text = JSON.parse(response_long_text.body)
-  @long_text_1 = long_text[0]
-  @long_text_2 = long_text[1]
-
-  url_short_text = "https://api.kanye.rest/?format=text"
-  response_short_text = RestClient.get(url_short_text)
-  @short_text = response_short_text
+  @long_text = payload["activity"]["long_description"]
+  @short_text = payload["activity"]["short_description"]
 
   # call API for meteo
   token = "048897f9918dda0120bedd713adeaea4"
@@ -74,30 +80,4 @@ get "/activities/:id" do
   @temp = (meteo_json["main"]["temp"] - 273.15).round(1)
 
   erb :show
-end
-
-post "/activities/:id" do
-  #POST API pour la suppression
-  if params["isFavorited"]=="true"
-    url_deletion = "http://localhost:4567/services/favorite-deletion"
-
-    payload_services = {
-      :activity_id => params["id"].to_i,
-      :site_id => params["siteFavoriteId"].to_i
-    }
-    payload_services_json = payload_services.to_json
-
-    deletion = RestClient.post(url_deletion, payload_services_json)
-  else
-    url_addition = "http://localhost:4567/services/favorite-addition"
-
-  payload_services = {
-    :activity_id => params["id"].to_i,
-    :site_id => params["siteFavoriteId"].to_i
-  }
-  payload_services_json = payload_services.to_json
-
-  addition = RestClient.post(url_addition, payload_services_json)
-  end
-  erb:show
 end

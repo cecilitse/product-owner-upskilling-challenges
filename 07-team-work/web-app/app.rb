@@ -39,13 +39,11 @@ end
 get "/activities/:activity_id" do
   url = "http://783724b4.ngrok.io"
 
-  url_act = "#{url}/v2/activities"
+  url_act = "#{url}/v2/activities/#{params["activity_id"]}"
   response_act = RestClient.get(url_act)
   payload_act = JSON.parse(response_act.body)
 
-  activities = payload_act["activities"]
-
-  @activity = activities.find {|activity| activity["id"] == params["activity_id"].to_i}
+  @activity = payload_act["activity"]
 
   url_teams = url + "/v2/teams"
   response_teams = RestClient.get(url_teams)

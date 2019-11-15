@@ -45,8 +45,8 @@ end
 
 get "/activities/:id" do
   # call API for the activities
-  id       = params["id"]
-  url      = "http://localhost:4567/v2/activities/#{id}"
+  @id       = params["id"]
+  url      = "http://localhost:4567/v2/activities/#{@id}"
   response = RestClient.get(url)
   payload  = JSON.parse(response.body)
 
@@ -73,6 +73,31 @@ get "/activities/:id" do
   @weather = meteo_json["weather"][0]["main"]
   @temp = (meteo_json["main"]["temp"] - 273.15).round(1)
 
-
   erb :show
+end
+
+post "/activities/:id" do
+  #POST API pour la suppression
+  if params["isFavorited"]=="true"
+    url_deletion = "http://localhost:4567/services/favorite-deletion"
+
+    payload_services = {
+      :activity_id => params["id"].to_i,
+      :site_id => params["siteFavoriteId"].to_i
+    }
+    payload_services_json = payload_services.to_json
+
+    deletion = RestClient.post(url_deletion, payload_services_json)
+  else
+    url_addition = "http://localhost:4567/services/favorite-addition"
+
+  payload_services = {
+    :activity_id => params["id"].to_i,
+    :site_id => params["siteFavoriteId"].to_i
+  }
+  payload_services_json = payload_services.to_json
+
+  addition = RestClient.post(url_addition, payload_services_json)
+  end
+  erb:show
 end

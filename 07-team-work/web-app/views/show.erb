@@ -26,8 +26,12 @@
             <span class="card-header-activity"><%=@activity["category"]%></span>
             <div class="favorites">
               <% @activity["sites"].each do |site| %>
-              <span class= <%= if site["isFavorite"]==true then "card-header-favorite" else "card-header-no-favorite" end%> ><%=site["name"]%></span>
-              <% end %>
+              <form method="POST" action="/activities/<%=@id%>">
+              <input type="hidden" name="isFavorited" value = "<%=site["isFavorite"]%>">
+              <input type="hidden" name="siteFavoriteId" value="<%=site["id"]%>">
+              <input class=<%= if site["isFavorite"]==true then "card-header-favorite" else "card-header-no-favorite" end%> type="submit" value=<%=site["name"]%>>
+              </form>
+              <%end%>
             </div>
           </div>
         <!-- Ville, durée, participants et prix -->

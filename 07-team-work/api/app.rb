@@ -118,15 +118,17 @@ namespace "/v2" do
     if wishes == []
       DB.execute("INSERT INTO team_favorite_activities (team_id, activity_id) VALUES (#{team_id}, #{activity_id})")
       new_wish = DB.execute("SELECT * FROM team_favorite_activities WHERE id = ?", DB.last_insert_row_id)
+      status 201
       json "wish" => new_wish
+    else
+      status 204
     end
 
-    # status 200
   end
 
   delete "/wishes/:id" do
     DB.execute("DELETE FROM team_favorite_activities WHERE id = #{params["id"]}")
-
+    status 204
   end
 end
 

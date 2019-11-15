@@ -14,7 +14,7 @@
 
 <ul>
   <li>
-    Activities are <strong>sorted</strong> by alphabetical order.
+    Activities are <strong>sorted</strong> by alphabetical order or popularity (with parameter "sort").
   </li>
   <li>
     There is <strong>no pagination</strong>.
@@ -74,6 +74,21 @@
         When provided, it returns only the activities which name contains the given value.
         <br>
         Note that it is <strong>case insensitive</strong>.
+      </td>
+    </tr>
+    <tr>
+      <td><code>sort</code></td>
+      <td>true</td>
+      <td>
+        When provided, it sorts activities. If not provided activities are sorted by name.
+        <p>
+          Available sorting options:
+        </p>
+        <ul>
+          <li><code>name</code></li>
+          <li><code>popularity (number of times an activity is wishlisted by a team)</code></li>
+
+        </ul>
       </td>
     </tr>
   </tbody>

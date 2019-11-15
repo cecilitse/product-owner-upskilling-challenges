@@ -52,7 +52,7 @@ namespace "/v2" do
       filters["city"] = params["city"]
     end
 
-    query = "SELECT * FROM activities"
+    query = "SELECT activities.* FROM activities"
 
     if params["sort"] == "popularity"
       query << " LEFT JOIN team_favorite_activities ON team_favorite_activities.activity_id = activities.id "
@@ -63,10 +63,12 @@ namespace "/v2" do
     end
 
     if params["sort"] == "popularity"
-      query << "GROUP BY activities.name ORDER BY count(team_favorite_activities.id) DESC, name"
+      query << "GROUP BY activities.name ORDER BY count(team_favorite_activities.id) DESC"
     else
       query << " ORDER BY name"
     end
+
+    p query
 
     activities = DB.execute(query, filters)
 

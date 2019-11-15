@@ -51,7 +51,7 @@
           </select>
           <input type="submit" value="OK">
           </form>
-          <p class="wishlist-line">Wishlisted by XX teams:</p>
+          <p class="wishlist-line">Wishlisted by <%= @current_activity_teams_wishes.count %> teams:</p>
 
           <div class="wishlist-teams">
             <% @current_activity_teams_wishes.each do |team| %>

@@ -45,39 +45,22 @@ get "/activities/:activity_id" do
 
   @activity = payload_act["activity"]
 
-  url_teams = url + "/v2/teams"
+  url_teams = "#{url}/v2/teams"
   response_teams = RestClient.get(url_teams)
   payload_teams = JSON.parse(response_teams.body)
 
   @teams = payload_teams["teams"]
 
-  url_wishes = url + "/v2/wishes"
+  url_wishes = "#{url}/v2/wishes"
   params_wishes = {"activity_id" => params["activity_id"].to_i}
   response_wishes = RestClient.get(url_wishes, "params" => params_wishes )
   payload_wishes = JSON.parse(response_wishes.body)
-
-
-
-  #dummy content for testing
-  test_teams = [{"id" => 1, "name" => "Figgo" }, {"id" => 2, "name" => "Timmi" }, {"id" => 3, "name" => "Cleemy" } ]
-
-  test_wishes = [{"id" => 1, "team_id" => 1, "activity_id" => 1 }, {"team_id" => 3, "activity_id" => 1 } ]
-
-  # @teams = test_teams
-
 
   payload_wishes["wishes"].each do |wish|
     wish["name"] = @teams.find { |team| team["id"] == wish["team_id"] }["name"]
   end
 
   @current_activity_teams_wishes = payload_wishes["wishes"]
-
-
-  # @current_activity_teams_wishes = test_wishes
-
-  p  payload_wishes["wishes"]
-
-
 
   @descriptions = [
       { "short" => "The best activity to build your team.",
@@ -112,23 +95,18 @@ get "/activities/:activity_id" do
       "}
     ]
 
-
   @quote = JSON.parse(RestClient.get("https://api.kanye.rest").body)["quote"]
-
 
   erb :activity
 end
 
 post "/activities/:activity_id/wishes" do
-  p params
 
   url = "http://783724b4.ngrok.io"
 
   url_wish = "#{url}/v2/wishes"
   response_wish = RestClient.post(url_wish, { "team_id" => params["team_id"], "activity_id" => params["activity_id"]})
   payload_wish = JSON.parse(response_wish.body)
-
-  p payload_wish
 
   redirect to("activities/#{params["activity_id"]}")
 end

@@ -30,7 +30,7 @@
               <a href="/?category=<%= category %>&location=<%= @location %>" class="filter-item <%= "selected" if category == @category %>"><%= category %></a>
             <% end %>
           </div>
-          <div class="filter">Search: <input type="text"></div>
+          <%# <div class="filter">Search: <input type="text"></div> %>
         </div>
         <div class="cards">
          <% @activities.each do |activity| %>

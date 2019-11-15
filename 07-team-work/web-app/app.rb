@@ -121,15 +121,16 @@ get "/activities/:activity_id" do
   erb :activity
 end
 
-post "activities/:activity_id/wishes" do
+post "/activities/:activity_id/wishes" do
+  p params
 
   url = "http://783724b4.ngrok.io"
 
   url_wish = "#{url}/v2/wishes"
-  response_wish = RestClient.post(url_wish, "params" => { "team_id" => params["team_id"], "activity_id" => params["activity_id"].to_i })
+  response_wish = RestClient.post(url_wish, { "team_id" => params["team_id"], "activity_id" => params["activity_id"]})
   payload_wish = JSON.parse(response_wish.body)
 
   p payload_wish
 
-  redirect to("activities/:activity_id/")
+  redirect to("activities/#{params["activity_id"]}")
 end

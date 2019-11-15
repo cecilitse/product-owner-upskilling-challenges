@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://kit.fontawesome.com/57e59f05ad.js" crossorigin="anonymous"></script>
     <title>Team Building - Activity 1</title>
     <%= stylesheet '/style.css' %>
-    <script src="https://kit.fontawesome.com/57e59f05ad.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="banner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%), url('<%= @activity["photo_url"] %>')";>
@@ -59,6 +58,21 @@
             <% end %>
           </div>
 
+          <label class="dropdown">
+
+            <div class="dd-button">
+              <i class="fas fa-heart"> </i> Add to wishlist
+            </div>
+
+            <input type="checkbox" class="dd-input" id="test">
+
+            <ul class="dd-menu">
+              <% @teams.each do |team| %>
+                <li><%= team["name"] %></li>
+              <% end %>
+            </ul>
+
+          </label>
         </div>
       </div>
     </div>

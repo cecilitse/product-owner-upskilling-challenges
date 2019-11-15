@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed");
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab&display=swap');
 
 @import url("/components/container.css");
 @import url("/components/avatar.css");
@@ -8,18 +9,19 @@
 
 
 body {
-  font-family: Open Sans;
+  font-family: 'Lato', sans-serif;
   font-size: 18px;
   margin:0px;
+  color: #525f7f;
 }
 
 h1, h2, h3 {
-  font-family: Roboto Condensed;
+  font-family: 'Roboto Slab', serif;
   font-weight: bold;
 }
 
 a {
   text-decoration: none;
-
+  color: #525f7f;
 }
 /* Add any styling you want */

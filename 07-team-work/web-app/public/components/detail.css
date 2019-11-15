@@ -8,7 +8,6 @@
   font-size: 14px;
   width: 600px;
   border: 2px;
-  /* background-color: red; */
 }
 
 .content-left p {
@@ -18,11 +17,10 @@
 .content-right {
   width: 200px;
   border: 2px;
-  /* background-color: blue; */
 }
 
 .category-detail {
-  background-color: green;
+  background-color: #3ecf8e;
   padding: 3px 10px;
   border-radius: 4px;
 }
@@ -75,6 +73,31 @@
   padding: 0px 10px;
   font-size: 16px;
 
+}
+
+.wishlist {
+  padding: 0px 10px;
+  font-size: 16px;
+  margin: 5px 0px;
+}
+
+.wishlist-line {
+  font-size: 14px;
+  padding: 0px 10px;
+  margin: 5px 0px;
+}
+
+.wishlist-teams {
+  font-size: 13px;
+  padding: 5px 20px;
+}
+
+.wishlist-team {
+  margin: 2px 0px;
+}
+
+.delete-wish {
+  padding: 0px 10px;
 }
 
 .btn {
@@ -136,4 +159,89 @@
   font-size: 4em;
   color: lightgray;
 
+}
+
+/* Button dropdown*/
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 10px 10px;
+  font-size: 14px;
+  background-color: white;
+  color: #EE6F6F;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/*.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #EE6F6F;
+}*/
+
+.dd-button:hover {
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 10px;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  list-style-type: none;
+  font-size:14px;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+}
+
+.dd-input:checked + .dd-menu {
+  display: block;
+}
+
+.dd-menu li {
+  padding: 5px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color: #f6f6f6;
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
 }

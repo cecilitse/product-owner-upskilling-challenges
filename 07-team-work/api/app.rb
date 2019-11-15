@@ -52,10 +52,20 @@ namespace "/v2" do
       filters["city"] = params["city"]
     end
 
-    if filters.empty?
-      query = "SELECT * FROM activities ORDER BY name"
+    query = "SELECT * FROM activities"
+
+    if params["sort"] == "popularity"
+      query << " LEFT JOIN team_favorite_activities ON team_favorite_activities.activity_id = activities.id "
+    end
+
+    unless filters.empty?
+      query << " WHERE #{conditions.join(" AND ")}"
+    end
+
+    if params["sort"] == "popularity"
+      query << "GROUP BY activities.name ORDER BY count(team_favorite_activities.id) DESC, name"
     else
-      query = "SELECT * FROM activities WHERE #{conditions.join(" AND ")} ORDER BY name"
+      query << " ORDER BY name"
     end
 
     activities = DB.execute(query, filters)

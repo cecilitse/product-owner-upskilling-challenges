@@ -87,6 +87,11 @@ namespace "/v2" do
     activity["sites"] = sites
     json "activity" => activity
   end
+
+  get "/sites" do
+    sites = DB.execute("SELECT * FROM sites")
+    json "sites" => sites
+  end
 end
 
 namespace "/doc" do
@@ -106,8 +111,17 @@ namespace "/doc" do
 end
 
 namespace "/services" do
-  get "/sites" do
-    sites = DB.execute("SELECT * FROM sites;")
-    json "sites" => sites
+  before do
+    request.body.rewind
+    @request_payload = JSON.parse(request.body.read)
+    end
+
+  post "/favorite-deletion" do
+    sites = DB.execute("DELETE FROM site_favorite_activities WHERE activity_id=#{@request_payload["activity_id"]} AND site_id=#{@request_payload["site_id"]};")
+    status 204
+  end
+  post "/favorite-addition" do
+    sites = DB.execute("INSERT INTO site_favorite_activities (site_id, activity_id) VALUES (#{@request_payload["site_id"]}, #{@request_payload["activity_id"]});")
+    status 201
   end
 end

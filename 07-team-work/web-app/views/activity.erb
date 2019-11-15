@@ -41,21 +41,27 @@
           <a href="" class="btn btn-info">Ask for information</a>
           <p class="wishlist"><i class="fas fa-heart"> </i> Wishlist</p>
           <p class="wishlist-line">Add to wishlist for:</p>
+
           <form method="POST" action="/activities/<%= @activity["id"] %>/wishes">
-
-          <select name="team_id">
-            <option value="">Choose a team</option>
-            <% @teams.each do |team| %>
-            <option value="<%= team["id"] %>"><%= team["name"] %></option>
-            <% end %>
-          </select>
-          <input type="submit" value="OK">
+            <select name="team_id">
+              <option value="">Choose a team</option>
+              <% @teams.each do |team| %>
+              <option value="<%= team["id"] %>"><%= team["name"] %></option>
+              <% end %>
+            </select>
+            <input type="submit" value="OK">
           </form>
-          <p class="wishlist-line">Wishlisted by <%= @current_activity_teams_wishes.count %> teams:</p>
 
+          <p class="wishlist-line">Wishlisted by <%= @current_activity_teams_wishes.count %> teams:</p>
           <div class="wishlist-teams">
-            <% @current_activity_teams_wishes.each do |team| %>
-            <div class="wishlist-team"><%= team["name"] %><a href="" class="delete-wish">X</a></div>
+            <% @current_activity_teams_wishes.each do |wish| %>
+              <div class="wishlist-team">
+                <%= wish["team_name"] %>
+                <form method="POST" action="/activities/<%= @activity["id"] %>/wishes/<%= wish["id"] %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="submit" value="X">
+                </form>
+              </div>
             <% end %>
           </div>
 

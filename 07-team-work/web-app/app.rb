@@ -67,13 +67,15 @@ get "/activities/:activity_id" do
   params_wishes = {"activity_id" => params["activity_id"].to_i}
   response_wishes = RestClient.get(url_wishes, "params" => params_wishes )
   payload_wishes = JSON.parse(response_wishes.body)
+  p payload_wishes
 
   payload_wishes["wishes"].each do |wish|
-    wish["name"] = @teams.find { |team| team["id"] == wish["team_id"] }["name"]
+    wish["team_name"] = @teams.find { |team| team["id"] == wish["team_id"] }["name"]
   end
 
   @current_activity_teams_wishes = payload_wishes["wishes"]
 
+  p @current_activity_teams_wishes
 
   @descriptions = [
       { "short" => "The best activity to build your team.",
@@ -120,6 +122,15 @@ post "/activities/:activity_id/wishes" do
   url_wish = "#{url}/v2/wishes"
   response_wish = RestClient.post(url_wish, { "team_id" => params["team_id"], "activity_id" => params["activity_id"]})
   payload_wish = JSON.parse(response_wish.body)
+
+  redirect to("activities/#{params["activity_id"]}")
+end
+
+delete "/activities/:activity_id/wishes/:id" do
+  url = "http://783724b4.ngrok.io"
+
+  url_wish = "#{url}/v2/wishes/#{params["id"]}"
+  response_wish = RestClient.delete(url_wish)
 
   redirect to("activities/#{params["activity_id"]}")
 end

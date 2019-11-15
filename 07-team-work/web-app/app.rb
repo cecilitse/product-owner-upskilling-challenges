@@ -12,7 +12,7 @@ enable :static
 get "/" do
   url = "http://783724b4.ngrok.io"
 
-  url_act = url << "/v2/activities"
+  url_act = "#{url}/v2/activities"
   response_act = RestClient.get(url_act, "params" => { "city" => params["location"], "category" => params["category"] })
   payload_act = JSON.parse(response_act.body)
 
@@ -21,7 +21,7 @@ get "/" do
 
   @activities = payload_act["activities"]
 
-  url_cat = "http://localhost:4567/v2/activities"
+  url_cat = "#{url}/v2/activities"
   response_cat = RestClient.get(url_cat)
   payload_cat = JSON.parse(response_cat.body)["activities"]
 
@@ -39,7 +39,7 @@ end
 get "/activities/:activity_id" do
   url = "http://783724b4.ngrok.io"
 
-  url_act = "http://783724b4.ngrok.io/v2/activities"
+  url_act = "#{url}/v2/activities"
   response_act = RestClient.get(url_act)
   payload_act = JSON.parse(response_act.body)
 
@@ -69,7 +69,7 @@ get "/activities/:activity_id" do
 
 
   payload_wishes["wishes"].each do |wish|
-    wish["name"] = test_teams.find { |team| team["id"] == wish["team_id"] }["name"]
+    wish["name"] = @teams.find { |team| team["id"] == wish["team_id"] }["name"]
   end
 
   @current_activity_teams_wishes = payload_wishes["wishes"]
@@ -125,7 +125,7 @@ post "activities/:activity_id/wishes" do
 
   url = "http://783724b4.ngrok.io"
 
-  url_wish = url + "/v2/wishes"
+  url_wish = "#{url}/v2/wishes"
   response_wish = RestClient.post(url_wish, "params" => { "team_id" => params["team_id"], "activity_id" => params["activity_id"].to_i })
   payload_wish = JSON.parse(response_wish.body)
 
@@ -133,4 +133,3 @@ post "activities/:activity_id/wishes" do
 
   redirect to("activities/:activity_id/")
 end
-

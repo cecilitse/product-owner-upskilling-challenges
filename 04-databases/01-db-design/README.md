@@ -30,7 +30,7 @@ Here are the full requirements:
 - A team is composed of several employees
 - An employee is defined by his/her first name, last name, job title and has a picture URL
 - An employee is attached to only one team and one site
-- A site is defined by its name (e.g. `Ile de Nantes`), address (e.g. `1-3 Rue Michel Columb`), zip code and city
+- A site is defined by its name (e.g. `Graslin`), address (e.g. `18 Rue Scribe`), zip code and city
 - As we already know, an activity is defined by a name, category, city, duration (in minutes), number of participants, price (in euros) and has a photo URL
 - It is possible that some employees of a team are not participating in a team building session (e.g. the ones on holidays, on sick leave or not on the same site)
 

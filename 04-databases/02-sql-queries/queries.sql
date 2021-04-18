@@ -56,7 +56,7 @@
 -- [JOINS]
 ---------------------------------------
 
--- Get all employee names working FROM site "Ile de Nantes", sorted by first name
+-- Get all employee names working FROM site "Graslin", sorted by first name
 -- TODO: SELECT ...
 -- Expected result: 53 rows
 
@@ -95,7 +95,7 @@
 -- Julia       Ivanets     Channels    Paris 13ème
 -- Pierre      Pellan      Channels    Paris 13ème
 
--- [NEW AGGREGATE] Get the budget spent on team building sessions per team, sorted by most expensive to leASt expensive
+-- [NEW AGGREGATE] Get the budget spent on team building sessions per team, sorted by most expensive to least expensive
 -- TODO: SELECT ...
 -- Expected result:
 -- name          total_price
@@ -113,5 +113,5 @@
 -- Expected result:
 -- name           total_sessions
 -- -------------  --------------
--- Ile de Nantes  12
+-- Graslin        12
 -- Paris 13ème    10

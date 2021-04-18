@@ -1,6 +1,6 @@
 # Consuming API from Ruby
 
-You've already requested the Lucca API but from Postman. In this exercise, we'll call the API from a **Ruby program**.
+You've already requested the Team Building API but from Postman. In this exercise, we'll call the API from a **Ruby program**.
 
 ## Setup
 
@@ -15,33 +15,32 @@ code .
 
 In this folder, you will find:
 
-- `search_user.rb` - The first part of the exercise
-- `users_by_role.rb` - The second part of the exercise
+- `search_employee.rb` - The first part of the exercise
+- `employees_by_job_title.rb` - The second part of the exercise
 
 ## Objectives
 
 The goal of this exercise is to implement some of our Postman requests as a Ruby program.
 
-### Searching a user
+### Searching an employee
 
-You will work in the `search_user.rb` file.
+You will work in the `search_employee.rb` file.
 
 Here is the expected behavior:
 
-1. The user of your program is invited to type the name of the person he/she is looking for.
+1. The user of your program is invited to type the name of the employee he/she is looking for.
 2. Your program calls the API.
-3. It displays in the Terminal the person's details.
-
+3. It displays in the Terminal the employee's details.
 
 For instance:
 
-- When typing `Lilly Evans`
+- When typing `Laura Olive`
 - It should display something like:
 
 ```text
-Lilly Evans (levans@example.org)
-Business Developer
-From department of Sales
+Chloé Fluzin (UX designer)
+From team UI / UX
+Working from Paris 13ème
 ```
 
 The first part, asking for the name, is already done for you.
@@ -49,55 +48,54 @@ The first part, asking for the name, is already done for you.
 Try it out! Run the Ruby file from the Terminal:
 
 ```bash
-ruby search_user.rb
+ruby search_employee.rb
 ```
 
 Now it's your turn, complete the exercise.
 
-### Looking for users by role
+### Looking for employees by team
 
-You will work in the `users_by_role.rb` file.
+You will work in the `employees_by_team.rb` file.
 
 This one is a bit more complicated since you'll have to call several endpoints.
 
 Here is the expected behavior:
 
-1. The user is invited to type the name of a role.
+1. The user is invited to type the name of a team.
 2. Your program calls any relevant endpoint of the API.
-3. It displays in the Terminal all the users having the requested role.
-
+3. It displays in the Terminal all the employees having the requested role.
 
 For instance:
 
-- When typing `Figgo - Manager`
+- When typing `UI / UX`
 - It should display something like:
 
 ```text
 Total: 5 people found
 
-Antoine Beaulinette
-Directeur Administratif et Financier
+Clément Troadec
+UI/UX designer
 ---
-Maurice Bouchard
-Assistant de Direction
+Jérémie Biron
+Intégrateur/UI
 ---
-Marie Bragoulet
-Responsable R&D
+Laura Olive
+UX Designer
 ---
-Michel Constant
-Directeur Commercial
+Mélanie Foucher
+UX designer
 ---
-Alexander Doherty
-Responsable commercial UK
+Sandy Goldscheid
+Responsable Us
 ---
 ```
 
-The first part, asking for the role, is already done for you.
+The first part, asking for the team, is already done for you.
 
 Try it out! Run the Ruby file from the Terminal:
 
 ```bash
-ruby users_by_role.rb
+ruby employees_by_team.rb
 ```
 
 Now it's your turn, complete the exercise.

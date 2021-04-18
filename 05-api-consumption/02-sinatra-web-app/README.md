@@ -2,8 +2,6 @@
 
 Now that we know how to call an API from a Ruby program, we'll call an API directly from a **sinatra web app**.
 
-Let's get back to our guiding theme: activities for team building sessions.
-
 ## Setup
 
 Execute the following in the Terminal:

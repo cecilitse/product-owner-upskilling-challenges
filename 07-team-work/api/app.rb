@@ -76,6 +76,107 @@ namespace "/v2" do
 
     json "activity" => activity
   end
+
+  get "/employees" do
+    conditions = []
+    filters    = {}
+
+    if params["first_name"] && !params["first_name"].empty?
+      conditions << "first_name = :first_name"
+      filters["first_name"] = params["first_name"]
+    end
+
+    if params["last_name"] && !params["last_name"].empty?
+      conditions << "last_name = :last_name"
+      filters["last_name"] = params["last_name"]
+    end
+
+    if params["site_id"] && !params["site_id"].empty?
+      conditions << "site_id = :site_id"
+      filters["site_id"] = params["site_id"]
+    end
+
+    if params["team_id"] && !params["team_id"].empty?
+      conditions << "team_id = :team_id"
+      filters["team_id"] = params["team_id"]
+    end
+
+    query = <<~SQL
+      SELECT employees.*, sites.name AS site_name, teams.name AS team_name
+      FROM employees
+      INNER JOIN teams ON teams.id = employees.team_id
+      INNER JOIN sites ON sites.id = employees.site_id
+    SQL
+
+    if filters.any?
+      query << " WHERE #{conditions.join(" AND ")}"
+    end
+
+    query << " LIMIT 35"
+
+    employees = DB.execute(query, filters)
+
+    employees.each do |employee|
+      site_id   = employee.delete("site_id")
+      site_name = employee.delete("site_name")
+
+      team_id   = employee.delete("team_id")
+      team_name = employee.delete("team_name")
+
+      employee["site"] = { "id" => site_id, "name" => site_name }
+      employee["team"] = { "id" => team_id, "name" => team_name }
+    end
+
+    json "employees" => employees
+  end
+
+  get "/sites" do
+    conditions = []
+    filters    = {}
+
+    if params["search"] && !params["search"].empty?
+      conditions << <<~SQL
+        (
+             lower(name)     LIKE :search
+          OR lower(address)  LIKE :search
+          OR lower(zip_code) LIKE :search
+          OR lower(city)     LIKE :search
+        )
+      SQL
+
+      filters["search"] = "%#{params["search"]}%".downcase
+    end
+
+    if filters.empty?
+      query = "SELECT * FROM sites ORDER BY name"
+    else
+      query = "SELECT * FROM sites WHERE #{conditions.join(" AND ")} ORDER BY name"
+    end
+
+    sites = DB.execute(query, filters)
+
+    json "sites" => sites
+  end
+
+  get "/teams" do
+    conditions = []
+    filters    = {}
+
+    if params["search"] && !params["search"].empty?
+      conditions << "lower(name) LIKE :search"
+      filters["search"] = "%#{params["search"]}%".downcase
+    end
+
+    if filters.empty?
+      query = "SELECT * FROM teams ORDER BY name"
+    else
+      query = "SELECT * FROM teams WHERE #{conditions.join(" AND ")} ORDER BY name"
+    end
+
+    teams = DB.execute(query, filters)
+
+    json "teams" => teams
+  end
 end
 
 namespace "/doc" do
@@ -90,6 +191,18 @@ namespace "/doc" do
   namespace "/v2" do
     get "/activities" do
       erb :"doc/v2/activities"
+    end
+
+    get "/employees" do
+      erb :"doc/v2/employees"
+    end
+
+    get "/sites" do
+      erb :"doc/v2/sites"
+    end
+
+    get "/teams" do
+      erb :"doc/v2/teams"
     end
   end
 end

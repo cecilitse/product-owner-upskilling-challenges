@@ -1,0 +1,77 @@
+<h1 id="list-all-sites">Sites</h1>
+
+<h2>List all sites</h2>
+
+<p>
+  By default, this endpoint retrieves all the sites.
+  <br>
+  Sites can be filtered by name, address, zip code or city.
+</p>
+
+<p>
+  Things to consider:
+</p>
+
+<ul>
+  <li>
+    Sites are <strong>sorted</strong> by alphabetical order based on their name.
+  </li>
+  <li>
+    There is <strong>no pagination</strong>.
+  </li>
+</ul>
+
+<h3>Endpoint</h3>
+
+<code>GET /v2/sites</code>
+
+<h3>Parameters</h3>
+
+<p>Use them to filter out the results.</p>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Filter</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>search</code></td>
+      <td>true</td>
+      <td>
+        When provided, it returns only the sites which name, address, zip code
+        or city contains the given value.
+        <br>
+        Note that it is <strong>case insensitive</strong>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Request example</h3>
+
+<code>curl "/v2/sites"</code>
+
+<h3>Response example</h3>
+
+<pre><code>{
+  "sites": [
+    {
+      "id": 2,
+      "name": "Graslin",
+      "address": "18 Rue Scribe",
+      "zipcode": "44000",
+      "city": "Nantes"
+    },
+    {
+      "id": 1,
+      "name":  "Paris 13ème",
+      "address": "13 rue Martin Bernard",
+      "zipcode": "75013",
+      "city": "Paris"
+    }
+  ]
+}</code></pre>

@@ -1,0 +1,140 @@
+<h1 id="list-all-employees">Employees</h1>
+
+<h2>List all employees</h2>
+
+<p>
+  By default, this endpoint retrieves all the employees.
+  <br>
+  Employees can be filtered by first name, last name, team ID or site ID.
+</p>
+
+<p>
+  Things to consider:
+</p>
+
+<ul>
+  <li>
+    Employees are <strong>not sorted</strong>.
+  </li>
+  <li>
+    There is <strong>no pagination</strong>.
+    It returns only the first <strong>35 results</strong> found.
+  </li>
+</ul>
+
+<h3>Endpoint</h3>
+
+<code>GET /v2/employees</code>
+
+<h3>Parameters</h3>
+
+<p>Use them to filter out the results.</p>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Filter</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>first_name</code></td>
+      <td>true</td>
+      <td>
+        When provided, it returns only the employees matching the given first name.
+        <br>
+        You can try it out with <code>Laura</code> and <code>Basile</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>last_name</code></td>
+      <td>true</td>
+      <td>
+        When provided, it returns only the employees matching the given last name.
+        <br>
+        You can try it out with <code>Lucca</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>site_id</code></td>
+      <td>true</td>
+      <td>
+        <p>
+          When provided, it returns only the employees matching the given site ID.
+        </p>
+        <p>
+          Note that if the provided ID does not exist, it will return an empty list.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>team_id</code></td>
+      <td>true</td>
+      <td>
+        <p>
+          When provided, it returns only the employees matching the given team ID.
+        </p>
+        <p>
+          Note that if the provided ID does not exist, it will return an empty list.
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Note that you can combine the filters.</aside>
+
+<h3>Request example</h3>
+
+<code>curl "/v2/employees?team_id=11"</code>
+
+<h3>Response example</h3>
+
+<pre><code>{
+  "employees": [
+    {
+      "id": 29,
+      "first_name": "Harmony",
+      "last_name": "Florin",
+      "job_title": "Consultante Channels",
+      "team": {
+        "id": 11,
+        "name": "Channels"
+      },
+      "site": {
+        "id": 1,
+        "name": "Paris 13ème"
+      }
+    },
+    {
+      "id": 29,
+      "first_name": "Julia",
+      "last_name": "Ivanets",
+      "job_title": "Responsable des partenariats",
+      "team": {
+        "id": 11,
+        "name": "Channels"
+      },
+      "site": {
+        "id": 1,
+        "name": "Paris 13ème"
+      }
+    },
+    {
+      "id": 29,
+      "first_name": "Pierre",
+      "last_name": "Pellan",
+      "job_title": "Partner Account Manager",
+      "team": {
+        "id": 11,
+        "name": "Channels"
+      },
+      "site": {
+        "id": 1,
+        "name": "Paris 13ème"
+      }
+    },
+  ]
+}</code></pre>

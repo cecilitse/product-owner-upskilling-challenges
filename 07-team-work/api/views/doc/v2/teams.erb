@@ -1,0 +1,74 @@
+<h1 id="list-all-teams">Teams</h1>
+
+<h2>List all teams</h2>
+
+<p>
+  By default, this endpoint retrieves all the teams.
+  <br>
+  Teams can be filtered by name.
+</p>
+
+<p>
+  Things to consider:
+</p>
+
+<ul>
+  <li>
+    Teams are <strong>sorted</strong> by alphabetical order based on their name.
+  </li>
+  <li>
+    There is <strong>no pagination</strong>.
+  </li>
+</ul>
+
+<h3>Endpoint</h3>
+
+<code>GET /v2/teams</code>
+
+<h3>Parameters</h3>
+
+<p>Use them to filter out the results.</p>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Filter</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>search</code></td>
+      <td>true</td>
+      <td>
+        When provided, it returns only the teams which name contains the given value.
+        <br>
+        Note that it is <strong>case insensitive</strong>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Request example</h3>
+
+<code>curl "/v2/teams"</code>
+
+<h3>Response example</h3>
+
+<pre><code>{
+  "teams": [
+    {
+      "id": 6,
+      "name": "Business Development",
+    },
+    {
+      "id": 11,
+      "name":  "Channels"
+    },
+    {
+      "id": 7,
+      "name": "Customer Success"
+    }
+  ]
+}</code></pre>

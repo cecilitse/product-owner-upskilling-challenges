@@ -12,6 +12,12 @@ DB_PATH = File.join(__dir__, "db/team_building.sqlite")
 DB      = SQLite3::Database.new(DB_PATH)
 DB.results_as_hash = true
 
+before do
+  if request.get_header("CONTENT_TYPE") == "application/json"
+    params.merge!(JSON.parse(request.body.read))
+  end
+end
+
 get "/" do
   json "name" => "Team Building API", "status" => "Running"
 end

@@ -1,1 +1,390 @@
-/* Add any styling you want */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poiret+One|Roboto+Slab:300,400,700&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+a, a:hover, a:visited {
+  color: black;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.btn {
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-bold {
+  font-weight: bold;
+}
+
+.btn-large {
+  padding: 0.8em 2.7em;
+  font-size: 1.2em;
+}
+
+.btn-fullwidth {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:visited {
+  color: white;
+  background-color: #76EA59;
+}
+
+.btn-default,
+.btn-default:visited {
+  color: white;
+  background-color: #333;
+}
+
+.btn-default:hover {
+  background-color: #444;
+}
+
+.btn-light,
+.btn-light:visited {
+  color: #333;
+  background-color: white;
+}
+
+.btn-light:hover {
+  color: white;
+  background-color: #444;
+}
+
+.btn-outline.btn-default,
+.btn-outline.btn-default:visited {
+  color: #333;
+  border: 1px solid #333;
+  background-color: transparent;
+}
+
+.btn-outline.btn-default:hover {
+  color: white;
+  background-color: #333;
+}
+
+.btn .icon {
+  margin-right: 0.5em;
+}
+
+.btn-light:hover               .icon,
+.btn-outline.btn-default:hover .icon {
+  color: transparent;
+  text-shadow: 0 0 0 white;
+}
+
+/* ---------- LABELS ---------- */
+
+.label {
+  padding: 0.2em 1em;
+  border-radius: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.label-primary {
+  color: white;
+  background-color: #76EA59;
+}
+
+/* ---------- ACTIVITY CARD ---------- */
+
+.activity-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2.5em;
+  max-width: 980px;
+  margin: auto;
+  margin-bottom: 3em;
+  margin-top: 3em;
+}
+
+.activity-card {
+  border: 1px solid #E3E1E1;
+  border-radius: 5px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
+}
+
+.activity-card .category {
+  position: absolute;
+  bottom: -1em;
+  font-size: 0.7em;
+}
+
+.activity-card .link,
+.activity-card .link:hover,
+.activity-card .link:visited {
+  font-size: 0.9em;
+}
+
+.activity-card .picture {
+  height: 195px;
+  background-color: #ddd;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.activity-card .header,
+.activity-details {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.activity-card .header {
+  position: relative;
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+}
+
+.activity-card .header h2 {
+  margin: 0;
+}
+
+/* ---------- ACTIVITY DETAILS ---------- */
+
+.activity-details {
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+}
+
+.activity-details .sub-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+
+.activity-details .sub-header .city,
+.activity-details .sub-header .price {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.3em;
+}
+
+.activity-details .sub-header .price {
+  font-weight: bold;
+}
+
+.activity-details .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.activity-details .details ul {
+  font-family: 'Roboto Slab', serif;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.activity-details .details li {
+  line-height: 1.8em;
+}
+
+.activity-details .details .icon {
+  display: inline-block;
+  margin-right: 0.5em;
+  width: 1em;
+}
+
+/* ---------- ACTIVITY PAGE ---------- */
+
+.activity-page .page-header {
+  position: relative;
+}
+
+.activity-page .category {
+  position: absolute;
+  bottom: -1em;
+  z-index: 1000;
+}
+
+.activity-page .hero {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  box-sizing: border-box;
+  padding: 3em 0;
+  margin-bottom: 7em;
+}
+
+.activity-page .activity-details {
+  position: absolute;
+  top: 350px;
+  width: 460px;
+  padding: 2em;
+  padding-bottom: 3.5em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.activity-page .activity-details .sub-header .city,
+.activity-page .activity-details .sub-header .price {
+  font-size: 2em;
+}
+
+.activity-page .activity-details .details {
+  position: relative;
+}
+
+.activity-page .activity-details .cta {
+  position: absolute;
+  bottom: -5.1em;
+  display: flex;
+  justify-content: center;
+  width: 460px;
+}
+
+/* ---------- CHOICES ---------- */
+
+.choices {
+  padding-left: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.choice {
+  margin: 0.5em 0;
+}
+
+.choice .btn .icon {
+  color: transparent;
+  text-shadow: 0 0 0 #333;
+}
+
+.choice .btn.active .icon,
+.choice .btn:hover  .icon {
+  text-shadow: 0 0 0 red;
+}
+
+.choice .btn.active:hover .icon {
+  text-shadow: 0 0 0 white;
+}
+
+/* ---------- COMPONENTS ---------- */
+
+.components {
+  max-width: 960px;
+  margin: 0 auto 5em;
+}
+
+.components h2 {
+  font-size: 2em;
+}
+
+/* ---------- FILTERS ---------- */
+
+.filters {
+  margin-top: 3em;
+  text-align: center;
+}
+
+.filters .filter {
+  margin: 0 0.2em;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 485px;
+  background-color: #f0dbc2;
+  background-image: url('./banner.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: 'Poiret One', cursive;
+  font-size: 4.5em;
+  font-weight: 400;
+}
+
+.hero h1 small {
+  display: block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+
+/* ---------- PAGE HEADER ---------- */
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.7em;
+}
+
+.page-header h1 {
+  margin: 0;
+}
+
+/* ---------- WISHLIST ---------- */
+
+.wishlist-actions {
+  position: absolute;
+  right: 2em;
+  top: 2em;
+}
+
+.wishlist {
+  position: absolute;
+
+  min-width: 250px;
+  z-index: 1000;
+
+  padding: 2em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
+}
+
+.wishlist-actions .wishlist {
+  top: calc(100% + 0.5em);
+  right: 0;
+}
+
+.wishlist h2 {
+  margin-top: 0;
+}

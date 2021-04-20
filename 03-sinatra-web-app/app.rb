@@ -11,3 +11,7 @@ get "/" do
 
   erb :index
 end
+
+get "/components" do
+  erb :components
+end

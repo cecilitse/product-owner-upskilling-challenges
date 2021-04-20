@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Building - Components</title>
+    <%= stylesheet "/style.css" %>
+  </head>
+  <body>
+    <div class="components">
+      <h1>Components</h1>
+
+      <h2>Labels</h2>
+
+      <span class="label label-primary">FOOD</span>
+
+      <h2>Buttons</h2>
+
+      <p>
+        <a href="#" class="btn btn-default">Button Default</a>
+        <a href="#" class="btn btn-default btn-bold">Button Bold</a>
+        <a href="#" class="btn btn-default btn-large">Button Large</a>
+      </p>
+      <p>
+        <a href="#" class="btn btn-primary">Button Primary</a>
+        <a href="#" class="btn btn-primary btn-bold">Button Bold</a>
+        <a href="#" class="btn btn-primary btn-large">Button Large</a>
+      </p>
+      <p>
+        <a href="#" class="btn btn-default btn-outline">Button Outline</a>
+
+        <a href="#" class="btn btn-default btn-outline">
+          <span class="icon">🖤</span>
+          Button Icon
+        </a>
+      </p>
+
+      <p style="background-color: #f0dbc2; padding: 1em;">
+        <a href="#" class="btn btn-light">Button Light</a>
+        <a href="#" class="btn btn-light">
+          <span class="icon">🖤</span>
+          Button Light
+        </a>
+      </p>
+
+      <p>
+        <a href="#" class="btn btn-default btn-fullwidth">Button Fullwidth</a>
+      </p>
+
+      <p>
+        <a href="#" class="btn btn-primary btn-fullwidth">Button Fullwidth</a>
+      </p>
+
+      <h2>Activity details</h2>
+
+      <div style="width: 400px">
+        <div class="activity-details">
+          <div class="sub-header">
+            <span class="city">Nantes</span>
+            <span class="price">100 euros</span>
+          </div>
+          <div class="details">
+            <ul>
+              <li class="participants">
+                <span class="icon">👥</span> 8 participants
+              </li>
+              <li class="duration">
+                <span class="icon">⏱</span> 40 min
+              </li>
+            </ul>
+            <div class="cta">
+              <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Activity Cards</h2>
+
+      <div class="activity-cards-container">
+        <div class="activity-card">
+          <div class="header">
+            <h2 title="Alternative tour of Nantes">Alternative tour of Nante...</h2>
+            <span class="label label-primary category">Visits</span>
+          </div>
+          <div class="picture" style="background-image: url('https://www.voyage-insolite.com/files/2016/07/la-grand-%C3%A9l%C3%A9phant-nantes.jpg')"></div>
+          <div class="activity-details">
+            <div class="sub-header">
+              <span class="city">Nantes</span>
+              <span class="price">100 euros</span>
+            </div>
+            <div class="details">
+              <ul>
+                <li class="participants">
+                  <span class="icon">👥</span> 8 participants
+                </li>
+                <li class="duration">
+                  <span class="icon">⏱</span> 40 min
+                </li>
+              </ul>
+              <div class="cta">
+                <a href="/activities/25" class="btn btn-bold btn-primary link">Discover</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="header">
+            <h2 title="Canoë Kayak - Nantes Atlantique">Canoë Kayak - Nantes Atla...</h2>
+            <span class="label label-primary category">Sport</span>
+          </div>
+          <div class="picture" style="background-image: url('https://www.floating-nantes.com/wp-content/uploads/bfi_thumb/location-canoe-erdre-nantes-44-o1re7bb7lk4ju37o2rufhx84yb19evl2k7k9u70iog.jpg')"></div>
+          <div class="activity-details">
+            <div class="sub-header">
+              <span class="city">Nantes</span>
+              <span class="price">200 euros</span>
+            </div>
+            <div class="details">
+              <ul>
+                <li class="participants">
+                  <span class="icon">👥</span> 16 participants
+                </li>
+                <li class="duration">
+                  <span class="icon">⏱</span> 120 min
+                </li>
+              </ul>
+              <div class="cta">
+                <a href="/activities/15" class="btn btn-bold btn-primary link">Discover</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="header">
+            <h2 title="Gastronomic menu - 5 courses - Restaurant L'Atlantide 1874 - Maison Guého">Gastronomic menu - 5 cour...</h2>
+            <span class="label label-primary category">Food</span>
+          </div>
+          <div class="picture" style="background-image: url('https://www.aleou.fr/images/prestataires/22225/max/l-atlantide-1874-maison-gueho-nantes-exemple-de-plat_3111.jpg')"></div>
+          <div class="activity-details">
+            <div class="sub-header">
+              <span class="city">Nantes</span>
+              <span class="price">1050 euros</span>
+            </div>
+            <div class="details">
+              <ul>
+                <li class="participants">
+                  <span class="icon">👥</span> 10 participants
+                </li>
+                <li class="duration">
+                  <span class="icon">⏱</span> 90 min
+                </li>
+              </ul>
+              <div class="cta">
+                <a href="/activities/41" class="btn btn-bold btn-primary link">Discover</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Page Header</h2>
+
+      <div class="page-header">
+        <h1>
+          Alternative tour of Nantes
+        </h1>
+      </div>
+
+      <h2>Hero</h2>
+
+      <div class="hero">
+        <h1>
+          Team Building Activities
+          <small>Discover our activities</small>
+        </h1>
+      </div>
+    </div>
+  </body>
+</html>

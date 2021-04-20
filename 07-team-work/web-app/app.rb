@@ -34,3 +34,7 @@ get "/activities/:id" do
 
   erb :show
 end
+
+get "/components" do
+  erb :components
+end

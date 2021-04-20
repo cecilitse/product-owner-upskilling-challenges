@@ -55,7 +55,7 @@ As a reminder, here is the **database schema** you'll work with in this exercise
 The goal is to recreate the [Team Building API](https://team-building-api.cleverapps.io/)
 In the exercise, you have the documentation from the original API, feel free to have a look at it in order to recreate the API.
 
-The documentation is located at [localhost:4567/doc](localhost:4567/doc)
+The documentation is located at [localhost:4567/doc](http://localhost:4567/doc)
 
 ### List all activities
 

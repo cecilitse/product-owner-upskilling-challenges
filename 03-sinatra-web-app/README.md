@@ -80,3 +80,9 @@ When you're done, don't forget to **commit and push** your changes.
 ## Example of design
 
 ![Preview example](https://raw.githubusercontent.com/cecilitse/product-owner-upskilling-challenges/master/03-sinatra-web-app/website-design.png)
+
+## Components
+
+We've prepared a few components that you can pick and use off the shelf.
+
+Head to [localhost:4567/components](http://localhost:4567/components), inspect the DOM and copy the HTML. The CSS is already provided within the `style.css` file.

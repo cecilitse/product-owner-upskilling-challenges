@@ -9,6 +9,35 @@
   </head>
   <body>
     <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+    <div class="activity-cards-container">
+      <% @activities.each do |activity| %>
+          <div class="activity-card">
+            <div class="header">
+              <h2 title="<%= activity["name"] %>"><%= activity["name"] %></h2>
+              <span class="<%= activity["category"].upcase %>"><%= activity["category"].upcase %></span>
+            </div>
+            <div class="picture" style="background-image: url('https://www.voyage-insolite.com/files/2016/07/la-grand-%C3%A9l%C3%A9phant-nantes.jpg')"></div>
+            <div class="activity-details">
+              <div class="sub-header">
+                <span class="<%= activity["city"] %>"><%= activity["city"] %></span>
+                <span class="<%= activity["price"] %>"><%= activity["price"] %></span>
+              </div>
+              <div class="details">
+                <ul>
+                  <li class="<%= activity["number of participants"] %>">
+                    <span class="icon">👥</span> <%= activity["number of participants"] %> participants
+                  </li>
+                  <li class="<%= activity["duration"] %>">
+                    <span class="icon">⏱</span> <%= activity["duration"] %> min
+                  </li>
+                </ul>
+                <div class="cta">
+                  <a href="/activities/25" class="btn btn-bold btn-primary link">Discover</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </body>
 </html>

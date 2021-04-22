@@ -16,7 +16,7 @@ code .
 In this folder, you will find:
 
 - `search_employee.rb` - The first part of the exercise
-- `employees_by_job_title.rb` - The second part of the exercise
+- `employees_by_team.rb` - The second part of the exercise
 
 ## Objectives
 
@@ -38,7 +38,7 @@ For instance:
 - It should display something like:
 
 ```text
-Chloé Fluzin (UX designer)
+Laura Olive (UX designer)
 From team UI / UX
 Working from Paris 13ème
 ```

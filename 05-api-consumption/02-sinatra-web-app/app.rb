@@ -8,7 +8,7 @@ require "sinatra/reloader" if development?
 enable :static
 
 get "/" do
-  activities_url = "https://team-building-api.cleverapps.io/v2/activities"
+  activities_url = "http://localhost:4567/v2/activities"
   response = RestClient.get(activities_url,params: {"city" => params["location"]})
   payload = JSON.parse(response.body)
   @activities = payload["activities"]
@@ -19,7 +19,7 @@ end
 
 get "/activities/:id" do
   id= params["id"]
-  activity_url = "https://team-building-api.cleverapps.io/v2/activities/#{id}"
+  activity_url = "http://localhost:4567/v2/activities/#{id}"
   response = RestClient.get(activity_url)
   payload = JSON.parse(response.body)
   @activity = payload["activity"]

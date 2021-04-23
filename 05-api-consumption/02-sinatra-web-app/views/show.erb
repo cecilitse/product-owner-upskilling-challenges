@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Building - Activities</title>
+    <%= stylesheet '/style.css' %>
+  </head>
+
+  <body>
+    <div class="activity-page">
+      <div class="page-header">
+        <h1 title="/"><%= @activity["name"] %></h1>
+        <span class="label label-primary category"><%=@activity["category"].upcase %></span>
+       </div>
+      <div class="hero" style="background-image: url(<%=@activity["photo_url"]%>)">
+        <div class="activity-details">
+          <div class="sub-header">
+            <span class="city"><%= @activity["city"]%></span>
+            <span class="price"><%= @activity["price"]%> euros</span>
+          </div>
+          <div class="details">
+            <ul>
+              <li class="participants">
+                <span class="icon">👥</span> <%= @activity["participants_count"]%> participants
+              </li>
+              <li class="duration">
+                <span class="icon">⏱</span> <%= @activity["duration"]%>min
+              </li>
+            </ul>
+            <div class="cta">
+              <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+</body>

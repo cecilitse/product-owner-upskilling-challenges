@@ -28,7 +28,7 @@
               <h2 title="name"><%= activity["name"] %></h2>
               <span class="label label-primary category"><%= activity["category"].upcase%></span>
             </div>
-            <div class="picture" style="background-image: url('https://www.voyage-insolite.com/files/2016/07/la-grand-%C3%A9l%C3%A9phant-nantes.jpg')"></div>
+            <div class="picture" style="background-image: url(<%= activity["photo_url"]%>)"></div>
             <div class="activity-details">
               <div class="sub-header">
                 <span class="city"><%= activity["city"] %></span>

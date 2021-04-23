@@ -23,7 +23,52 @@ get "/" do
 end
 
 namespace "/v1" do
-  # TODO: your code goes here
+  get "/activities" do
+    activities = DB.execute("SELECT * FROM activities ORDER BY activities.name ASC;")
+    json "activities" => activities
+  end
+
+  get "/activities/:id" do
+    activity = DB.execute("SELECT * FROM activities WHERE id = #{params["id"]};").first
+    json "activity" => activity
+  end
+end
+
+namespace "/v2" do
+  get "/activities" do
+    city = params["city"]
+    category = params["category"]
+    search  = params["search"]
+
+    array = []
+
+    if city != nil
+      array <<"city = '#{city}'"
+    end
+
+    if category != nil
+      array <<"category = '#{category}'"
+    end
+
+    if search != nil
+      array <<"name like '%#{search}%'"
+    end
+
+    conditions = array.join(" and ")
+
+    if array.empty?
+      activities = DB.execute("SELECT * FROM activities ORDER BY name ASC;")
+    else
+      activities = DB.execute("SELECT * FROM activities WHERE #{conditions} ORDER BY name ASC;")
+    end
+    #activities = DB.execute("SELECT * FROM activities WHERE city = '#{city}' and category = '#{category}' and name LIKE '%#{search}%' ORDER BY name ASC;")
+    json "activities" => activities
+  end
+
+  get "/activities/:id" do
+    activity = DB.execute("SELECT * FROM activities WHERE id = #{params["id"]};").first
+    json "activity" => activity
+  end
 end
 
 namespace "/doc" do

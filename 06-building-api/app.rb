@@ -36,20 +36,29 @@ end
 
 namespace "/v2" do
   get "/activities" do
+    conditions=[]
     city=params["city"]
     category=params["category"]
     search=params["search"]
-    if city
-    activities = DB.execute("select * from activities where city=\"#{city}\" order by name;")
-    elsif category
-    activities = DB.execute("select * from activities where category=\"#{category}\" order by name;")
-    elsif search
-    activities = DB.execute("select * from activities where name like \"%#{search}%\" order by name;")
-    else
-    activities = DB.execute("select * from activities order by activities.name;")
+    if city != nil
+      conditions << "city = '#{city}'"
     end
+    if category != nil
+      conditions << "category = '#{category}'"
+    end
+    if search != nil
+      conditions << "name like '%#{search}%'"
+    end
+
+    if conditions!= []
+      activities = DB.execute("select * from activities where #{conditions.join(" AND ")} order by activities.name;")
+    else
+      activities = DB.execute("select * from activities order by activities.name;")
+    end
+
     json "activities" => activities
   end
+
   get "/activities/:id" do
     activity = DB.execute("select * from activities where id = #{params["id"]}").first
     json "activity" => activity

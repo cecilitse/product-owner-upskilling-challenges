@@ -23,8 +23,39 @@ get "/" do
 end
 
 namespace "/v1" do
-  # TODO: your code goes here
+  get "/activities" do
+    activities = DB.execute("select * from activities order by activities.name;")
+    json "activities" => activities
+  end
+  get "/activities/:id" do
+    activity = DB.execute("select * from activities where id = #{params["id"]}").first
+    json "activity" => activity
+  end
 end
+
+
+namespace "/v2" do
+  get "/activities" do
+    city=params["city"]
+    category=params["category"]
+    search=params["search"]
+    if city
+    activities = DB.execute("select * from activities where city=\"#{city}\" order by name;")
+    elsif category
+    activities = DB.execute("select * from activities where category=\"#{category}\" order by name;")
+    elsif search
+    activities = DB.execute("select * from activities where name like \"%#{search}%\" order by name;")
+    else
+    activities = DB.execute("select * from activities order by activities.name;")
+    end
+    json "activities" => activities
+  end
+  get "/activities/:id" do
+    activity = DB.execute("select * from activities where id = #{params["id"]}").first
+    json "activity" => activity
+  end
+end
+
 
 namespace "/doc" do
   get { erb :"doc/index" }

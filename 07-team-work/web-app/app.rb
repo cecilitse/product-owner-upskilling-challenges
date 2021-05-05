@@ -32,6 +32,12 @@ get "/activities/:id" do
 
   @activity = payload["activity"]
 
+  url_sites     = "http://localhost:4567/v2/sites"
+  response_sites = RestClient.get(url)
+  payload_sites  = JSON.parse(response_sites.body)
+
+  @site = payload_sites["site"]
+
   erb :show
 end
 

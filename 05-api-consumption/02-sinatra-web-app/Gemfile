@@ -7,3 +7,5 @@ gem "sinatra", "~> 2.0"
 gem "sinatra-contrib", "~> 2.0"
 
 gem "rest-client", "~> 2.1"
+
+gem "sqlite3", "~> 1.4"

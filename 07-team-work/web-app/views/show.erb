@@ -6,6 +6,7 @@
 
     <title>Team Building - Activities</title>
     <%= stylesheet '/style.css' %>
+    <script type="text/javascript" src="/script.js"></script>
   </head>
 
   <body>
@@ -31,6 +32,23 @@
             </ul>
             <div class="cta">
               <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
+            </div>
+            <div class="favorites">
+              <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🚀</span> Add to wishlist</a>
+
+              <div class="wishlist hidden" id="wishlist-unique-target-name">
+                <h2>Choose your site</h2>
+                  <% @sites.each do |site| %>
+                  <ul class="choices">
+                    <li class="choice">
+                        <button class="btn btn-default btn-outline">
+                          <span class="icon">🚀</span>
+                          <%= site["name"]%>
+                        </button>
+                    </li>
+                  </ul>
+                  <% end %>
+              </div>
             </div>
           </div>
         </div>

@@ -33,16 +33,16 @@ get "/activities/:id" do
   @activity = payload["activity"]
 
   url_sites     = "http://localhost:4567/v2/sites"
-  response_sites = RestClient.get(url)
+  response_sites = RestClient.get(url_sites)
   payload_sites  = JSON.parse(response_sites.body)
 
-  @site = payload_sites["site"]
+  @sites = payload_sites["sites"]
 
-  url_favorites     = "http://localhost:4567/v2/favorites"
-  response_favorites = RestClient.get(url)
-  payload_favorites  = JSON.parse(response_favorites.body)
+  # url_favorites     = "http://localhost:4567/v2/favorites"
+  # response_favorites = RestClient.get(url_favorites)
+  # payload_favorites  = JSON.parse(response_favorites.body)
 
-  @favorite = payload_favorites["favorite"]
+  # @favorites = payload_favorites["favorites"]
 
   erb :show
 end

@@ -64,7 +64,7 @@
             </li>
           <% else %>
             <li class="choice">
-              <form action="/activities/5/wishlist/<%= team["id"] %>" method="post">
+              <form action="/activities/<%= @activity["id"]%>/wishlist/<%= team["id"] %>" method="post">
 
 
                 <button class="btn btn-default btn-outline">

@@ -204,22 +204,20 @@ namespace "/v2" do
     activity_id = team_favorite_activity["activity_id"]
     team_id = team_favorite_activity["team_id"]
 
-    #if params["activity_id"] && !params["activity_id"].empty? && params["team_id"] && !params["team_id"].empty?
     query = "INSERT INTO team_favorite_activities (activity_id, team_id) VALUES (#{activity_id}, #{team_id})"
-    p query
+
     DB.execute(query)
 
     status 204
   end
 
   delete "/team_favorite_activities" do
-    p params
+
     team_favorite_activities = params["team_favorite_activities"]
     team_favorite_activity = team_favorite_activities.first
     activity_id = team_favorite_activity["activity_id"]
     team_id = team_favorite_activity["team_id"]
 
-    #if params["activity_id"] && !params["activity_id"].empty? && params["team_id"] && !params["team_id"].empty?
     query = "DELETE FROM team_favorite_activities WHERE activity_id = #{activity_id} AND team_id = #{team_id}"
 
     DB.execute(query)

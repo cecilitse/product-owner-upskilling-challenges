@@ -54,6 +54,7 @@ end
 post "/favorites" do
   activity_id = params["activity_id"].to_i
   site_ids = params["site_ids"]
+  p params
 
   #GET
   url_activity_favorites      = "http://localhost:4567/v2/favorites"
@@ -67,13 +68,21 @@ post "/favorites" do
   end
 
   #POST
+  sites_to_be_added=[]
   site_ids.each do |site_id|
+    next if site_id.empty?
+
+    unless site_ids.include? @site_ids_post
+      sites_to_be_added << site_id
+    end
+  end
+  sites_to_be_added.each do |site_id_to_be_added|
     url_post_favorites     = "http://localhost:4567/v2/favorites"
     headers = { content_type: "json" }
 
     favorites_params = {
         "activity_id" => activity_id,
-        "site_id"  => site_id.to_i
+        "site_id"  => site_id_to_be_added.to_i
     }
 
     response_post_favorites = RestClient.post(url_post_favorites, favorites_params.to_json, headers)

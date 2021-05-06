@@ -32,7 +32,61 @@ get "/activities/:id" do
 
   @activity = payload["activity"]
 
+  url_teams = "http://localhost:4567/v2/teams"
+  response_teams = RestClient.get(url_teams)
+  payload_teams = JSON.parse(response_teams.body)
+
+  @teams = payload_teams["teams"]
+
+  url_wishlist = "http://localhost:4567/v2/team_favorite_activities?activity_id=#{id}"
+  response_wishlist = RestClient.get(url_wishlist)
+  payload_wishlist = JSON.parse(response_wishlist.body)
+
+  @wishlist = payload_wishlist["team_favorite_activities"]
+
   erb :show
+end
+
+post "/activities/:activity_id/wishlist/:team_id" do
+  activity_id   = params["activity_id"]
+  team_id       = params["team_id"]
+  url           = "http://localhost:4567/v2/team_favorite_activities"
+  headers = {content_type: "json"}
+
+  body          =
+  {
+    "team_favorite_activities":[
+      {
+        "team_id" => team_id,
+        "activity_id" => activity_id
+      }
+    ]
+  }
+
+  RestClient.post(url, body.to_json, headers)
+
+  redirect to("/activities/#{activity_id}")
+end
+
+delete "/activities/:activity_id/wishlist/:team_id" do
+  activity_id   = params["activity_id"]
+  team_id       = params["team_id"]
+  url           = "http://localhost:4567/v2/team_favorite_activities"
+  headers = {content_type: "json"}
+
+  body          =
+  {
+    "team_favorite_activities":[
+      {
+        "team_id" => team_id,
+        "activity_id" => activity_id
+      }
+    ]
+  }
+
+  RestClient.delete(url, body.to_json, headers)
+
+  redirect to("/activities/#{activity_id}")
 end
 
 get "/components" do

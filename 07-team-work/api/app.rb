@@ -184,6 +184,47 @@ namespace "/v2" do
 
     json "teams" => teams
   end
+
+  get "/favorites" do
+
+    activity_id         = params["activity_id"].to_i
+    favorites = DB.execute("SELECT * FROM site_favorite_activities WHERE activity_id = ?", activity_id)
+
+    json "favorites" => favorites
+  end
+
+  post "/favorites" do
+
+    activity_id         = params["activity_id"].to_i
+    site_id         = params["site_id"].to_i
+    DB.execute("INSERT INTO site_favorite_activities (activity_id, site_id) VALUES (#{activity_id}, #{site_id})")
+
+  end
+
+  delete "/favorites" do
+
+    id         = params["id"].to_i
+    DB.execute("DELETE FROM site_favorite_activities where id=?", id)
+
+  end
+
+  get "/reviews" do
+    activity_id         = params["activity_id"].to_i
+    reviews = DB.execute("SELECT * FROM reviews WHERE activity_id = ?", activity_id)
+    json "reviews" => reviews
+  end
+
+  post "/reviews" do
+    activity_id         = params["activity_id"].to_i
+    owner_name          = params["owner_name"]
+    comment             = params["comment"]
+    evaluation          = params["evaluation"].to_i
+    date                = params["date"]
+    p params
+    DB.execute("INSERT INTO reviews (activity_id, owner_name, comment, evaluation, date) VALUES (#{activity_id}, \"#{owner_name}\", \"#{comment}\", #{evaluation}, \"#{date}\")")
+    # DB.execute("INSERT INTO reviews (activity_id) VALUES (#{activity_id})")
+  end
+
 end
 
 namespace "/doc" do

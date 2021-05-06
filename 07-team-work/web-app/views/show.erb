@@ -4,20 +4,63 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Team Building - Activity</title>
-    <%= stylesheet "/style.css" %>
+    <title>Team Building - Activities</title>
+    <%= stylesheet '/style.css' %>
     <script type="text/javascript" src="/script.js"></script>
   </head>
+
   <body>
-    <h1>
-      <%= @activity["name"] %>
-      <small>[<%= @activity["category"].upcase %>]</small>
-    </h1>
-    <ul>
-      <li>Located in <%= @activity["city"] %></li>
-      <li>Duration of <%= @activity["duration"] %> minutes</li>
-      <li>For <%= @activity["participants_count"] %> participants</li>
-      <li>Charged <%= @activity["price"] %>€</li>
-    </ul>
-  </body>
-</html>
+    <div class="activity-page">
+      <div class="page-header">
+        <h1 title="/"><%= @activity["name"] %></h1>
+        <span class="label label-primary category"><%=@activity["category"].upcase %></span>
+       </div>
+      <div class="hero" style="background-image: url(<%=@activity["photo_url"]%>)">
+        <div class="activity-details">
+          <div class="sub-header">
+            <span class="city"><%= @activity["city"]%></span>
+            <span class="price"><%= @activity["price"]%> euros</span>
+          </div>
+          <div class="details">
+            <ul>
+              <li class="participants">
+                <span class="icon">👥</span> <%= @activity["participants_count"]%> participants
+              </li>
+              <li class="duration">
+                <span class="icon">⏱</span> <%= @activity["duration"]%>min
+              </li>
+            </ul>
+            <div class="cta">
+              <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
+            </div>
+            <div class="favorites">
+              <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🚀</span> Add to wishlist</a>
+
+              <div class="wishlist hidden" id="wishlist-unique-target-name">
+                <form action="/favorites" method="post">
+                  <input type="hidden" name="activity_id" value="<%=@activity["id"]%>">
+                  <h2>Choose your site</h2>
+                    <ul class="choices">
+                      <input type="hidden" name="site_ids[]">
+                      <% @sites.each do |site| %>
+                      <li class="choice">
+                        <% if @site_ids_test.include? site["id"] %>
+                          <input type="checkbox" id="choice_<%= site["id"]%>" name="site_ids[]" value="<%= site["id"]%>" checked>
+                        <% else %>
+                          <input type="checkbox" id="choice_<%= site["id"]%>" name="site_ids[]" value="<%= site["id"]%>">
+                        <% end %>
+                        <label for="choice_<%= site["id"]%>"> <%= site["name"]%> </label><br>
+                      </li>
+                      <% end %>
+                    </ul>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+</body>

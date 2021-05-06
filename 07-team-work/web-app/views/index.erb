@@ -5,24 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Team Building - Activities</title>
-    <%= stylesheet "/style.css" %>
+    <%= stylesheet '/style.css' %>
   </head>
   <body>
-    <h1>Activities</h1>
-    <a href="/?location=Nantes">Nantes</a>
-    <a href="/?location=Paris">Paris</a>
+   <div class="hero">
+      <h1>
+        Team Building Activities
+        <small>Discover our activities</small>
+      </h1>
+    </div>
+    <div class="page-header">
+      <h1>
+        Activities
+      </h1>
+    </div>
+    <div class=filters>
+          <a href="/" class="btn btn-primary btn-bold" class=filter>All cities</a>
+          <a href="/?location=Nantes" class="btn btn-primary btn-bold" class=filter>Nantes</a>
+          <a href="/?location=Paris" class="btn btn-primary btn-bold" class=filter>Paris</a>
+    </div>
+    <div class="activity-cards-container">
+      <% @activities.each do |activity| %>
+        <div class="activity-card">
+          <div class="header">
+            <h2 title="/"><%= activity["name"] %></h2>
+            <span class="label label-primary category"><%=activity["category"].upcase %></span>
+          </div>
+          <div class="picture" style="background-image: url(<%=activity["photo_url"]%>)"></div>
+          <div class="activity-details">
+            <div class="sub-header">
+              <span class="city"><%= activity["city"] %></span>
+              <span class="price"><%= activity["price"] %> euros</span>
+            </div>
+            <div class="details">
+              <ul>
+                <li class="participants">
+                  <span class="icon">👥</span> <%= activity["participants_count"] %> participants
+                </li>
+                <li class="duration">
+                  <span class="icon">⏱</span> <%= activity["duration"] %>min
+                </li>
+              </ul>
+              <div class="cta">
+                <a href="/activities/<%=activity["id"]%>" class="btn btn-bold btn-primary link">Discover</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
-    <% @activities.each do |activity| %>
-      <h2>
-        <a href="/activities/<%= activity["id"] %>"><%= activity["name"] %></a>
-        <small>[<%= activity["category"].upcase %>]</small>
-      </h2>
-      <ul>
-        <li>Located in <%= activity["city"] %></li>
-        <li>Duration of <%= activity["duration"] %> minutes</li>
-        <li>For <%= activity["participants_count"] %> participants</li>
-        <li>Charged <%= activity["price"] %>€</li>
-      </ul>
-    <% end %>
   </body>
 </html>

@@ -50,7 +50,7 @@ get "/activities/:id" do
     @wishlist << favorite["team_id"]
   end
 
-  #@wishlist = payload_wishlist["team_favorite_activities"]
+  @wishlist_count = @wishlist.size
 
   erb :show
 end

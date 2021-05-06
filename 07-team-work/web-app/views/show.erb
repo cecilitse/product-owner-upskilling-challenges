@@ -17,7 +17,6 @@
     <span class="label label-primary category"><%= @activity["category"].upcase %></span>
   </div>
 
-
   <div class="hero" style="background-image: url(<%=@activity["photo_url"]%>)">
 
 
@@ -44,8 +43,12 @@
         </div>
     </div>
 
+
+
     <div class ="wishlist-actions">
-      <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🖤</span> Add to wishlist</a>
+      <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🖤</span>Add to wishlist
+        <span class="label label-primary wishlist-count"><%=@wishlist_count%></span>
+      </a>
       <div class="wishlist hidden" id="wishlist-unique-target-name">
       <h2>Teams</h2>
       <ul class="choices">

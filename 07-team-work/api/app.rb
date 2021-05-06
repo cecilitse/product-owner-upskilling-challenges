@@ -204,9 +204,9 @@ namespace "/v2" do
     activity_id = team_favorite_activity["activity_id"]
     team_id = team_favorite_activity["team_id"]
 
-    query = "INSERT INTO team_favorite_activities (activity_id, team_id) VALUES (#{activity_id}, #{team_id})"
+    query = "INSERT INTO team_favorite_activities (activity_id, team_id) VALUES (?, ?) "
 
-    DB.execute(query)
+    DB.execute(query, activity_id, team_id)
 
     status 204
   end

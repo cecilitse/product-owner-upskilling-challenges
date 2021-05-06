@@ -42,10 +42,17 @@
                   <h2>Choose your site</h2>
                     <ul class="choices">
                       <% @sites.each do |site| %>
+                        <% if @site_ids_test.include? site["id"] %>
+                        <li class="choice">
+                          <input type="checkbox" id="choice_<%= site["id"]%>" name="site_ids[]" value="<%= site["id"]%>" checked>
+                          <label for="choice_<%= site["id"]%>"> <%= site["name"]%> </label><br>
+                        </li>
+                        <% else %>
                         <li class="choice">
                           <input type="checkbox" id="choice_<%= site["id"]%>" name="site_ids[]" value="<%= site["id"]%>">
                           <label for="choice_<%= site["id"]%>"> <%= site["name"]%> </label><br>
                         </li>
+                        <% end %>
                       <% end %>
                     </ul>
                     <input type="submit" value="Submit" class="btn btn-primary">

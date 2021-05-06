@@ -39,10 +39,14 @@ get "/activities/:id" do
   @sites = payload_sites["sites"]
 
   url_favorites     = "http://localhost:4567/v2/favorites"
-  response_favorites = RestClient.get(url_favorites)
+  response_favorites = RestClient.get(url_favorites, params: {"activity_id" => @activity["id"]})
   payload_favorites  = JSON.parse(response_favorites.body)
 
   @favorites = payload_favorites["favorites"]
+  @site_ids_test=[]
+  @favorites.each do |favorite|
+    @site_ids_test << favorite["site_id"]
+  end
 
   erb :show
 end
@@ -56,10 +60,10 @@ post "/favorites" do
   response_activity_favorites = RestClient.get(url_activity_favorites, params: {"activity_id" => activity_id})
   payload_activity_favorites  = JSON.parse(response_activity_favorites.body)
 
-  @activity_favorites = payload_activity_favorites["favorites"]
-  site_ids_test=[]
-  @activity_favorites.each do |favorite|
-    site_ids_test << favorite["site_id"]
+  activity_favorites = payload_activity_favorites["favorites"]
+  @site_ids_post=[]
+  activity_favorites.each do |favorite|
+    @site_ids_post << favorite["site_id"]
   end
 
   #POST
@@ -74,6 +78,33 @@ post "/favorites" do
 
     response_post_favorites = RestClient.post(url_post_favorites, favorites_params.to_json, headers)
   end
+
+  #DELETE
+  sites_to_be_deleted=[]
+  favorites_id_to_be_deleted=[]
+  @site_ids_post.each do |site_id|
+    if site_ids.include? site_id
+    else sites_to_be_deleted << site_id
+    end
+  end
+  activity_favorites.each do |favorite|
+    if sites_to_be_deleted.include? favorite["site_id"]
+      favorites_id_to_be_deleted << favorite["id"]
+    else
+    end
+  end
+
+  favorites_id_to_be_deleted.each do |favorite_id_to_be_deleted|
+    url_delete_favorites     = "http://localhost:4567/v2/favorites"
+    headers = { content_type: "json" }
+
+    favorites_params_delete = {
+        "id" => favorite_id_to_be_deleted
+            }
+
+    response_delete_favorites = RestClient.delete(url_delete_favorites, params: favorites_params_delete)
+  end
+
   redirect to("/activities/#{activity_id}")
 end
 

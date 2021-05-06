@@ -42,7 +42,15 @@ get "/activities/:id" do
   response_wishlist = RestClient.get(url_wishlist)
   payload_wishlist = JSON.parse(response_wishlist.body)
 
-  @wishlist = payload_wishlist["team_favorite_activities"]
+  team_favorite = payload_wishlist["team_favorite_activities"]
+
+  @wishlist = []
+
+  team_favorite.each do |favorite|
+    @wishlist << favorite["team_id"]
+  end
+
+  #@wishlist = payload_wishlist["team_favorite_activities"]
 
   erb :show
 end
@@ -72,7 +80,6 @@ delete "/activities/:activity_id/wishlist/:team_id" do
   activity_id   = params["activity_id"]
   team_id       = params["team_id"]
   url           = "http://localhost:4567/v2/team_favorite_activities"
-  headers = {content_type: "json"}
 
   body          =
   {
@@ -84,7 +91,7 @@ delete "/activities/:activity_id/wishlist/:team_id" do
     ]
   }
 
-  RestClient.delete(url, body.to_json, headers)
+  RestClient.delete(url, params: body)
 
   redirect to("/activities/#{activity_id}")
 end

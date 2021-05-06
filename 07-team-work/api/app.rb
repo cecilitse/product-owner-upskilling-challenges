@@ -213,6 +213,7 @@ namespace "/v2" do
   end
 
   delete "/team_favorite_activities" do
+    p params
     team_favorite_activities = params["team_favorite_activities"]
     team_favorite_activity = team_favorite_activities.first
     activity_id = team_favorite_activity["activity_id"]

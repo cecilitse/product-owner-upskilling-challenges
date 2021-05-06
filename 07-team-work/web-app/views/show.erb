@@ -19,7 +19,39 @@
       <li>For <%= @activity["participants_count"] %> participants</li>
       <li>Charged <%= @activity["price"] %>€</li>
       <li>My teams are <%= @teams%> </li>
-      <li>Wishlist <%= @wishlist%> </li>
+
     </ul>
+
+<ul>
+  <% @teams.each do |team| %>
+    <% if @wishlist.include?team["id"] %>
+    <li>
+        <form action="/activities/<%= @activity["id"]%>/wishlist/<%= team["id"] %>" method="post">
+        <input name="_method" value="DELETE" type="hidden">
+
+          <button>
+            <%= team["id"]%>
+          </button>
+
+        </form>
+      </li>
+    <% else %>
+      <li>
+        <form action="/activities/5/wishlist/<%= team["id"] %>" method="post">
+
+
+          <button>
+            <%= team["name"] %>
+          </button>
+
+        </form>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%=@team_favorite%>
+<%=@wishlist%>
+
   </body>
 </html>

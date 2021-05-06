@@ -388,3 +388,9 @@ a, a:hover, a:visited {
 .wishlist h2 {
   margin-top: 0;
 }
+
+/* -----------CUSTOMED--------- */
+.wishlist-count {
+  padding: 0.3em 0.8em;
+  border-radius: 50%;
+}

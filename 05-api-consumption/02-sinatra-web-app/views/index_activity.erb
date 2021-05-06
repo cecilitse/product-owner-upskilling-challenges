@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Building - Activities</title>
+    <%= stylesheet '/style.css' %>
+  </head>
+  <body>
+    <div class="activity-details" style="width: 400px">
+      <div class="sub-header">
+        <span class="city"><%= @activity["city"]%></span>
+        <span class="price"><%= @activity["price"]%></span>
+      </div>
+      <div class="details">
+        <ul>
+          <li class="participants">
+            <span class="icon">👥</span> <%= @activity["participants_count"] %> participants
+          </li>
+          <li class="duration">
+            <span class="icon">⏱</span> <%= @activity["duration"] %> min
+          </li>
+        </ul>
+        <div class="cta">
+          <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

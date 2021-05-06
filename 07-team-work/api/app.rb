@@ -184,6 +184,48 @@ namespace "/v2" do
 
     json "teams" => teams
   end
+
+  get "/team_favorite_activities" do
+
+    if params["activity_id"] && !params["activity_id"].empty?
+      query = "SELECT * FROM team_favorite_activities WHERE activity_id = #{params["activity_id"]}"
+    else
+      query = "SELECT * FROM team_favorite_activities"
+    end
+
+    team_favorite_activities = DB.execute(query)
+
+    json "team_favorite_activities" => team_favorite_activities
+  end
+
+  post "/team_favorite_activities" do
+    team_favorite_activities = params["team_favorite_activities"]
+    team_favorite_activity = team_favorite_activities.first
+    activity_id = team_favorite_activity["activity_id"]
+    team_id = team_favorite_activity["team_id"]
+
+    query = "INSERT INTO team_favorite_activities (activity_id, team_id) VALUES (?, ?) "
+
+    DB.execute(query, activity_id, team_id)
+
+    status 204
+  end
+
+  delete "/team_favorite_activities" do
+
+    team_favorite_activities = params["team_favorite_activities"]
+    team_favorite_activity = team_favorite_activities.first
+    activity_id = team_favorite_activity["activity_id"]
+    team_id = team_favorite_activity["team_id"]
+
+    query = "DELETE FROM team_favorite_activities WHERE activity_id = #{activity_id} AND team_id = #{team_id}"
+
+    DB.execute(query)
+
+    status 204
+  end
+
+
 end
 
 namespace "/doc" do

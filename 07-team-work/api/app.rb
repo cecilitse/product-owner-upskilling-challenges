@@ -225,6 +225,34 @@ namespace "/v2" do
     status 204
   end
 
+  get "/reviews" do
+
+    if params["activity_id"] && !params["activity_id"].empty?
+      query = "SELECT * FROM reviews WHERE activity_id = #{params["activity_id"]} LIMIT 5"
+    else
+      query = "SELECT * FROM reviews"
+    end
+
+    reviews = DB.execute(query)
+
+    json "reviews" => reviews
+  end
+
+  post "/reviews" do
+    review = params["review"]
+
+    activity_id = review["activity_id"]
+    employee_id = review["employee_id"]
+    grade = review["grade"]
+    comment = review["comment"]
+    date = review["date"]
+
+    query = "INSERT INTO reviews (activity_id, employee_id, date, grade, comment) VALUES (?, ?, ?, ?, ?) "
+
+    DB.execute(query, activity_id, employee_id, date, grade, comment)
+
+    status 204
+  end
 
 end
 

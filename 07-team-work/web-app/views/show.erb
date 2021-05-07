@@ -8,7 +8,8 @@
     <%= stylesheet "/style.css" %>
     <script type="text/javascript" src="/script.js"></script>
   </head>
-  <body class="activity-page">
+  <body>
+  <div class="activity-page">
 
   <div class="page-header">
     <h1>
@@ -86,8 +87,23 @@
 
   <div>
 
-    <form action="/activities/<%= @activity["id"]%>/reviews" method="post">
-      <div>
+    <form action="/activities/<%= @activity["id"]%>/reviews" method="post" class="review-form">
+
+    <div style="margin-bottom: 20px">
+      <h2>Express yourself</h2>
+      <% 5.times do |count| %>
+
+          <input type="radio" id="grade_<%=count%>" name="grade" value="<%=count%>">
+          <label for="grade_<%=count%>">
+            <%=count+1%>
+          </label>
+        <% end %>
+    </div>
+    <div>
+      <textarea id="comment" name="comment" placeholder="Write your awesome comment here..." rows="5" cols="33"></textarea>
+    </div>
+
+     <div>
         <a href="#" data-wishlist-dialog="#review2-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">👥</span>show yourself</a>
         <div class="wishlist hidden" id="review2-unique-target-name">
         <h2>Who are you?</h2>
@@ -109,23 +125,42 @@
         </div>
     </div>
 
-    <div>
-      <h2>Express yourself</h2>
-      <% 5.times do |count| %>
+    <button class="btn btn-default btn-outline">Submit</button>
 
-          <input type="radio" id="grade_<%=count%>" name="grade" value="<%=count%>">
-          <label for="grade_<%=count%>">
-            <%=count+1%>
-          </label>
-        <% end %>
-    </div>
-    <div>
-      <input type= "text" id="comment" name="comment"><br><br>
-      <button class="btn btn-default btn-outline">Submit</button>
-    </div>
 
   </form>
   </div>
+  </div>
+
+  <div class="activity-cards-container">
+
+      <%@reviews.each do |review|%>
+      <div class="activity-card">
+      <%reviewer = @employees.find {|employee| employee["id"] == review["employee_id"]} %>
+      <span>
+          <img class="picture" src=<%=reviewer["picture_url"]%> alt="">
+      </span>
+      <div class="activity-details">
+      <div class="sub-header">
+        <div>
+            <% review["grade"].times do%>
+              ⭐
+            <%end%>
+        </div>
+        <div>
+            <%= Date.parse(review["date"]).strftime("%d/%m/%Y")%>
+        </div>
+
+      </div>
+      </div>
+        <div class="header">
+        <h2><%=review["comment"]%></h2>
+        <em><%= reviewer["first_name"]%></em>
+        </div>
+      </div>
+    <%end%>
+    </div>
+
 
 
   </body>

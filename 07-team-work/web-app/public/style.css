@@ -412,3 +412,14 @@ input:checked + label.btn-employee{
   height: 40px;
   margin-right: 6px;
 }
+
+.text_review {
+  font-style: italic;
+}
+
+.review-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

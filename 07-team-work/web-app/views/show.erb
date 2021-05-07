@@ -34,7 +34,7 @@
               <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
             </div>
             <div class="favorites">
-              <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🚀</span> Add to wishlist</a>
+              <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">❤️</span> Add to wishlist</a>
 
               <div class="wishlist hidden" id="wishlist-unique-target-name">
                 <form action="/favorites" method="post">
@@ -61,6 +61,103 @@
         </div>
         </div>
       </div>
-      </div>
+    </div>
+    <div>
+      <h2 class="page-header">Reviews
+        <span class="icon-padding">
+          <% @average.times do %>
+            <span class="icon">⭐</span>
+          <% end %>
+          <% @empty_stars.times do %>
+            <span class="stars-icon">⭐</span>
+          <% end %>
+
+        </span>
+      </h2>
+        <ul>
+          <div class="activity-cards-container">
+          <% @reviews.each do |review| %>
+            <li>
+              <div class="activity-review-card">
+                <h3> <%= review["comment"]%></h3>
+                <p>
+                  <% review["evaluation"].times do %>
+                    <span class="icon">⭐</span>
+                  <% end %>
+                  <% empty_stars_review = 5 - review["evaluation"] %>
+                  <% empty_stars_review.times do %>
+                    <span class="stars-icon">⭐</span>
+                  <% end %>
+                </p>
+                <div class="activity-review-details">
+                  <p><span class="icon">👥</span> <%= review["owner_name"]%></p>
+                  <p><span class="icon">⏱</span> <%= review["date"]%></p>
+                </div>
+              </div>
+            </li>
+           <% end %>
+          </div>
+        </ul>
+        <div>
+          <form class="form" action="/reviews" method="post">
+          <h2>Give your review</h2>
+            <input type="hidden" name="activity_id" value="<%=@activity["id"]%>">
+              <div>
+                <label for="owner_name">Name :</label>
+                <input type="text" id="owner_name" name="owner_name">
+              </div>
+             <div>
+
+                <div class="star-source">
+                  <svg>
+                        <linearGradient x1="50%" y1="5.41294643%" x2="87.5527344%" y2="65.4921875%" id="grad">
+                            <stop stop-color="#bf209f" offset="0%"></stop>
+                            <stop stop-color="#d62a9d" offset="60%"></stop>
+                            <stop stop-color="#ED009E" offset="100%"></stop>
+                        </linearGradient>
+                    <symbol id="star" viewBox="153 89 106 108">
+                      <polygon id="star-shape" stroke-width="5" fill="currentColor" points="206 162.5 176.610737 185.45085 189.356511 150.407797 158.447174 129.54915 195.713758 130.842203 206 95 216.286242 130.842203 253.552826 129.54915 222.643489 150.407797 235.389263 185.45085"></polygon>
+                    </symbol>
+                </svg>
+
+                </div>
+                <div class="star-container">
+                  <input type="radio" name="evaluation" id="five" value="5">
+                  <label for="five">
+                    <svg class="star">
+                      <use xlink:href="#star"/>
+                    </svg>
+                  </label>
+                  <input type="radio" name="evaluation" id="four" value="4">
+                  <label for="four">
+                    <svg class="star">
+                      <use xlink:href="#star"/>
+                    </svg>
+                  </label >
+                  <input type="radio" name="evaluation" id="three" value="3">
+                  <label for="three">
+                    <svg class="star">
+                      <use xlink:href="#star"/>
+                    </svg>
+                  </label>
+                  <input type="radio" name="evaluation" id="two" value="2">
+                  <label for="two">
+                    <svg class="star">
+                      <use xlink:href="#star" />
+                    </svg>
+                  </label>
+                  <input type="radio" name="evaluation" id="one" value="1">
+                  <label for="one">
+                  <svg class="star">
+                    <use xlink:href="#star" />
+                  </svg>
+                  </label>
+
+                </div>
+
+              <label for="comment"> Comment :</label>
+              <textarea id="comment" name="comment"> </textarea>
+              <button class="btn btn-large btn-bold btn-primary" type="submit">Submit</button>
+        </form>
     </div>
 </body>

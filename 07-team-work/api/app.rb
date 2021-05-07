@@ -5,6 +5,7 @@ require "sinatra/namespace"
 require "sinatra/reloader" if development?
 
 require "sqlite3"
+require "date"
 
 enable :static
 
@@ -187,8 +188,13 @@ namespace "/v2" do
 
   get "/favorites" do
 
+    if params["activity_id"].nil? || params["activity_id"].empty?
+    favorites = DB.execute("SELECT * FROM site_favorite_activities")
+
+    else
     activity_id         = params["activity_id"].to_i
     favorites = DB.execute("SELECT * FROM site_favorite_activities WHERE activity_id = ?", activity_id)
+    end
 
     json "favorites" => favorites
   end
@@ -219,7 +225,7 @@ namespace "/v2" do
     owner_name          = params["owner_name"]
     comment             = params["comment"]
     evaluation          = params["evaluation"].to_i
-    date                = params["date"]
+    date                = Date.today.strftime("%d/%m/%Y")
     DB.execute("INSERT INTO reviews (activity_id, owner_name, comment, evaluation, date) VALUES (#{activity_id}, \"#{owner_name}\", \"#{comment}\", #{evaluation}, \"#{date}\")")
   end
 

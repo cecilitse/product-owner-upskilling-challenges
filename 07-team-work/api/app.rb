@@ -220,9 +220,7 @@ namespace "/v2" do
     comment             = params["comment"]
     evaluation          = params["evaluation"].to_i
     date                = params["date"]
-    p params
     DB.execute("INSERT INTO reviews (activity_id, owner_name, comment, evaluation, date) VALUES (#{activity_id}, \"#{owner_name}\", \"#{comment}\", #{evaluation}, \"#{date}\")")
-    # DB.execute("INSERT INTO reviews (activity_id) VALUES (#{activity_id})")
   end
 
 end

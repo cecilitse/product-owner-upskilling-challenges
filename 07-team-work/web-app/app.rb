@@ -32,12 +32,14 @@ get "/activities/:id" do
 
   @activity = payload["activity"]
 
+  #get /sites
   url_sites     = "http://localhost:4567/v2/sites"
   response_sites = RestClient.get(url_sites)
   payload_sites  = JSON.parse(response_sites.body)
 
   @sites = payload_sites["sites"]
 
+  #get /favorites
   url_favorites     = "http://localhost:4567/v2/favorites"
   response_favorites = RestClient.get(url_favorites, params: {"activity_id" => @activity["id"]})
   payload_favorites  = JSON.parse(response_favorites.body)
@@ -48,13 +50,18 @@ get "/activities/:id" do
     @site_ids_test << favorite["site_id"]
   end
 
+  #get /reviews
+  url_reviews     = "http://localhost:4567/v2/reviews"
+  response_reviews = RestClient.get(url_reviews)
+  payload_reviews  = JSON.parse(response_reviews.body)
+
+  @reviews = payload_reviews["reviews"]
   erb :show
 end
 
 post "/favorites" do
   activity_id = params["activity_id"].to_i
   site_ids = params["site_ids"]
-  p params
 
   #GET
   url_activity_favorites      = "http://localhost:4567/v2/favorites"
@@ -116,6 +123,30 @@ post "/favorites" do
 
   redirect to("/activities/#{activity_id}")
 end
+
+
+post "/reviews" do
+  activity_id = params["activity_id"].to_i
+  owner_name  = params["owner_name"]
+  comment     = params["comment"]
+  evaluation  = params["evaluation"].to_i
+  date        = params["date"]
+
+  url_post_reviews     = "http://localhost:4567/v2/reviews"
+  headers = { content_type: "json" }
+
+  reviews_params = {
+      "activity_id" => activity_id,
+      "owner_name"  => owner_name,
+      "comment"     => comment,
+      "evaluation"  => evaluation,
+      "date"        => date
+  }
+
+  response_post_reviews = RestClient.post(url_post_reviews, reviews_params.to_json, headers)
+  redirect to("/activities/#{activity_id}")
+end
+
 
 get "/components" do
   erb :components

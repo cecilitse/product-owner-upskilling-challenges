@@ -106,6 +106,18 @@ a, a:hover, a:visited {
   text-shadow: 0 0 0 white;
 }
 
+.btn-employee {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+
+}
+
+input:checked + label.btn-employee{
+  background-color: #333;
+  color: white;
+}
+
 /* ---------- LABELS ---------- */
 
 .label {
@@ -393,4 +405,10 @@ a, a:hover, a:visited {
 .wishlist-count {
   padding: 0.3em 0.8em;
   border-radius: 50%;
+}
+
+.user_picture {
+  border-radius: 50%;
+  height: 40px;
+  margin-right: 6px;
 }

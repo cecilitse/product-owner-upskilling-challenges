@@ -81,6 +81,52 @@
       </ul>
       </div>
     </div>
+
   </div>
+
+  <div>
+
+    <form action="/activities/<%= @activity["id"]%>/reviews" method="post">
+      <div>
+        <a href="#" data-wishlist-dialog="#review2-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">👥</span>show yourself</a>
+        <div class="wishlist hidden" id="review2-unique-target-name">
+        <h2>Who are you?</h2>
+        <ul class="choices">
+
+        <% @employees.each do |employee| %>
+
+          <input type="radio" id="employee_<%=employee["id"]%>" name="employee_id" value="<%=employee["id"]%>" class="hidden">
+          <label for="employee_<%=employee["id"]%>" class="btn btn-default btn-outline btn-employee">
+            <span>
+              <img class="user_picture" src=<%=employee["picture_url"]%> alt="">
+            </span>
+            <%= employee["first_name"]%>
+            <%= employee["last_name"]%>
+          </label>
+        <% end %>
+
+        </ul>
+        </div>
+    </div>
+
+    <div>
+      <h2>Express yourself</h2>
+      <% 5.times do |count| %>
+
+          <input type="radio" id="grade_<%=count%>" name="grade" value="<%=count%>">
+          <label for="grade_<%=count%>">
+            <%=count+1%>
+          </label>
+        <% end %>
+    </div>
+    <div>
+      <input type= "text" id="comment" name="comment"><br><br>
+      <button class="btn btn-default btn-outline">Submit</button>
+    </div>
+
+  </form>
+  </div>
+
+
   </body>
 </html>

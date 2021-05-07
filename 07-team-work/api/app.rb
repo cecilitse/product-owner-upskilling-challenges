@@ -5,6 +5,7 @@ require "sinatra/namespace"
 require "sinatra/reloader" if development?
 
 require "sqlite3"
+require "date"
 
 enable :static
 
@@ -245,7 +246,7 @@ namespace "/v2" do
     employee_id = review["employee_id"]
     grade = review["grade"]
     comment = review["comment"]
-    date = review["date"]
+    date = Date.today.strftime("%Y-%m-%d")
 
     query = "INSERT INTO reviews (activity_id, employee_id, date, grade, comment) VALUES (?, ?, ?, ?, ?) "
 

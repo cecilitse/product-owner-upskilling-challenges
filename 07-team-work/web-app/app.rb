@@ -38,6 +38,12 @@ get "/activities/:id" do
 
   @teams = payload_teams["teams"]
 
+  url_employees = "http://localhost:4567/v2/employees"
+  response_employees = RestClient.get(url_employees)
+  payload_employees = JSON.parse(response_employees.body)
+
+  @employees = payload_employees["employees"]
+
   url_wishlist = "http://localhost:4567/v2/team_favorite_activities?activity_id=#{id}"
   response_wishlist = RestClient.get(url_wishlist)
   payload_wishlist = JSON.parse(response_wishlist.body)
@@ -51,6 +57,13 @@ get "/activities/:id" do
   end
 
   @wishlist_count = @wishlist.size
+
+  url_reviews = "http://localhost:4567/v2/reviews?activity_id=#{id}"
+  response_reviews = RestClient.get(url_reviews)
+  payload_reviews = JSON.parse(response_reviews.body)
+
+  @reviews = payload_reviews["reviews"]
+
 
   erb :show
 end
@@ -92,6 +105,31 @@ delete "/activities/:activity_id/wishlist/:team_id" do
   }
 
   RestClient.delete(url, params: body)
+
+  redirect to("/activities/#{activity_id}")
+end
+
+post "/activities/:activity_id/reviews" do
+  activity_id   = params["activity_id"]
+  employee_id   = params["employee_id"]
+  grade         = params["grade"]
+  comment       = params["comment"]
+
+  url           = "http://localhost:4567/v2/reviews"
+  headers = {content_type: "json"}
+
+  body          =
+  {
+    "review":
+      {
+        "employee_id" => employee_id,
+        "activity_id" => activity_id,
+        "grade" => grade,
+        "comment" => comment
+      }
+  }
+
+  RestClient.post(url, body.to_json, headers)
 
   redirect to("/activities/#{activity_id}")
 end

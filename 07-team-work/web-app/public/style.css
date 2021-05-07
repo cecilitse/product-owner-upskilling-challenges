@@ -16,7 +16,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1,8em;
+  font-size: 1,3em;
 }
 
 
@@ -135,42 +135,10 @@ a, a:hover, a:visited {
   margin-top: 3em;
 }
 
-.activity-cards-container li{
-  list-style: none;
-}
-
 .activity-card {
   border: 1px solid #E3E1E1;
   border-radius: 5px;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
-  width: 200;
-  height: 200;
-}
-
-.activity-review-card {
-  border: 1px solid #bfc3c4;
-  border-radius: 5px;
-  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
-  padding: 1.5em;
-  margin: 0;
-}
-
-.activity-review-card h3{
-  margin: 0;
-}
-
-.activity-review-details {
-  display: flex;
-  justify-content: space-between;
-}
-
-.icon-padding{
-  padding-left: 20px;
-}
-
-.stars-icon {
-  color: transparent;
-  text-shadow: 0 0 0 rgb(165, 161, 161);
 }
 
 .activity-card .category {
@@ -207,6 +175,36 @@ a, a:hover, a:visited {
 
 .activity-card .header h2 {
   margin: 0;
+}
+
+.activity-review-card {
+  border: 1px solid #bfc3c4;
+  border-radius: 5px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
+  padding: 1.5em;
+  margin: 0;
+}
+
+.activity-review-card h3{
+  margin: 0;
+}
+
+.activity-review-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-cards-container li{
+  list-style: none;
+}
+
+.icon-padding{
+  padding-left: 20px;
+}
+
+.stars-icon {
+  color: transparent;
+  text-shadow: 0 0 0 rgb(165, 161, 161);
 }
 
 /* ---------- ACTIVITY DETAILS ---------- */

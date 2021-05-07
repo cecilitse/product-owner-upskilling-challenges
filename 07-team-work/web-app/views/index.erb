@@ -24,6 +24,13 @@
           <a href="/?location=Nantes" class="btn btn-primary btn-bold" class=filter>Nantes</a>
           <a href="/?location=Paris" class="btn btn-primary btn-bold" class=filter>Paris</a>
     </div>
+    <div class=filters>
+      <h2>Whishlists</h2>
+      <div class=filters>
+      <% @sites.each do |site|%>
+          <a href="/?site_id=<%= site["id"]%>" class="btn btn-primary btn-bold" class=filter><%= site["name"] %></a>
+      <% end %>
+    </div>
     <div class="activity-cards-container">
       <% @activities.each do |activity| %>
         <div class="activity-card">
@@ -53,11 +60,6 @@
           </div>
         </div>
       <% end %>
-    </div>
-
-    <div class=filters>
-      <h2>Whishlists</h2>
-
     </div>
   </body>
 </html>

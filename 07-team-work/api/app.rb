@@ -51,6 +51,8 @@ namespace "/v2" do
     conditions = []
     filters    = {}
 
+    query = "SELECT * FROM activities"
+
     if params["search"] && !params["search"].empty?
       conditions << "lower(name) LIKE :search"
       filters["search"] = "%#{params["search"]}%".downcase
@@ -66,10 +68,16 @@ namespace "/v2" do
       filters["city"] = params["city"]
     end
 
+    if params["site_id"] && !params["site_id"].empty?
+      conditions << "site_id = :site_id"
+      filters["site_id"] = params["site_id"]
+      query += " JOIN site_favorite_activities ON site_favorite_activities.activity_id = activities.id"
+    end
+
     if filters.empty?
-      query = "SELECT * FROM activities ORDER BY name"
+      query += " ORDER BY name"
     else
-      query = "SELECT * FROM activities WHERE #{conditions.join(" AND ")} ORDER BY name"
+      query += " WHERE #{conditions.join(" AND ")} ORDER BY name"
     end
 
     activities = DB.execute(query, filters)
@@ -186,14 +194,27 @@ namespace "/v2" do
     json "teams" => teams
   end
 
+
   get "/favorites" do
 
-    if params["activity_id"].nil? || params["activity_id"].empty?
-    favorites = DB.execute("SELECT * FROM site_favorite_activities")
+    activity=params["activity_id"]
+    site=params["site_id"]
+    query = []
 
+    if activity != nil && activity != ""
+      query << "activity_id=\"#{activity}\""
+    end
+
+    if site != nil && site != ""
+      query << "site_id=\"#{site}\""
+    end
+
+    query_total= query.join('AND ')
+
+    if query_total.empty? == false
+    favorites = DB.execute("SELECT * FROM site_favorite_activities WHERE #{query_total}")
     else
-    activity_id         = params["activity_id"].to_i
-    favorites = DB.execute("SELECT * FROM site_favorite_activities WHERE activity_id = ?", activity_id)
+    favorites = DB.execute("SELECT * FROM site_favorite_activities")
     end
 
     json "favorites" => favorites
@@ -215,6 +236,7 @@ namespace "/v2" do
   end
 
   get "/reviews" do
+
     activity_id         = params["activity_id"].to_i
     reviews = DB.execute("SELECT * FROM reviews WHERE activity_id = ?", activity_id)
     json "reviews" => reviews

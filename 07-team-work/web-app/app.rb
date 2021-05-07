@@ -16,10 +16,28 @@ get "/" do
     api_params["city"] = params["location"]
   end
 
+  if params["site_id"] && !params["site_id"].empty?
+    api_params["site_id"] = params["site_id"]
+  end
+
   response   = RestClient.get(url, params: api_params)
   payload    = JSON.parse(response.body)
 
   @activities = payload["activities"]
+
+  # GET sites
+  url_sites     = "http://localhost:4567/v2/sites"
+  response_sites = RestClient.get(url_sites)
+  payload_sites  = JSON.parse(response_sites.body)
+
+  @sites = payload_sites["sites"]
+
+  # GET favorites
+  url_favorites     = "http://localhost:4567/v2/favorites"
+  response_favorites = RestClient.get(url_favorites)
+  payload_favorites  = JSON.parse(response_favorites.body)
+
+  @favorites = payload_favorites["favorites"]
 
   erb :index
 end
@@ -57,21 +75,16 @@ get "/activities/:id" do
 
   @reviews = payload_reviews["reviews"]
 
-
   evaluations=[]
   @reviews.each do |review|
       evaluations<<review["evaluation"]
   end
-
   sum=0
   nb_evaluation=0
-
   evaluations.each do |evaluation|
     sum= sum+evaluation
     nb_evaluation= nb_evaluation+1
-
   end
-
   if nb_evaluation != 0
     @average = sum/nb_evaluation
   else
@@ -86,10 +99,10 @@ get "/activities/:id" do
   erb :show
 end
 
+
 post "/favorites" do
   activity_id = params["activity_id"].to_i
   site_ids = params["site_ids"]
-  p params
 
   #GET
   url_activity_favorites      = "http://localhost:4567/v2/favorites"
@@ -154,22 +167,18 @@ post "/favorites" do
 end
 
 post "/reviews" do
-  p params
   activity_id = params["activity_id"].to_i
   owner_name  = params["owner_name"]
   comment     = params["comment"]
   evaluation  = params["evaluation"].to_i
-
   url_post_reviews     = "http://localhost:4567/v2/reviews"
   headers = { content_type: "json" }
-
   reviews_params = {
       "activity_id" => activity_id,
       "owner_name"  => owner_name,
       "comment"     => comment,
       "evaluation"  => evaluation,
   }
-
   response_post_reviews = RestClient.post(url_post_reviews, reviews_params.to_json, headers)
   redirect to("/activities/#{activity_id}")
 end

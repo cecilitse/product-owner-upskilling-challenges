@@ -63,7 +63,8 @@
       </div>
     </div>
     <div>
-      <h2 class="page-header">Reviews
+      <h2 class="page-header">
+        Reviews
         <span class="icon-padding">
           <% @average.times do %>
             <span class="icon">⭐</span>
@@ -71,7 +72,6 @@
           <% @empty_stars.times do %>
             <span class="stars-icon">⭐</span>
           <% end %>
-
         </span>
       </h2>
         <ul>
@@ -98,12 +98,12 @@
            <% end %>
           </div>
         </ul>
-        <div>
+        <div class="form-test">
           <form class="form" action="/reviews" method="post">
-          <h2>Give your review</h2>
+          <h2>Add a review</h2>
             <input type="hidden" name="activity_id" value="<%=@activity["id"]%>">
               <div>
-                <label for="owner_name">Name :</label>
+                <label for="owner_name">Your name :</label>
                 <input type="text" id="owner_name" name="owner_name">
               </div>
              <div>
